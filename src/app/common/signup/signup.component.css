@@ -1,5 +1,12 @@
 /* Google Font Link */
-
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  padding: 30px;
+}
 .container{
   position: relative;
   max-width: 850px;
