@@ -27,8 +27,12 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--accent);
 }
 .mainBody{
     display: flex;
     flex-grow: 1;
+}
+.footerText{
+    color: #fff;
 }
