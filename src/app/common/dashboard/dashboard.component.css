@@ -12,6 +12,11 @@ header{
 }
 header h1{
     font-size: 24px;
+    margin-bottom: 0;
+}
+.siteLogo{
+    max-width: 3%;
+    margin-right: 5px;
 }
 main{
     flex-grow: 1;
