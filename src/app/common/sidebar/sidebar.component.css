@@ -1,0 +1,6 @@
+section, aside{
+    display: flex;
+}
+aside{
+    width: 100%;
+}
