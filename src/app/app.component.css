@@ -24,6 +24,7 @@ main{
 }
 section, aside{
     display: flex;
+    padding-block: 10px;
 }
 footer{
     bottom: 0;
