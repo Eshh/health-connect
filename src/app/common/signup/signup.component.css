@@ -254,7 +254,10 @@ input[type="date"]:focus {
 
 input[type="date"]:hover::-webkit-calendar-picker-indicator { opacity:0.05; }
 input[type="date"]:hover::-webkit-calendar-picker-indicator:hover { opacity:0.15; } */
-
+.fas::before{
+  inset: -8px 4px;
+  position: absolute;
+}
 @media (max-width: 730px) {
   .container .cover{
     display: none;

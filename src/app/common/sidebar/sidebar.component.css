@@ -23,8 +23,12 @@ ul li a{
     width: 100%;
 }
 .sidebar ul li.active{
-    background: var(--background);
+    background: var(--blue);
+    color: #fff;
     padding: 10px 0px;
-    border-radius: 0em;
+    border-radius: 0.2em;
     border-bottom: 2px solid var(--blue);
+}
+.sidebar ul li.active a{
+    color: white;
 }
