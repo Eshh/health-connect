@@ -13,15 +13,19 @@ const routes: Routes = [
   {
     path: 'sign-in',
     component: SigninComponent,
+    pathMatch: 'full',
   },
   {
     path: 'sign-up',
     component: SignupComponent,
+    pathMatch: 'full',
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
+    pathMatch: 'full',
   },
+  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({

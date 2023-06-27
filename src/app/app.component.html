@@ -23,10 +23,12 @@
 
 <body>
   <div class="containerMain">
-    <app-topbar></app-topbar>
+    <ng-container *ngIf="isLoggedIn">
+      <app-topbar></app-topbar>
+    </ng-container>
     <div class="mainBody w-100">
       <main class="w-100">
-        <div class="border-right col-2">
+        <div *ngIf="isLoggedIn" class="border-right col-2">
           <app-sidebar></app-sidebar>
         </div>
         <div class="col-10">
