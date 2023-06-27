@@ -13,6 +13,8 @@ import { BookConsultationComponent } from './user/book-consultation/book-consult
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { SlotChangeComponent } from './doctor/slot-change/slot-change.component';
 import { PrescriptionsComponent } from './doctor/prescriptions/prescriptions.component';
+import { SidebarComponent } from './common/sidebar/sidebar.component';
+import { TopbarComponent } from './common/topbar/topbar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { PrescriptionsComponent } from './doctor/prescriptions/prescriptions.com
     BookConsultationComponent,
     DashboardComponent,
     SlotChangeComponent,
-    PrescriptionsComponent
+    PrescriptionsComponent,
+    SidebarComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,

@@ -15,11 +15,6 @@
     /* --accent: #6bae76; */
     --accent: #9DC08B;
   }
-body{
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--background);
-  padding: 30px;
+a{
+  color: #2D6187;
 }

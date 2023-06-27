@@ -1,0 +1,44 @@
+.containerMain{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+header{
+    width: 100%;
+    height: 72px;
+    padding: 15px;
+    border-bottom: 1px solid var(--background);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+}
+header h1{
+    font-size: 24px;
+    margin-bottom: 0;
+}
+.siteLogo{
+    max-width: 3%;
+    margin-right: 5px;
+}
+main{
+    flex-grow: 1;
+    display: flex;
+}
+section, aside{
+    display: flex;
+    padding-block: 10px;
+}
+footer{
+    bottom: 0;
+    min-height: 100px;
+    border-top: 1px solid var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent);
+}
+.mainBody{
+    display: flex;
+    flex-grow: 1;
+}
+.footerText{
+    color: #fff;
+}
