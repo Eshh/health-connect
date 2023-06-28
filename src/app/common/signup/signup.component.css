@@ -7,6 +7,33 @@ body{
   background: var(--background);
   padding: 30px;
 }
+select{
+  appearance: none;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+    background-color: white;
+    color: var(--secondary);
+    font-weight: 500;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="17.362" height="9.85" viewBox="0 0 17.362 9.85"><path data-name="Form 1" d="m1585.593 93.838 6.564-6.517a1.247 1.247 0 0 1 1.754 0 1.225 1.225 0 0 1 0 1.741l-7.441 7.388a1.247 1.247 0 0 1-1.754 0l-7.441-7.388a1.225 1.225 0 0 1 0-1.741 1.247 1.247 0 0 1 1.754 0z" transform="translate(-1576.911 -86.961)" style="fill:%239DC08B"/></svg>');
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    /* background-size: 20px; */
+    padding-right: 25px;
+}
 .container{
   position: relative;
   max-width: 850px;
@@ -17,7 +44,7 @@ body{
   perspective: 2700px;
 }
 .container .cover{
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 50%;
   height: 100%;
@@ -32,14 +59,14 @@ body{
 }
  .container .cover .front,
  .container .cover .back{
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
 .cover .back{
-  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
   backface-visibility: hidden;
 }
 .container .cover::before,
@@ -48,7 +75,7 @@ body{
   position: absolute;
   height: 100%;
   width: 100%;
-  background: var(--accent);
+  /* background: var(--accent); */
   opacity: 0.5;
   z-index: 12;
 }
@@ -65,22 +92,27 @@ body{
   z-index: 10;
 }
 .container .cover .text{
-  position: absolute;
+  /* position: absolute; */
   z-index: 130;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   /* background-color: #2D6187; */
 }
 .cover .text .text-1,
 .cover .text .text-2{
   font-size: 26px;
   font-weight: 600;
-  color: #fff;
+  /* color: #fff; */
   text-align: center;
+  
+}
+.back .text-1{
+  margin-bottom: 37px;
+  margin-top: 3px;
 }
 .cover .text .text-2{
   font-size: 15px;
@@ -93,12 +125,13 @@ body{
 }
 .container .form-content{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 .form-content .login-form,
 .form-content .signup-form{
-  width: calc(100% / 2 - 25px);
+  /* width: calc(100% / 2 - 25px); */
+  width: 100%;
 }
 .forms .form-content .title{
   position: relative;
@@ -197,26 +230,24 @@ body{
   display: none;
 }
 
-/* input[type="date"] {
+input[type="date"] {
   display:block;
   position:relative;
   padding:1rem 3.5rem 1rem 0.75rem;
-  
   font-size:1rem;
   font-family:monospace;
-  
   border:1px solid #8292a2;
-  border-radius:0.25rem;
+  /* border-radius:0.25rem; */
   background:
     white
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Cg fill='none' fill-rule='evenodd' stroke='%23688EBB' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3E%3Crect width='18' height='18' y='2' rx='2'/%3E%3Cpath d='M13 0L13 4M5 0L5 4M0 8L18 8'/%3E%3C/g%3E%3C/svg%3E")
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Cg fill='none' fill-rule='evenodd' stroke='#9DC08B' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3E%3Crect width='18' height='18' y='2' rx='2'/%3E%3Cpath d='M13 0L13 4M5 0L5 4M0 8L18 8'/%3E%3C/g%3E%3C/svg%3E")
     right 1rem
     center
     no-repeat;
-  
+  appearance: none;
   cursor:pointer;
 }
-input[type="date"]:focus {
+/*input[type="date"]:focus {
   outline:none;
   border-color:#3acfff;
   box-shadow:0 0 0 0.25rem rgba(0, 120, 250, 0.1);
@@ -258,6 +289,62 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover { opacity:0.15
   inset: -8px 4px;
   position: absolute;
 }
+.signUpCols{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+
+.calendar-input {
+  appearance: none; /* Remove default styling */
+  padding: 5px;
+  border: 1px solid #ccc;
+  /* border-radius: 4px; */
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.calendar-input::-webkit-calendar-picker-indicator {
+  /* Customize the calendar icon */
+  /* background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="17.801" height="18.691" viewBox="0 0 17.801 18.691"><g data-name="Group 14522"><g data-name="Icon feather-calendar"><path data-name="Path 12904" d="M6.278 6h12.445A1.735 1.735 0 0 1 20.5 7.689v11.824a1.735 1.735 0 0 1-1.777 1.687H6.278A1.735 1.735 0 0 1 4.5 19.513V7.689A1.735 1.735 0 0 1 6.278 6z" transform="translate(-3.6 -3.411)" style="fill:none;stroke:var();stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/><path data-name="Path 12905" d="M24 3v3.378" transform="translate(-11.544 -2.1)" style="fill:none;stroke:%2352536d;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/><path data-name="Path 12906" d="M12 3v3.378" transform="translate(-6.655 -2.1)" style="fill:none;stroke:%2352536d;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/><path data-name="Path 12908" d="M12 3v1.138" transform="translate(-6.655 7.476)" style="fill:none;stroke:%2352536d;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/><path data-name="Path 12907" d="M4.5 15h16" transform="translate(-3.6 -7.344)" style="fill:none;stroke:%2352536d;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/></g></g></svg>'); */
+  background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="17.801" height="18.691" viewBox="0 0 17.801 18.691"><g data-name="Group 14522"><g data-name="Icon feather-calendar"><path data-name="Path 12904" d="M6.278 6h12.445A1.735 1.735 0 0 1 20.5 7.689v11.824a1.735 1.735 0 0 1-1.777 1.687H6.278A1.735 1.735 0 0 1 4.5 19.513V7.689A1.735 1.735 0 0 1 6.278 6z" transform="translate(-3.6 -3.411)" style="fill:none;stroke:%239DC08B;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/><path data-name="Path 12905" d="M24 3v3.378" transform="translate(-11.544 -2.1)" style="fill:none;stroke:%239DC08B;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/><path data-name="Path 12906" d="M12 3v3.378" transform="translate(-6.655 -2.1)" style="fill:none;stroke:%239DC08B;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/><path data-name="Path 12908" d="M12 3v1.138" transform="translate(-6.655 7.476)" style="fill:none;stroke:%239DC08B;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/><path data-name="Path 12907" d="M4.5 15h16" transform="translate(-3.6 -7.344)" style="fill:none;stroke:%239DC08B;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8px"/></g></g></svg>');
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.calendar-input::-webkit-inner-spin-button,
+.calendar-input::-webkit-outer-spin-button {
+  /* Hide the spin buttons */
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Optional styling for the calendar popup */
+.calendar-input::-webkit-calendar-picker-indicator {
+  color: #ccc;
+  opacity: 0.6;
+}
+
+.calendar-input::-webkit-datetime-edit {
+  padding: 5px;
+  color: #333;
+  background-color: #fff;
+  /* border-radius: 4px; */
+}
+
+.calendar-input::-webkit-datetime-edit-fields-wrapper {
+  /* display: flex; */
+}
+
+.calendar-input::-webkit-datetime-edit-month-field,
+.calendar-input::-webkit-datetime-edit-day-field,
+.calendar-input::-webkit-datetime-edit-year-field {
+  flex: 1;
+  margin: 0 2px;
+}
 @media (max-width: 730px) {
   .container .cover{
     display: none;
@@ -267,12 +354,21 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover { opacity:0.15
     width: 100%;
   }
   .form-content .signup-form{
-    display: none;
+    /* display: none; */
   }
   .container #flip:checked ~ .forms .signup-form{
     display: block;
   }
   .container #flip:checked ~ .forms .login-form{
     display: none;
+  }
+}
+@media(max-width:600px){
+  .container .form-content{
+    flex-direction: column;
+  }
+  .signUpCols{
+    
+    flex-direction: column;
   }
 }

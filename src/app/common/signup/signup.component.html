@@ -1,5 +1,5 @@
 <div class="container">
-  <input type="checkbox" id="flip">
+  <!-- <input type="checkbox" id="flip"> -->
   <div class="cover">
     <!-- <div class="front">
         <img src="../../../assets/images/signup.png" alt="">
@@ -8,13 +8,7 @@
           <span class="text-2">Let's get connected</span>
         </div>
       </div> -->
-    <div class="back">
-      <img class="backImg" src="../../../assets/images/signup.png" alt="">
-      <div class="text">
-        <span class="text-1">Complete miles of journey <br> with one step</span>
-        <span class="text-2">Let's get started</span>
-      </div>
-    </div>
+
   </div>
   <div class="forms">
     <div class="form-content">
@@ -74,45 +68,75 @@
       <div class="signup-form">
         <div class="title">Signup</div>
         <form action="#">
-          <div class="input-boxes">
-            <div class="input-box">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Enter your name" required>
-            </div>
-            <div class="input-box flex-column align-items-start">
-              <div>
-                What is your gender?
+          <div class="input-boxes signUpCols">
+            <div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter your name" required>
               </div>
-              <div class="d-flex text-secondary mt-1">
-                <input type="radio" name="gender" value="male" class="mr-1"> Male
-                <input type="radio" name="gender" value="female" class="mx-1"> Female
-                <input type="radio" name="gender" value="unknown" class="mx-1"> Unknown
+              <div class="input-box flex-column align-items-start">
+                <div>
+                  What is your gender?
+                </div>
+                <div class="d-flex text-secondary mt-1">
+                  <input type="radio" name="gender" value="male" class="mr-1"> Male
+                  <input type="radio" name="gender" value="female" class="mx-1"> Female
+                  <input type="radio" name="gender" value="unknown" class="mx-1"> Unknown
+                </div>
+              </div>
+              <div class="input-box">
+                <input type="date" value="2017-01-01" min="2005-01-01" max="2019-01-01" class="calendar-input">
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Enter your email" required>
+              </div>
+
+              <div class="input-box">
+                <i class="fas fa-mobile"></i>
+                <input type="tel" placeholder="Enter your Mobile Number" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-address-card" aria-hidden="true"></i>
+                <input type="tel" placeholder="Enter your Mobile Number" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-truck" aria-hidden="true"></i>
+                <input type="tel" placeholder="Enter your Postcode" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm password" required>
               </div>
             </div>
-            <div class="input-box">
-              <input type="date" value="2017-01-01" min="2005-01-01" max="2019-01-01">
-            </div>
-            <div class="input-box">
-              <i class="fas fa-envelope"></i>
-              <input type="text" placeholder="Enter your email" required>
+            <div class="back">
+              <!-- <img class="backImg" src="../../../assets/images/signup.png" alt=""> -->
+              <div class="text">
+                <h4 class="text-1">Are you a Doctor?</h4>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-hospital" style="z-index:1;"></i>
+                <select>
+                  <option value="">Select a hospital</option>
+                  <option>hospitalName</option>
+                </select>
+              </div>
+              <div class="input-box">
+                <i class="fa fa-history" aria-hidden="true"></i>
+                <input type="tel" placeholder="Enter your Experience" required="">
+              </div>
+              <div class="input-box">
+                <i class="fas fa-medkit"></i>
+                <input type="tel" placeholder="Specialization in" required="">
+              </div>
             </div>
 
-            <div class="input-box">
-              <i class="fas fa-mobile"></i>
-              <input type="tel" placeholder="Enter your Mobile Number" required>
-            </div>
-            <div class="input-box">
-              <i class="fas fa-address-card" aria-hidden="true"></i>
-              <input type="tel" placeholder="Enter your Mobile Number" required>
-            </div>
-            <div class="input-box">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Enter your password" required>
-            </div>
-            <div class="input-box">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Confirm password" required>
-            </div>
+          </div>
+          <div>
             <div class="button input-box">
               <input type="submit" value="Sumbit">
             </div>
@@ -122,6 +146,7 @@
           </div>
         </form>
       </div>
+
     </div>
   </div>
 </div>

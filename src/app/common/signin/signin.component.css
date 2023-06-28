@@ -204,6 +204,10 @@ body{
     .form-content .signup-form{
       width: 100%;
     }
+    .form-content .login-form svg{
+      width: 100%;
+      height: auto;
+    }
     .form-content .signup-form{
       display: none;
     }
