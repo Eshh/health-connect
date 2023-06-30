@@ -10,3 +10,48 @@ main{
 section{
     display: flex;
 }
+
+::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .Main_box {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .main_txt h4 {
+    color: #06152b;
+    font-size: 30px;
+    font-weight: bold;
+    /* font-family: "Montserrat-bold"; */
+    margin-bottom: 15px;
+  }
+  
+  .main_txt p {
+    color: #06152b;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    /* font-family: "Montserrat-medium"; */
+    max-width: 700px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.87;
+  }
+  
+  .main_txt h6 {
+    color: #828994;
+    font-size: 18px;
+    /* font-family: "Montserrat-semibold"; */
+    margin-bottom: 25px;
+  }
+  
+  .time_box div {
+    color: #06152b;
+    font-size: 18px;
+    /* font-family: "Montserrat-semibold"; */
+  }
+  
