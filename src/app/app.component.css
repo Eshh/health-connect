@@ -43,3 +43,9 @@ footer{
     color: #fff;
     padding: 1.3em;
 }
+@media(max-width:1440px){
+    footer {
+        bottom: 0;
+        min-height: 80px;   
+        }
+}
