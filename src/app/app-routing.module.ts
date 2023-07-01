@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { SigninComponent } from './common/signin/signin.component';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { SignupComponent } from './common/signup/signup.component';
+import { HospitalListComponent } from './user/hospital-list/hospital-list.component';
+import { ProfileComponent } from './common/profile/profile.component';
+import { EditProfileComponent } from './common/profile/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -23,6 +26,21 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'hospitals',
+    component: HospitalListComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent,
     pathMatch: 'full',
   },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
