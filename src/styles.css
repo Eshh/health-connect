@@ -14,6 +14,22 @@
     --secondary-button: #ffffff;
     /* --accent: #6bae76; */
     --accent: #9DC08B;
+    --blue: darkblue;
+  }
+
+  :root {
+    --color-black: #41423d;
+    --color-neutral-100: #f5f4f0;
+    --color-neutral: #dfddd0;
+    --color-primary-100: #f0f7f5;
+    --color-primary-200: #e0eeeb;
+    --color-primary-300: #cfe5e0;
+    --color-primary: #3f9783;
+    --color-primary-500: #327969;
+    --color-white: #fbfcfa;
+    --text-font-family: 'Inter', sans-serif;
+    --title-font-family: 'Lora', serif;
+    --title-font-weight: 500;
   }
 a{
   color: #2D6187;

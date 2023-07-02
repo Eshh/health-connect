@@ -196,6 +196,10 @@ body{
   .container #flip{
     display: none;
   }
+  .form-content .submitBtn input{
+    width: fit-content;
+    padding: 12px 120px !important;
+  }
   @media (max-width: 730px) {
     .container .cover{
       display: none;

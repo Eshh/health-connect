@@ -99,7 +99,7 @@ select{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   /* background-color: #2D6187; */
 }
 .cover .text .text-1,
@@ -153,6 +153,9 @@ select{
 }
 .forms .signup-form  .title:before{
   width: 20px;
+}
+.forms input::placeholder, select{
+  color: #000;
 }
 .forms .form-content .input-boxes{
   margin-top: 30px;
@@ -344,6 +347,10 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover { opacity:0.15
 .calendar-input::-webkit-datetime-edit-year-field {
   flex: 1;
   margin: 0 2px;
+}
+.form-content .submitBtn input{
+  width: fit-content;
+  padding: 12px 120px !important;
 }
 @media (max-width: 730px) {
   .container .cover{

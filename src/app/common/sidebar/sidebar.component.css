@@ -13,21 +13,35 @@ ul{
 ul li{
     list-style-type: none;
     margin-bottom: 10px;
-    padding: 10px 0px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 ul li a{
     text-decoration: none;
-    padding: 5px 10px;
+    /* padding: 5px 10px; */
 }
 .sidebar{
     width: 100%;
 }
+.sidebar ul li svg{
+    fill: var(--color-primary-500);
+    margin-right: 4px;
+}
+.sidebar ul li.active svg{
+    fill: white;
+    margin-right: 4px;
+}
 .sidebar ul li.active{
-    background: var(--blue);
+    background: var(--color-primary-500);
     color: #fff;
-    padding: 10px 0px;
+    padding: 10px 10px;
     border-radius: 0.2em;
-    border-bottom: 2px solid var(--blue);
+    border-bottom: 2px solid var(--color-primary-500);
+}
+.sidebar ul li a{
+    color: var(--color-primary-500);
 }
 .sidebar ul li.active a{
     color: white;
