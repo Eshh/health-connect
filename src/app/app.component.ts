@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Health-Connect';
 
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
 }

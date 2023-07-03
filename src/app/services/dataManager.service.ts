@@ -12,12 +12,7 @@ export class DataManager {
   APIGenericGetMethod(url: string) {
     return this.httpClient.get(url).pipe(
       map((response: any) => {
-        var data = response;
-        var obj: any = {};
-        obj.response = data.response;
-        obj.status = data.status;
-        obj.error = data.error;
-        return obj;
+        return response;
       })
     );
   }
@@ -25,12 +20,7 @@ export class DataManager {
   APIGenericPostMethod(url: string, entityObject: {}) {
     return this.httpClient.post(url, entityObject).pipe(
       map((response: any) => {
-        var data = response;
-        var obj: any = {};
-        obj.response = data.response;
-        obj.status = data.status;
-        obj.error = data.error;
-        return obj;
+        return response;
       })
     );
   }

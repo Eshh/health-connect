@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Custome imports
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,9 @@ import { SlotChangeComponent } from './doctor/slot-change/slot-change.component'
 import { PrescriptionsComponent } from './doctor/prescriptions/prescriptions.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { TopbarComponent } from './common/topbar/topbar.component';
+import { WindowRef } from './services/window.service';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,8 +38,22 @@ import { TopbarComponent } from './common/topbar/topbar.component';
     SidebarComponent,
     TopbarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      timeOut: 3000, // 15 seconds
+      progressBar: true,
+      preventDuplicates: true,
+      countDuplicates: false,
+    }),
+  ],
+  providers: [WindowRef],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
