@@ -9,8 +9,6 @@ export class LocalStorageService {
   constructor(private windowRef: WindowRef) {
     this.isBrowser = this.windowRef.isWindowAvailable();
   }
-  setIsLogin(state: boolean) {}
-
   public getItem(key: any): any {
     if (this.isBrowser) {
       try {
@@ -50,15 +48,7 @@ export class LocalStorageService {
       window.localStorage.removeItem(key);
     } catch (e) {}
   }
-  // set item in localstorage
-  public setItemToLocalStore(key: any, value: any) {
-    value = btoa(JSON.stringify(value));
-    if (this.isBrowser) {
-      try {
-        window.localStorage.setItem(key, value);
-      } catch (e) {}
-    }
-  }
+  // JSON data
   public setData(key: any, value: any) {
     value = JSON.stringify(value);
     if (this.isBrowser) {
