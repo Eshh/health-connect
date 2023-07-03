@@ -1,37 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 :root {
-    --text: #020302;
-    --background: #f2f8f3;
-    --primary-button: #7bb785;
-    --secondary-button: #ffffff;
-    /* --accent: #6bae76; */
-    --accent: #9DC08B;
-    --blue: darkblue;
-    --accent:#327969;
-  }
+  --text: #020302;
+  --background: #f2f8f3;
+  --primary-button: #7bb785;
+  --secondary-button: #ffffff;
+  /* --accent: #6bae76; */
+  --accent: #9dc08b;
+  --blue: darkblue;
+  --accent: #327969;
+}
 
-  :root {
-    --color-black: #41423d;
-    --color-neutral-100: #f5f4f0;
-    --color-neutral: #dfddd0;
-    --color-primary-100: #f0f7f5;
-    --color-primary-200: #e0eeeb;
-    --color-primary-300: #cfe5e0;
-    --color-primary: #3f9783;
-    --color-primary-500: #327969;
-    --color-white: #fbfcfa;
-    --text-font-family: 'Inter', sans-serif;
-    --title-font-family: 'Lora', serif;
-    --title-font-weight: 500;
-  }
-a{
-  color: #2D6187;
+:root {
+  --color-black: #41423d;
+  --color-neutral-100: #f5f4f0;
+  --color-neutral: #dfddd0;
+  --color-primary-100: #f0f7f5;
+  --color-primary-200: #e0eeeb;
+  --color-primary-300: #cfe5e0;
+  --color-primary: #3f9783;
+  --color-primary-500: #327969;
+  --color-white: #fbfcfa;
+  --text-font-family: "Inter", sans-serif;
+  --title-font-family: "Lora", serif;
+  --title-font-weight: 500;
+}
+a {
+  color: #2d6187;
+}
+
+.disable-button {
+  opacity: 0.5;
+  cursor: not-allowed !important;
 }

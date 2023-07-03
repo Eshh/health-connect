@@ -5,7 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppConfig } from 'src/app/app-config';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataManager } from 'src/app/services/dataManager.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { Toaster } from 'src/app/utils/toast-util';
@@ -22,10 +24,10 @@ export class SigninComponent implements OnInit {
     userType: new FormControl(),
   });
   constructor(
-    private dataManager: DataManager,
-    private locaStorage: LocalStorageService,
     private formBuilder: FormBuilder,
-    private toaster: Toaster
+    private auth: AuthService,
+    private toaster: Toaster,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -34,26 +36,16 @@ export class SigninComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(3)]],
       userType: ['', [Validators.required]],
     });
-    this.toaster.showToastMessage('Success', '', 'success');
   }
 
   signIn() {
     if (this.signInForm.valid) {
       let body = {
         Email: this.signInForm.controls.email.value,
-        Password: this.signInForm.controls.password.value,
+        Password: +this.signInForm.controls.password.value,
         Role: this.signInForm.controls.userType.value,
       };
-      this.dataManager
-        .APIGenericPostMethod(AppConfig.SIGN_IN_API, body)
-        .subscribe((data) => {
-          this.locaStorage.setData('user-data', data);
-          this.locaStorage.setItem('isLoggedIn', true);
-          console.log(
-            this.locaStorage.getData('user-data'),
-            this.locaStorage.getItem('isLoggedIn')
-          );
-        });
+      this.auth.signIn(body);
     }
   }
 }

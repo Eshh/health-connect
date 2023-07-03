@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalStorageService } from './services/localStorage.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Health-Connect';
 
-  isLoggedIn: boolean = false;
+  constructor(public locaStorage: LocalStorageService) {}
 }
