@@ -16,7 +16,7 @@ export class SigninComponent implements OnInit {
 
   signIn() {
     let body = {
-      Name: 'krishna',
+      Email: 'krishna@mail.com',
       Password: 123456,
       Role: 'user',
     };
