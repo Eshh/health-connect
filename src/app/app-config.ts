@@ -1,17 +1,20 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable()
-
-export class AppConfig{
-  public static TENANT_NAME = '';
-
+export class AppConfig {
+  // Environment Variable
   public static ENVIRONMENT = 'DEV';
-  public static BASE_API_URL = '';
+  // The prefix for all apis
+  public static BASE_API_URL = 'https://health-connect-nq54.onrender.com/';
 
-  constructor(){}
-  public static setConfiguration(){
-    console.log('Config set')
+  // APIs
+  public static SIGN_IN_API = '';
+  public static SIGN_UP_API = '';
+
+  constructor() {}
+  public static setConfiguration() {
+    AppConfig.SIGN_IN_API = AppConfig.BASE_API_URL + 'signin';
+    // AppConfig.SIGN_UP_API = AppConfig.BASE_API_URL + 'signup';
   }
-
 }
 AppConfig.setConfiguration();
