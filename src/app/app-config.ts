@@ -9,11 +9,14 @@ export class AppConfig {
 
   // APIs
   public static SIGN_IN_API = '';
-  public static SIGN_UP_API = '';
+  public static SIGN_UP_API_USER = '';
+  public static SIGN_UP_API_DOCTOR = '';
 
   constructor() {}
   public static setConfiguration() {
     AppConfig.SIGN_IN_API = AppConfig.BASE_API_URL + 'signin';
+    AppConfig.SIGN_IN_API = AppConfig.BASE_API_URL + 'add/role/doctor';
+    AppConfig.SIGN_IN_API = AppConfig.BASE_API_URL + 'add/role/user';
     // AppConfig.SIGN_UP_API = AppConfig.BASE_API_URL + 'signup';
   }
 }

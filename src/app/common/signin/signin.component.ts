@@ -44,7 +44,7 @@ export class SigninComponent implements OnInit {
     if (this.signInForm.valid) {
       let body = {
         Email: this.signInForm.controls.email.value,
-        Password: +this.signInForm.controls.password.value,
+        Password: this.signInForm.controls.password.value,
         Role: this.signInForm.controls.userType.value,
       };
       this.auth.signIn(body);

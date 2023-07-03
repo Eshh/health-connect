@@ -67,86 +67,100 @@
         </div> -->
       <div class="signup-form">
         <div class="title">Signup</div>
-        <form action="#">
+        <form [formGroup]="signupFormBasic">
           <div class="input-boxes signUpCols">
             <div>
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" required>
+                <input formControlName="name" type="text" placeholder="Enter your name">
               </div>
               <div class="input-box flex-column align-items-start">
                 <div>
                   What is your gender?
                 </div>
                 <div class="d-flex mt-1">
-                  <input type="radio" name="gender" value="male" class="mr-1"> Male
-                  <input type="radio" name="gender" value="female" class="mx-1"> Female
-                  <input type="radio" name="gender" value="unknown" class="mx-1"> Unknown
+                  <input formControlName="gender" type="radio" name="gender" value="male" class="mr-1"> Male
+                  <input formControlName="gender" type="radio" name="gender" value="female" class="mx-1"> Female
+                  <input formControlName="gender" type="radio" name="gender" value="other" class="mx-1"> Other
                 </div>
               </div>
               <div class="input-box">
-                <input type="date" value="2017-01-01" min="2005-01-01" max="2019-01-01" class="calendar-input">
+                <input formControlName="dob" type="date" value="2017-01-01" min="2005-01-01" max="2019-01-01"
+                  class="calendar-input">
               </div>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
+                <input formControlName="email" type="email" placeholder="Enter your email">
               </div>
 
               <div class="input-box">
                 <i class="fas fa-mobile"></i>
-                <input type="tel" placeholder="Enter your Mobile Number" required>
+                <input formControlName="phone" type="number" placeholder="Enter your Mobile Number">
               </div>
               <div class="input-box">
                 <i class="fas fa-address-card" aria-hidden="true"></i>
-                <input type="tel" placeholder="Enter your Mobile Number" required>
+                <input formControlName="address" type="text" placeholder="Enter your Address">
               </div>
               <div class="input-box">
                 <i class="fas fa-truck" aria-hidden="true"></i>
-                <input type="tel" placeholder="Enter your Postcode" required>
+                <input formControlName="postcode" type="text" placeholder="Enter your Postcode" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input formControlName="password" type="password" placeholder="Enter your password">
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Confirm password" required>
-              </div>
-            </div>
-            <div class="back">
-              <!-- <img class="backImg" src="../../../assets/images/signup.png" alt=""> -->
-              <div class="text">
-                <h4 class="text-1">Are you a Doctor?</h4>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-hospital" style="z-index:1;"></i>
-                <select>
-                  <option value="">Select a hospital</option>
-                  <option>hospitalName</option>
-                </select>
-              </div>
-              <div class="input-box">
-                <i class="fa fa-history" aria-hidden="true"></i>
-                <input type="tel" placeholder="Enter your Experience" required="">
-              </div>
-              <div class="input-box">
-                <i class="fas fa-medkit"></i>
-                <input type="tel" placeholder="Specialization in" required="">
+                <input formControlName="confirmPassword" type="text" placeholder="Confirm password">
               </div>
             </div>
 
+
           </div>
-          <div>
-            <div class="button input-box submitBtn d-flex justify-content-center">
-              <input type="submit" value="Sumbit">
-            </div>
-            <div class="text sign-up-text">Already have an account? <label for="flip"><a routerLink="/sign-in">Login
-                  now</a></label>
-            </div>
+
+        </form>
+
+
+      </div>
+      <!-- Doctor form -->
+      <div class="back">
+        <!-- <img class="backImg" src="../../../assets/images/signup.png" alt=""> -->
+        <div class="text">
+          <h4 class="text-1" (click)="buildDoctorForm()">Are you a Doctor?</h4>
+        </div>
+        <form *ngIf="isDoctor" [formGroup]=" signupFormDoctor">
+          <div class="input-box">
+            <i class="fa fa-history" aria-hidden="true"></i>
+            <input formControlName="qualification" type="text" placeholder="Enter your Qualification">
+          </div>
+          <div class="input-box">
+            <i class="fa fa-history" aria-hidden="true"></i>
+            <input formControlName="experience" type="text" placeholder="Enter your Experience">
+          </div>
+          <div class="input-box">
+            <i class="fas fa-medkit"></i>
+            <input formControlName="specialization" type="text" placeholder="Specialization">
+          </div>
+
+          <div class="input-box">
+            <i class="fas fa-hospital" style="z-index:1;"></i>
+            <select formControlName="hospital">
+              <option value="">Select a hospital</option>
+              <option>hospitalName</option>
+            </select>
           </div>
         </form>
       </div>
-
+    </div>
+    <!-- Buttons -->
+    <div>
+      <div class="button input-box submitBtn d-flex justify-content-center">
+        <button [ngClass]="resolveDisability()?'':'disable-button'" [disabled]="!resolveDisability()" type="submit"
+          (click)="signUp()">Submit</button>
+      </div>
+      <div class="text sign-up-text">Already have an account? <label for="flip"><a routerLink="/sign-in">Login
+            now</a></label>
+      </div>
     </div>
   </div>
 </div>
