@@ -23,6 +23,8 @@ export class SigninComponent implements OnInit {
     password: new FormControl(),
     userType: new FormControl(),
   });
+
+  passwordType: string = 'text';
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
@@ -34,7 +36,7 @@ export class SigninComponent implements OnInit {
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(3)]],
-      userType: ['', [Validators.required]],
+      userType: ['user', [Validators.required]],
     });
   }
 

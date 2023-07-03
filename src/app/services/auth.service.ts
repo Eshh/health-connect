@@ -21,7 +21,7 @@ export class AuthService {
       .APIGenericPostMethod(AppConfig.SIGN_IN_API, body)
       .subscribe((data) => {
         if (data.status) {
-          this.localStorage.setData('user-data', data);
+          this.localStorage.setData('user-data', data.response);
           this.localStorage.setItem('isLoggedIn', true);
           this.router.navigate(['/dashboard']);
         } else {

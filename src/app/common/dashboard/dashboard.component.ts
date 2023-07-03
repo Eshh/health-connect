@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  userData: any = {};
+  constructor(private localStorage: LocalStorageService) {
+    this.userData = this.localStorage.getData('user-data')[0];
   }
 
+  ngOnInit(): void {}
 }

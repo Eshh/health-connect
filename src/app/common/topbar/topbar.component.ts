@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 
 @Component({
   selector: 'app-topbar',
@@ -7,7 +8,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./topbar.component.css'],
 })
 export class TopbarComponent implements OnInit {
-  constructor(private auth: AuthService) {}
+  userData: any = {};
+  constructor(
+    private auth: AuthService,
+    private localStorage: LocalStorageService
+  ) {
+    this.userData = this.localStorage.getData('user-data')[0];
+  }
 
   ngOnInit(): void {}
 
