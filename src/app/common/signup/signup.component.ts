@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppConfig } from 'src/app/app-config';
 import { DataManager } from 'src/app/services/dataManager.service';
 import { Toaster } from 'src/app/utils/toast-util';
@@ -36,7 +37,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private toaster: Toaster,
-    private dataManager: DataManager
+    private dataManager: DataManager,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -90,37 +92,41 @@ export class SignupComponent implements OnInit {
       let body: any = {
         Name: fB.name.value,
         Gender: fB.gender.value,
-        Dob: fB.dob.value,
+        DOB: new Date(fB.dob.value).getTime(),
+        Age: 26,
         Email: fB.email.value,
-        Phone: fB.phone.value,
+        Mobile: fB.phone.value,
         Address: fB.address.value,
-        Postcode: fB.postcode.value,
+        Postcode: +fB.postcode.value,
         Password: fB.password.value,
+        Role: 'user',
       };
       if (this.isDoctor) {
-        body['qualification'] = fD.qualification.value;
-        body['experience'] = fD.experience.value;
-        body['specialization'] = fD.specialization.value;
-        body['hospital'] = fD.hospital.value;
+        body['Qualification'] = fD.qualification.value;
+        body['Experience'] = +fD.experience.value;
+        body['Specalization'] = fD.specialization.value;
+        body['HospitalId'] = 1;
+        body['HospitalName'] = 'GITAM';
+        body.Role = 'doctor';
       }
+      console.log(body);
       let url = this.isDoctor
         ? AppConfig.SIGN_UP_API_DOCTOR
         : AppConfig.SIGN_UP_API_USER;
-      this.dataManager.APIGenericPostMethod(url, body).subscribe(
-        (data) => {
-          if (data.status) {
-          } else {
-            this.toaster.showToastMessage(data.errorMessage, '', 'error');
-          }
-        },
-        (error) => {
+      this.dataManager.APIGenericPostMethod(url, body).subscribe((data) => {
+        if (data.status) {
           this.toaster.showToastMessage(
             'Successfully signed up',
             '',
             'success'
           );
+          setTimeout(() => {
+            this.router.navigate(['/sign-in']);
+          }, 2000);
+        } else {
+          this.toaster.showToastMessage(data.errorMessage, '', 'error');
         }
-      );
+      });
     }
   }
 }

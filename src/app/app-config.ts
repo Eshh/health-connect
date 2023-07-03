@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AppConfig {
   // Environment Variable
   public static ENVIRONMENT = 'DEV';
@@ -15,8 +17,8 @@ export class AppConfig {
   constructor() {}
   public static setConfiguration() {
     AppConfig.SIGN_IN_API = AppConfig.BASE_API_URL + 'signin';
-    AppConfig.SIGN_IN_API = AppConfig.BASE_API_URL + 'add/role/doctor';
-    AppConfig.SIGN_IN_API = AppConfig.BASE_API_URL + 'add/role/user';
+    AppConfig.SIGN_UP_API_DOCTOR = AppConfig.BASE_API_URL + 'add/role/doctor';
+    AppConfig.SIGN_UP_API_USER = AppConfig.BASE_API_URL + 'add/role/user';
     // AppConfig.SIGN_UP_API = AppConfig.BASE_API_URL + 'signup';
   }
 }
