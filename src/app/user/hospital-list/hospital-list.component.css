@@ -29,7 +29,7 @@ a:hover { color: var(--color-primary-500); }
 
 main {
   align-items: center;
-  display: grid;
+  /* display: grid; */
   min-height: 100vh;
   padding: 2.5rem;
   width: 100%;
@@ -103,6 +103,7 @@ main .content {
   overflow: auto;
   padding: 1.5rem 1.5rem 2.5rem;
   width: 100%;
+  overflow-x: auto;
 }
 
 /*

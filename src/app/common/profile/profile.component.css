@@ -1,0 +1,53 @@
+.profileBlock{
+    background-color:var(--color-primary-100);
+    border-radius: 0.3em;
+    padding: 20px;
+}
+.profileBlock div span{
+    padding: 10px 0px;
+}
+.profileBlock div span span{
+    color: var(--color-primary);
+}
+.profileBlock > div{
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.editBtn{
+    background: var(--color-primary);
+    border: 0;
+    border-radius: 0.25rem;
+    color: var(--color-white);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 500;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0 2rem;
+    align-items: center;
+    display: grid;
+    grid-gap: 0.75rem;
+    gap: 0.75rem;
+    grid-auto-flow: column;
+}
+.profileBlockImage{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.profileBlockImage img{
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+}
+h3 {
+    color: var(--color-primary);
+    font-family: var(--title-font-family);
+    font-size: 1.5rem;
+    font-weight: var(--title-font-weight);
+    margin: 0;
+    font-weight: 600;
+  }
