@@ -33,8 +33,9 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--accent);
+    background-color:var(--color-primary-500);
 }
+
 .mainBody{
     display: flex;
     flex-grow: 1;

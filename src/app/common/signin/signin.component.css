@@ -48,7 +48,7 @@ body{
     position: absolute;
     height: 100%;
     width: 100%;
-    background: var(--accent);
+    /* background: var(--accent); */
     opacity: 0.5;
     z-index: 12;
   }
@@ -200,6 +200,9 @@ body{
     width: fit-content;
     padding: 12px 120px !important;
   }
+  input[type="radio"]{
+    accent-color: var(--accent);
+}
   @media (max-width: 730px) {
     .container .cover{
       display: none;

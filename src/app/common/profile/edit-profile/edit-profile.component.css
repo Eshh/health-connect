@@ -36,11 +36,11 @@ body{
   }
   .container{
     position: relative;
-    max-width: 850px;
+    /* max-width: 850px; */
     width: 100%;
     background: #fff;
     padding: 40px 30px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    /* box-shadow: 0 5px 10px rgba(0,0,0,0.2); */
     perspective: 2700px;
   }
   .container .cover{

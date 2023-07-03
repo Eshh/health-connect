@@ -20,8 +20,31 @@ section{
     display: flex;
     justify-content: space-between;
   }
-  
-  
+  .main_txt{
+    width: 60%;
+  }
+  .appointmentBlock{
+    width: 35%;
+  }
+  .welcomeSite{
+    background-color: #007cad;
+    color: white !important; 
+    padding: 1em;
+  }
+  .welcomspan{
+    background-color: #006188;
+    background-color: #006188;
+    display: block;
+    padding: 10px;
+    margin: 10px;
+  }
+  .HealthTip{
+    max-width: 100%;
+    font-size: 1rem;
+    border: 2px solid var(--color-primary-300);
+    padding: 1.2em;
+    border-radius: 0.5em;
+  }
   .main_txt h4 {
     color: #06152b;
     font-size: 30px;
@@ -42,16 +65,33 @@ section{
     line-height: 1.87;
   }
   
-  .main_txt h6 {
+  .HealthTip h6 {
     color: #828994;
     font-size: 18px;
     /* font-family: "Montserrat-semibold"; */
     margin-bottom: 25px;
+    text-align: right;
   }
-  
+  .tipoftheday{
+    color: var(--color-primary-500);
+    font-size: 1rem;
+  }
+  .HealthTip{
+    background-color: var(--bs-warning);
+    background-color:var(--color-primary-300);
+  }
   .time_box div {
     color: #06152b;
-    font-size: 18px;
+    /* font-size: 18px; */
     /* font-family: "Montserrat-semibold"; */
   }
   
+  .bookAppointmentBtn button{
+    display: flex;
+    white-space: nowrap;
+    padding: 0.7em;
+    background: var(--color-primary);
+    color: #fff;
+    border: 2px solid var(--bs-success);
+    border-radius: 0.2em;
+  }
