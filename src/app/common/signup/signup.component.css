@@ -130,10 +130,10 @@ select{
 }
 .form-content .login-form,
 .form-content .signup-form{
-  /* width: calc(100% / 2 - 25px); */
-  width: 100%;
+  width: calc(100% / 2 - 25px);
+  /* width: 100%; */
 }
-.forms .form-content .title{
+.forms .form-content .title, .text-1{
   position: relative;
   font-size: 24px;
   font-weight: 500;
@@ -141,6 +141,7 @@ select{
   display: flex;
   align-items: center;
   gap: 20px;
+  line-height: normal;
 }
 .forms .form-content .title:before{
   content: '';
@@ -348,9 +349,13 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover { opacity:0.15
   flex: 1;
   margin: 0 2px;
 }
-.form-content .submitBtn input{
+.submitBtn button{
   width: fit-content;
   padding: 12px 120px !important;
+  background: var(--accent);
+  color: white;
+  border: 2px solid var(--accent);
+  margin: 25px 0;
 }
 @media (max-width: 730px) {
   .container .cover{
