@@ -25,7 +25,7 @@ export class AuthService {
           this.localStorage.setItem('isLoggedIn', true);
           this.router.navigate(['/dashboard']);
         } else {
-          this.toaster.showToastMessage(data.errorMessage, '', 'Error');
+          this.toaster.showToastMessage(data.errorMessage, '', 'error');
         }
       });
   }

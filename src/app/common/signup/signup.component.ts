@@ -93,11 +93,10 @@ export class SignupComponent implements OnInit {
         Name: fB.name.value,
         Gender: fB.gender.value,
         DOB: new Date(fB.dob.value).getTime(),
-        Age: 26,
         Email: fB.email.value,
         Mobile: fB.phone.value,
         Address: fB.address.value,
-        Postcode: +fB.postcode.value,
+        Postcode: fB.postcode.value,
         Password: fB.password.value,
         Role: 'user',
       };
@@ -106,7 +105,6 @@ export class SignupComponent implements OnInit {
         body['Experience'] = +fD.experience.value;
         body['Specalization'] = fD.specialization.value;
         body['HospitalId'] = 1;
-        body['HospitalName'] = 'GITAM';
         body.Role = 'doctor';
       }
       console.log(body);
