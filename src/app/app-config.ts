@@ -13,12 +13,13 @@ export class AppConfig {
   public static SIGN_IN_API = '';
   public static SIGN_UP_API_USER = '';
   public static SIGN_UP_API_DOCTOR = '';
+  public static HOSPITAL_LIST = '';
 
   constructor() {}
   public static setConfiguration() {
     AppConfig.SIGN_IN_API = AppConfig.BASE_API_URL + 'signin';
     AppConfig.SIGN_UP_API_DOCTOR = AppConfig.BASE_API_URL + 'add/role/doctor';
-    AppConfig.SIGN_UP_API_USER = AppConfig.BASE_API_URL + 'add/role/user';
+    AppConfig.HOSPITAL_LIST = AppConfig.BASE_API_URL + 'list/hospitals';
     // AppConfig.SIGN_UP_API = AppConfig.BASE_API_URL + 'signup';
   }
 }

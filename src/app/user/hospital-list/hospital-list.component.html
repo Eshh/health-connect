@@ -1,113 +1,87 @@
 <main>
-    <div class="content">
-        <section class="main-header grid">
-            <h2>Hospitals List</h2>
-            <!-- <button class="button">
+  <div class="content">
+    <section class="main-header grid">
+      <h2>Hospitals List</h2>
+      <!-- <button class="button">
                 <i class="fa-solid fa-plus"></i>
                 <span>Add new user</span>
             </button> -->
-        </section>
+    </section>
 
-        <section class="table-header grid">
-            <div>
-                <div class="select">
-                    <select>
-                        <option>Choose action</option>
-                        <option>&lt;5km</option>
-                        <option>&lt;10km</option>
-                        <option>&lt;15km</option>
-                        <option>&lt;20km</option>
-                        <option>&gt;20km</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="w-100">
-                <input type="text" placeholder="Search by Name">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </div>
-        </section>
-
-        <div class="card">
-            <table>
-                <thead>
-                    <tr>
-                        <th>S.NO</th>
-                        <th>Hospital Name</th>
-                        <th>Location</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <!-- <td>
-                            <div class="checkbox">
-                                <input type="checkbox" checked />
-                                <span class="checkmark"></span>
-                            </div>
-                        </td> -->
-                        <td>1</td>
-                        <td>Hospital A</td>
-                        <td>Kondapur Hyderabad</td>
-                        <td>hospitala@gmail.com</td>
-                        <td>123456789</td>
-                        <td>View</td>
-
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>Hospital A</td>
-                        <td>Kondapur Hyderabad</td>
-                        <td>hospitala@gmail.com</td>
-                        <td>123456789</td>
-                        <td>View</td>
-
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Hospital A</td>
-                        <td>Kondapur Hyderabad</td>
-                        <td>hospitala@gmail.com</td>
-                        <td>123456789</td>
-                        <td>View</td>
-
-                    </tr>
-                </tbody>
-            </table>
+    <section class="table-header grid">
+      <div>
+        <div class="select">
+          <select>
+            <option>Choose action</option>
+            <option>&lt;5km</option>
+            <option>&lt;10km</option>
+            <option>&lt;15km</option>
+            <option>&lt;20km</option>
+            <option>&gt;20km</option>
+          </select>
         </div>
+      </div>
 
-        <section class="table-footer grid">
-            <span>Displaying 1-10 of 100 items</span>
-            <div class="paging grid">
-                <span>
-                    Page
-                    <input type="number" value="1">
-                    of 10
-                </span>
-                <div class="button icon">
-                    <i class="fa-solid fa-angle-left"></i>
-                </div>
-                <div class="button icon">
-                    <i class="fa-solid fa-angle-right"></i>
-                </div>
-            </div>
-        </section>
+      <div class="w-100">
+        <input type="text" placeholder="Search by Name">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </div>
+    </section>
 
-        <div class="colors">
-            <div class="color primary-100"></div>
-            <div class="color primary-200"></div>
-            <div class="color primary-300"></div>
-            <div class="color primary"></div>
-            <div class="color primary-500"></div>
-            <div class="color white"></div>
-            <div class="color neutral-100"></div>
-            <div class="color neutral"></div>
-            <div class="color black"></div>
-        </div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>S.NO</th>
+            <th>Hospital Name</th>
+            <th>Location</th>
+            <th>Site</th>
+            <th>Phone</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let hospital of hospitals;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{hospital.HospitalName}}</td>
+            <td>{{hospital.Address}}</td>
+            <td>hospitala@gmail.com</td>
+            <td>{{hospital.Mobile}}</td>
+            <td>View</td>
+
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <section class="table-footer grid">
+      <span>Displaying 1-10 of 100 items</span>
+      <div class="paging grid">
+        <span>
+          Page
+          <input type="number" value="1">
+          of 10
+        </span>
+        <div class="button icon">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="button icon">
+          <i class="fa-solid fa-angle-right"></i>
+        </div>
+      </div>
+    </section>
+
+    <div class="colors">
+      <div class="color primary-100"></div>
+      <div class="color primary-200"></div>
+      <div class="color primary-300"></div>
+      <div class="color primary"></div>
+      <div class="color primary-500"></div>
+      <div class="color white"></div>
+      <div class="color neutral-100"></div>
+      <div class="color neutral"></div>
+      <div class="color black"></div>
+    </div>
+  </div>
 </main>

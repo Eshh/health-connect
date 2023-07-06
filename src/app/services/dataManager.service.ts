@@ -17,24 +17,32 @@ export class DataManager {
   }
 
   getHeaders() {
-    let headers: any = {
-      headers: new HttpHeaders({
-        'x-access-token': this.token,
-      }),
-    };
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-access-token': this.token,
+    });
     return headers;
   }
 
+  getOptions() {
+    let options = {
+      headers: this.getHeaders(),
+    };
+    return options;
+  }
+
   APIGenericGetMethod(url: string) {
-    return this.httpClient.get(url, this.getHeaders()).pipe(
+    console.log(this.getOptions(), this.token);
+    return this.httpClient.get(url, this.getOptions()).pipe(
       map((response: any) => {
+        console.log(response);
         return response;
       })
     );
   }
 
   APIGenericPostMethod(url: string, entityObject: {}) {
-    return this.httpClient.post(url, entityObject, this.getHeaders()).pipe(
+    return this.httpClient.post(url, entityObject, this.getOptions()).pipe(
       map((response: any) => {
         return response;
       })
