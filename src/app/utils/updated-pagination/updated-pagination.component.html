@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="py-2">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="container" style="max-width: 100%;">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-12 px-0">
+                            <div class="">
+                                <div class="paginationblock mx-0 my-2 px-0 pt-2">
+                                    <div class="arrowDownIcon">
+                                        <select (change)="onTableSizeChange($event)" class="custom-select"
+                                            class="pagination-dropdown d-inline-block form-control"
+                                            ng-reflect-model="50">
+                                            <option *ngFor="let size of tableSizes" [ngValue]="size" [attr.selected]="defaultTableSize==size ? true : null">
+                                                {{ size }}
+                                            </option>
+                                        </select>
+                                        <span class="mx-2" style="color:#06152b;font-weight: 600;">Items per
+                                            page</span>
+                                        <div class="pagination d-inline-flex align-items-center">
+                                            <div class="mr-2 ml-2">
+                                                <div class="card-footer pb-0 pt-0">
+                                                    <pagination [boundaryLinks]="showBoundaryLinks"
+                                                        [directionLinks]="showDirectionLinks" [totalItems]="totalItems"
+                                                        [itemsPerPage]="pageSize" [rotate]="rotate" [maxSize]="maxSize"
+                                                        (pageChanged)="pageChanged($event)"></pagination>
+
+                                                </div>
+                                                <!--     <a href="#"><img
+                                                        src="https://d2ivesio5kogrp.cloudfront.net/static/yuppedu/images/chevron_left_icn.svg" /></a>
+                                                <a href="#">1</a>
+                                                <a href="#" class="active">2</a>
+                                                <a href="#">3</a>
+                                                <a href="#">4</a>
+                                                <a href="#">5</a>
+                                                <a href="#" class="border-0"
+                                                    style="background:none;color:black;">...</a>
+                                                <a href="#">15</a>
+                                                <a href="#"><img
+                                                        src="https://d2ivesio5kogrp.cloudfront.net/static/yuppedu/images/chevron_right_icn.svg" /></a>  -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

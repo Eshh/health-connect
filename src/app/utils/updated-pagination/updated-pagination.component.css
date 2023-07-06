@@ -1,0 +1,28 @@
+.pagination-sm .page-link {
+    padding: .5rem 0.75rem !important;
+    font-size: .875rem;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  
+  .page_link{
+    padding: 9px 10px !important;
+    cursor: pointer;
+  }
+  
+  .page-item .page-link {
+    color: #6c757d;
+    pointer-events: auto;
+    cursor: auto;
+    margin-right: .5rem;
+    background-color: #fff;
+    border-color: #dee2e6;
+    border-radius: 0.25rem !important;
+    cursor: pointer;
+  }
+  
+  .paginationblock ul {
+    margin-top: 0;
+    margin-bottom: 0rem;
+    background: #f7f9fc !important;
+  }

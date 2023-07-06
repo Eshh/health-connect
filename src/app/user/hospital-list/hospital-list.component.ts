@@ -10,6 +10,12 @@ import { Toaster } from 'src/app/utils/toast-util';
 })
 export class HospitalListComponent implements OnInit {
   hospitals: any = [];
+
+  // pagination
+  page: any = 0;
+  pageSize: any = 10;
+  tableSizes: any = [10, 20, 50, 100];
+
   constructor(private dataManager: DataManager, private toaster: Toaster) {}
 
   ngOnInit(): void {
@@ -28,4 +34,11 @@ export class HospitalListComponent implements OnInit {
       (error) => {}
     );
   }
+
+  // pagination related block, this goes to updated pagination component
+  getPaginationData(data: any) {
+    this.page = data.page;
+    this.pageSize = data.pageSize;
+    this.getHospitals();
+  } // ends of function
 }

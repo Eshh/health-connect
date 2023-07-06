@@ -21,6 +21,9 @@ import { TopbarComponent } from './common/topbar/topbar.component';
 import { WindowRef } from './services/window.service';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { UpdatedPaginationComponent } from './utils/updated-pagination/updated-pagination.component';
+import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PrescriptionsComponent,
     SidebarComponent,
     TopbarComponent,
+    UpdatedPaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       preventDuplicates: true,
       countDuplicates: false,
     }),
+    ModalModule.forRoot(),
+    PaginationModule,
   ],
   providers: [WindowRef],
   bootstrap: [AppComponent],

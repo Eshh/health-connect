@@ -46,7 +46,7 @@
             <td>{{i+1}}</td>
             <td>{{hospital.HospitalName}}</td>
             <td>{{hospital.Address}}</td>
-            <td>hospitala@gmail.com</td>
+            <td>{{hospital.Website || 'No site info available'}}</td>
             <td>{{hospital.Mobile}}</td>
             <td>View</td>
 
@@ -55,7 +55,7 @@
       </table>
     </div>
 
-    <section class="table-footer grid">
+    <!-- <section class="table-footer grid">
       <span>Displaying 1-10 of 100 items</span>
       <div class="paging grid">
         <span>
@@ -70,7 +70,11 @@
           <i class="fa-solid fa-angle-right"></i>
         </div>
       </div>
-    </section>
+    </section> -->
+    <!-- Pagination -->
+    <app-updated-pagination [showBoundaryLinks]="true" [showDirectionLinks]="true" [totalItems]="10" [page]="page"
+      [pageSize]="pageSize" [tableSizes]="tableSizes" [maxSize]="5" [rotate]="true"
+      (sendDatatoParent)="getPaginationData($event)"></app-updated-pagination>
 
     <div class="colors">
       <div class="color primary-100"></div>
