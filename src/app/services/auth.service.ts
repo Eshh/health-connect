@@ -23,6 +23,7 @@ export class AuthService {
         if (data.status) {
           this.localStorage.setData('user-data', data.response);
           this.localStorage.setItem('isLoggedIn', true);
+          this.localStorage.setItem('token', data.token);
           this.router.navigate(['/dashboard']);
         } else {
           this.toaster.showToastMessage(data.errorMessage, '', 'error');
@@ -33,6 +34,7 @@ export class AuthService {
   signOut() {
     this.localStorage.deleteItem('user-data');
     this.localStorage.setItem('isLoggedIn', false);
+    this.localStorage.setItem('token', null);
     this.router.navigate(['/sign-in']);
   }
 }
