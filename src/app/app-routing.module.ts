@@ -6,6 +6,7 @@ import { SignupComponent } from './common/signup/signup.component';
 import { HospitalListComponent } from './user/hospital-list/hospital-list.component';
 import { ProfileComponent } from './common/profile/profile.component';
 import { EditProfileComponent } from './common/profile/edit-profile/edit-profile.component';
+import { SlotChangeComponent } from './doctor/slot-change/slot-change.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,11 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     component: EditProfileComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'assign-slots',
+    component: SlotChangeComponent,
     pathMatch: 'full',
   },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
