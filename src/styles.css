@@ -43,3 +43,18 @@ a {
 .clickable{
   cursor: pointer;
 }
+.pagination .card-footer {
+  padding: 0;
+  background-color: none;
+  border-top: 0px solid rgba(0,0,0,.125);
+}
+.pagination-dropdown{
+  max-width: 100px;
+  padding-inline: 10px;
+  transition: all 0.3s ease;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="17.362" height="9.85" viewBox="0 0 17.362 9.85"><path data-name="Form 1" d="m1585.593 93.838 6.564-6.517a1.247 1.247 0 0 1 1.754 0 1.225 1.225 0 0 1 0 1.741l-7.441 7.388a1.247 1.247 0 0 1-1.754 0l-7.441-7.388a1.225 1.225 0 0 1 0-1.741 1.247 1.247 0 0 1 1.754 0z" transform="translate(-1576.911 -86.961)" style="fill:%239DC08B"/></svg>');
+    background-size: 10px 10px;
+
+    background-repeat: no-repeat;
+    background-position: 95% center;
+}
