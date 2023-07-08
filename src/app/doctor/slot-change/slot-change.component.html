@@ -6,8 +6,9 @@
     <div class="changeSlots">
       <div class="weekDays">
         <!-- Dynamic Days -->
-        <div *ngFor="let day of daysArray; let i = index">
-          <div (click)="toggleDaySelection(day, i)" [ngClass]="{'activeDay': selectedDay == i}">
+        <div (click)="toggleDaySelection(day, i)" *ngFor="let day of daysArray; let i = index"
+          [ngClass]="{'activeDay': selectedDay == i}">
+          <div>
             <div *ngIf="i==0; else elseiftemp">
               <div> Today </div>
             </div>
@@ -19,7 +20,7 @@
                 <div>{{ day | date :'EEE'}}</div>
               </ng-template>
             </ng-template>
-            <div>{{ day | date :'dd'}}</div>
+            <div class="ml-1">{{ day | date :'dd'}}</div>
           </div>
         </div>
       </div>
@@ -32,7 +33,10 @@
 
       </div>
     </div>
-    <button (click)="slotsPostApi()">Mark available slots</button>
+    <div class="d-flex justify-content-end">
+
+      <button (click)="slotsPostApi()" class="button">Mark available slots</button>
+    </div>
 
   </div>
 </main>
