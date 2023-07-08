@@ -7,6 +7,7 @@ import { HospitalListComponent } from './user/hospital-list/hospital-list.compon
 import { ProfileComponent } from './common/profile/profile.component';
 import { EditProfileComponent } from './common/profile/edit-profile/edit-profile.component';
 import { SlotChangeComponent } from './doctor/slot-change/slot-change.component';
+import { ConsultationsComponent } from './common/consultations/consultations.component';
 
 // Route guard
 import { AuthGuard } from './services/route.guard';
@@ -58,6 +59,11 @@ const routes: Routes = [
     component: SlotChangeComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'consultations',
+    component: ConsultationsComponent,
+    pathMatch: 'full',
   },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
