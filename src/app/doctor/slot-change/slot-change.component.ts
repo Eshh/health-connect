@@ -16,6 +16,7 @@ export class SlotChangeComponent implements OnInit {
   currentDoctor: any = {};
 
   selectedDay: any = 0;
+  showSpinner: boolean = false;
 
   constructor(
     private dateUtil: DateUtils,
@@ -150,6 +151,7 @@ export class SlotChangeComponent implements OnInit {
   }
 
   slotsPostApi() {
+    this.showSpinner = true;
     let apiBody = this.postBodyGenerator();
     if (apiBody.Slots.length != 0) {
       this.dataManager
@@ -163,7 +165,8 @@ export class SlotChangeComponent implements OnInit {
                 'success'
               );
               setTimeout(() => {
-                window.location.reload();
+                this.getDoctorSlots();
+                this.showSpinner = false;
               }, 1500);
             } else {
               this.toaster.showToastMessage(data.errorMessage, '', 'success');
