@@ -47,8 +47,11 @@
       </span> -->
     </div>
     <div *ngIf="userData.Role == 'doctor'" class="d-flex flex-column doctorDetails">
+      <span> <span>Qualification</span>
+        {{userData.Qualification}}
+      </span>
       <span> <span>Hospital Name:</span>
-        {{userData.HospitalId}}
+        {{hospital[0]?.HospitalName}}
       </span>
       <span> <span>Exp:</span>
         {{userData.Experience}}

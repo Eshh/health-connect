@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Toaster } from 'src/app/utils/toast-util';
+import { AppConfig } from 'src/app/app-config';
+import { DataManager } from 'src/app/services/dataManager.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 
 @Component({
@@ -8,10 +11,35 @@ import { LocalStorageService } from 'src/app/services/localStorage.service';
 })
 export class ProfileComponent implements OnInit {
   userData: any = {};
-  constructor(private localStorage: LocalStorageService) {
+  hospital: any = [];
+  showSpinner: boolean = false;
+  constructor(
+    private localStorage: LocalStorageService,
+    private dataManager: DataManager,
+    private toaster: Toaster
+  ) {
     this.userData = JSON.parse(this.localStorage.getItem('user-data'))[0];
-    console.log(this.userData);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getHospitals();
+  }
+
+  getHospitals() {
+    this.dataManager.getHospitals(AppConfig.HOSPITAL_LIST).subscribe(
+      (data) => {
+        if (data.status) {
+          this.hospital = data.response[0].hospitals.filter((each: any) => {
+            return each.HospitalId == this.userData.HospitalId;
+          });
+          setTimeout(() => {
+            this.showSpinner = false;
+          }, 1000);
+        } else {
+          this.toaster.showToastMessage(data.errorMessage, '', 'error');
+        }
+      },
+      (error) => {}
+    );
+  }
 }

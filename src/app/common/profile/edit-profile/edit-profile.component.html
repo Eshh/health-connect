@@ -145,8 +145,9 @@
           <div class="input-box">
             <i class="fas fa-hospital" style="z-index:1;"></i>
             <select formControlName="hospital">
-              <option value="">Select a hospital</option>
-              <option>hospitalName</option>
+              <option value="">Select Hospital</option>
+              <option *ngFor="let hospital of hospitals" [value]='hospital.HospitalId'>{{hospital.HospitalName}}
+              </option>
             </select>
           </div>
         </form>
@@ -162,6 +163,7 @@
             now</a></label>
       </div>
     </div>
+    <div routerLink="/profile">Cancel</div>
   </div>
 </div>
 

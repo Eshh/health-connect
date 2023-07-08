@@ -30,12 +30,11 @@ export class HospitalListComponent implements OnInit {
     this.getHospitals();
   }
   triggerSubmit() {
-      this.confirmationPopup.show();
-    
+    this.confirmationPopup.show();
   }
   getHospitals() {
     this.dataManager
-      .APIGenericGetMethod(
+      .getHospitals(
         AppConfig.HOSPITAL_LIST + `?page=${this.page}&pageSize=${this.pageSize}`
       )
       .subscribe(

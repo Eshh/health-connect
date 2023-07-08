@@ -6,7 +6,7 @@ import { Toaster } from 'src/app/utils/toast-util';
 @Component({
   selector: 'app-consultations',
   templateUrl: './consultations.component.html',
-  styleUrls: ['./consultations.component.css']
+  styleUrls: ['./consultations.component.css'],
 })
 export class ConsultationsComponent implements OnInit {
   hospitals: any = [];
@@ -27,7 +27,7 @@ export class ConsultationsComponent implements OnInit {
 
   getHospitals() {
     this.dataManager
-      .APIGenericGetMethod(
+      .getHospitals(
         AppConfig.HOSPITAL_LIST + `?page=${this.page}&pageSize=${this.pageSize}`
       )
       .subscribe(

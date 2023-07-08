@@ -35,6 +35,9 @@ export class SignupComponent implements OnInit {
     specialization: new FormControl(),
     hospital: new FormControl(),
   });
+
+  hospitals: any = [];
+  showSpinner: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private toaster: Toaster,
@@ -71,6 +74,7 @@ export class SignupComponent implements OnInit {
         specialization: ['', [Validators.required]],
         hospital: ['', [Validators.required]],
       });
+      this.getHospitals();
     }
   }
 
@@ -110,10 +114,9 @@ export class SignupComponent implements OnInit {
         body['Qualification'] = fD.qualification.value;
         body['Experience'] = +fD.experience.value;
         body['Specalization'] = fD.specialization.value;
-        body['HospitalId'] = 1;
+        body['HospitalId'] = +fD.hospital.value;
         body.Role = 'doctor';
       }
-      console.log(body);
       let url = this.isDoctor
         ? AppConfig.SIGN_UP_API_DOCTOR
         : AppConfig.SIGN_UP_API_USER;
@@ -132,5 +135,21 @@ export class SignupComponent implements OnInit {
         }
       });
     }
+  }
+
+  getHospitals() {
+    this.dataManager.getHospitals(AppConfig.HOSPITAL_LIST).subscribe(
+      (data) => {
+        if (data.status) {
+          this.hospitals = data.response[0].hospitals;
+          setTimeout(() => {
+            this.showSpinner = false;
+          }, 1000);
+        } else {
+          this.toaster.showToastMessage(data.errorMessage, '', 'error');
+        }
+      },
+      (error) => {}
+    );
   }
 }

@@ -19,6 +19,7 @@ import { Toaster } from 'src/app/utils/toast-util';
 })
 export class EditProfileComponent implements OnInit {
   userData: any = {};
+  hospitals: any = [];
 
   isDoctor: boolean = false;
   signupFormBasic = new FormGroup({
@@ -81,8 +82,9 @@ export class EditProfileComponent implements OnInit {
         qualification: [d.Qualification, [Validators.required]],
         experience: [d.Experience, [Validators.required]],
         specialization: [d.Specalization, [Validators.required]],
-        hospital: [d.HospitalId, [Validators.required]],
+        hospital: ['', [Validators.required]],
       });
+      this.getHospitals();
     }
   }
 
@@ -123,10 +125,9 @@ export class EditProfileComponent implements OnInit {
         body['Qualification'] = fD.qualification.value;
         body['Experience'] = +fD.experience.value;
         body['Specalization'] = fD.specialization.value;
-        body['HospitalId'] = 1;
+        body['HospitalId'] = +fD.hospital.value;
         body.Role = 'doctor';
       }
-      console.log(body);
       let url = this.isDoctor
         ? AppConfig.UPDATE_PROFILE_DOCTOR
         : AppConfig.UPDATE_PROFILE_USER;
@@ -148,5 +149,28 @@ export class EditProfileComponent implements OnInit {
         }
       });
     }
+  }
+
+  getHospitals() {
+    this.dataManager.getHospitals(AppConfig.HOSPITAL_LIST).subscribe(
+      (data) => {
+        if (data.status) {
+          this.hospitals = data.response[0].hospitals;
+          let hospital = this.hospitals.filter((each: any) => {
+            return each.HospitalId == this.userData.HospitalId;
+          });
+          console.log(hospital);
+          this.signupFormDoctor.controls.hospital.setValue(
+            hospital[0].HospitalId
+          );
+          setTimeout(() => {
+            this.showSpinner = false;
+          }, 1000);
+        } else {
+          this.toaster.showToastMessage(data.errorMessage, '', 'error');
+        }
+      },
+      (error) => {}
+    );
   }
 }

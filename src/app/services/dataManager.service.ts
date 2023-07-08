@@ -41,7 +41,6 @@ export class DataManager {
   APIGenericGetMethod(url: string) {
     return this.httpClient.get(url, this.getOptions()).pipe(
       map((response: any) => {
-        console.log(response);
         return response;
       })
     );
@@ -62,5 +61,14 @@ export class DataManager {
           return response;
         })
       );
+  }
+
+  getHospitals(url: any) {
+    return this.httpClient.get(url, this.getOptions('sign')).pipe(
+      map((response: any) => {
+        console.log(response);
+        return response;
+      })
+    );
   }
 }
