@@ -19,9 +19,11 @@ export class HospitalListComponent implements OnInit {
   tableSizes: any = [10, 20, 50, 100];
   totalCount: number = 0;
 
+  showSpinner: boolean = false;
   constructor(private dataManager: DataManager, private toaster: Toaster) {}
 
   ngOnInit(): void {
+    this.showSpinner = true;
     this.getHospitals();
   }
 
@@ -36,6 +38,9 @@ export class HospitalListComponent implements OnInit {
             this.hospitals = data.response[0].hospitals;
             this.searchHospitalsList = data.response[0].hospitals;
             this.totalCount = data.response[0].total;
+            setTimeout(() => {
+              this.showSpinner = false;
+            }, 1000);
           } else {
             this.toaster.showToastMessage(data.errorMessage, '', 'error');
           }

@@ -15,6 +15,8 @@ export class AppConfig {
   public static SIGN_UP_API_DOCTOR = '';
   public static HOSPITAL_LIST = '';
   public static SLOTS_API = '';
+  public static UPDATE_PROFILE_USER = '';
+  public static UPDATE_PROFILE_DOCTOR = '';
 
   constructor() {}
   public static setConfiguration() {
@@ -23,6 +25,8 @@ export class AppConfig {
     AppConfig.SIGN_UP_API_DOCTOR = AppConfig.BASE_API_URL + 'add/role/doctor';
     AppConfig.HOSPITAL_LIST = AppConfig.BASE_API_URL + 'list/hospitals';
     AppConfig.SLOTS_API = AppConfig.BASE_API_URL + 'insert/slots';
+    AppConfig.UPDATE_PROFILE_USER = AppConfig.BASE_API_URL + 'update/user';
+    AppConfig.UPDATE_PROFILE_DOCTOR = AppConfig.BASE_API_URL + 'update/doctor';
   }
 }
 AppConfig.setConfiguration();

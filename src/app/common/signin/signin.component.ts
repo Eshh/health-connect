@@ -24,6 +24,7 @@ export class SigninComponent implements OnInit {
     userType: new FormControl(),
   });
 
+  showSpinner: boolean = false;
   passwordType: string = 'text';
   constructor(
     private formBuilder: FormBuilder,
@@ -46,6 +47,10 @@ export class SigninComponent implements OnInit {
   }
 
   signIn() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 2500);
     if (this.signInForm.valid) {
       let body = {
         Email: this.signInForm.controls.email.value,
