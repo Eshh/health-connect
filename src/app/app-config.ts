@@ -18,9 +18,9 @@ export class AppConfig {
   constructor() {}
   public static setConfiguration() {
     AppConfig.SIGN_IN_API = AppConfig.BASE_API_URL + 'signin';
+    AppConfig.SIGN_UP_API_USER = AppConfig.BASE_API_URL + 'add/role/user';
     AppConfig.SIGN_UP_API_DOCTOR = AppConfig.BASE_API_URL + 'add/role/doctor';
     AppConfig.HOSPITAL_LIST = AppConfig.BASE_API_URL + 'list/hospitals';
-    // AppConfig.SIGN_UP_API = AppConfig.BASE_API_URL + 'signup';
   }
 }
 AppConfig.setConfiguration();
