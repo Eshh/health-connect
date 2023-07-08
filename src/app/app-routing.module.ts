@@ -7,6 +7,7 @@ import { HospitalListComponent } from './user/hospital-list/hospital-list.compon
 import { ProfileComponent } from './common/profile/profile.component';
 import { EditProfileComponent } from './common/profile/edit-profile/edit-profile.component';
 import { SlotChangeComponent } from './doctor/slot-change/slot-change.component';
+import { ConsultationsComponent } from './common/consultations/consultations.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,11 @@ const routes: Routes = [
   {
     path: 'assign-slots',
     component: SlotChangeComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'consultations',
+    component: ConsultationsComponent,
     pathMatch: 'full',
   },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },

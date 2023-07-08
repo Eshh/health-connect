@@ -299,7 +299,7 @@ tbody tr.hover:not(.selected) td {
     background-color: aliceblue;
     color: var(--color-primary-500) !important;
 }
-.changeSlots .weekDays div {
+.changeSlots .weekDays>div {
     height: 50px;
     width: 100px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
@@ -310,7 +310,7 @@ tbody tr.hover:not(.selected) td {
     color: var(--color-primary-300);
     
 }
-.changeSlots .weekDays div:hover{
+.changeSlots .weekDays>div:hover{
     transform: translateY(-5%);
     transition:.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background-color: var(--color-primary-100);
