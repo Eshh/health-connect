@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UpdatedPaginationComponent } from './utils/updated-pagination/updated-pagination.component';
 import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
+import { SpinnerComponent } from './utils/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
     SidebarComponent,
     TopbarComponent,
     UpdatedPaginationComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
