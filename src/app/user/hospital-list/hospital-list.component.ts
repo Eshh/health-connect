@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { AppConfig } from 'src/app/app-config';
 import { DataManager } from 'src/app/services/dataManager.service';
 import { Toaster } from 'src/app/utils/toast-util';
@@ -9,6 +10,8 @@ import { Toaster } from 'src/app/utils/toast-util';
   styleUrls: ['./hospital-list.component.css'],
 })
 export class HospitalListComponent implements OnInit {
+  @ViewChild('confirmationPopup', { static: true })
+  confirmationPopup!: ModalDirective;
   hospitals: any = [];
   searchHospitalsList: any = [];
   hospitalSearch: string = '';
@@ -24,7 +27,10 @@ export class HospitalListComponent implements OnInit {
   ngOnInit(): void {
     this.getHospitals();
   }
-
+  triggerSubmit() {
+      this.confirmationPopup.show();
+    
+  }
   getHospitals() {
     this.dataManager
       .APIGenericGetMethod(

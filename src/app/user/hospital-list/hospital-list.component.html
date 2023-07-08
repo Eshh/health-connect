@@ -48,7 +48,7 @@
             <td>{{hospital.Address}}</td>
             <td>{{hospital.Website || 'No site info available'}}</td>
             <td>{{hospital.Mobile}}</td>
-            <td>View</td>
+            <td><button (click)="triggerSubmit()">View</button></td>
 
           </tr>
         </tbody>
@@ -89,3 +89,19 @@
     </div>
   </div>
 </main>
+
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" [config]="{backdrop: 'static', keyboard: false}" role="dialog"
+  aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal" bsModal #confirmationPopup="bs-modal">
+  <div class="mx-auto" style="margin-top: 10%;">
+    <div class="modal-body text-center">
+      <div class="detailed_viewPopup text-center mx-auto">
+        <h4>Detailed View</h4>
+        <div class="d-flex justify-content-end w-100 button_blck"><button (click)="confirmationPopup.hide()"
+            class="no_btn">Cancel</button>
+          <button class="yes_btn">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
