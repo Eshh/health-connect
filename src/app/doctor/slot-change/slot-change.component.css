@@ -95,186 +95,6 @@ main .content {
   cards
 */
 
-.card {
-  border: 1px solid var(--color-neutral);
-  border-radius: .25rem;
-  background: var(--color-white);
-  margin: 0 0 2.5rem;
-  overflow: auto;
-  padding: 1.5rem 1.5rem 2.5rem;
-  width: 100%;
-  overflow-x: auto;
-}
-
-/*
-  inputs
-*/
-
-.checkbox {
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral);
-  border-radius: .25rem;
-  cursor: pointer;
-  height: 1.5rem;
-  position: relative;
-  width: 1.5rem;
-}
-
-.checkbox input[type="checkbox"] {
-  cursor: pointer;
-  height: 0;
-  opacity: 0;
-  position: relative;
-  width: 0;
-}
-
-.checkbox .checkmark::after {
-  background: var(--color-primary);
-  border: 0;
-  border-radius: .25rem;
-  color: var(--color-white);
-  content: "\f00c";
-  display: block;
-  font-family: "Font Awesome 6 Free";
-  font-size: .75rem;
-  font-weight: 900;
-  height: 1.5rem;
-  width: 1.5rem;
-
-  /* grid */
-  display: grid;
-  align-items: center;
-  justify-content: center;
-
-  /* position */
-  position: absolute;
-  left: -1px;
-  top: -1px;
-}
-.checkbox .checkmark.minus::after { content: "\f068"; }
-.checkbox .checkmark { display: none; }
-.checkbox input[type="checkbox"]:checked ~ .checkmark { display: block; }
-
-.select {
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral);
-  border-radius: .25rem;
-  color: var(--color-black);
-  display: inline-block;
-  font: inherit;
-  height: 3rem;
-  margin: 0 1rem 0 0;
-  padding: 0 1rem;
-  position: relative;
-  width: 12rem;
-}
-
-.select::after {
-  content: "\f107";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  height: 3rem;
-  line-height: 3rem;
-  padding: 0 1rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-select {
-  appearance: none;
-  background-color: transparent;
-  border: 0;
-  cursor: inherit;
-  font: inherit;
-  height: 3rem;
-  margin: 0;
-  padding: 0 1rem 0 0;
-  width: 100%;
-}
-
-input[type="number"],
-input[type="text"] {
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral);
-  border-radius: .25rem;
-  color: var(--color-black);
-  display: inline-block;
-  font: inherit;
-  height: 3rem;
-  margin: 0 .5rem;
-  padding: 0 1rem;
-  width: 12rem;
-}
-
-/*
-  colors
-*/
-
-.colors {
-  display: grid;
-  justify-content: start;
-  gap: 1.5rem;
-  grid-auto-flow: column;
-  margin: 2.5rem 0;
-}
-
-.color { border-radius: 50%; height: 4rem; width: 4rem; }
-.color.black { background: var(--color-black); }
-.color.neutral-100 { background: var(--color-neutral-100); border: 1px solid var(--color-neutral); }
-.color.neutral { background: var(--color-neutral); }
-.color.primary-100 { background: var(--color-primary-100); border: 1px solid var(--color-primary-300); }
-.color.primary-200 { background: var(--color-primary-200); border: 1px solid var(--color-primary-300); }
-.color.primary-300 { background: var(--color-primary-300); }
-.color.primary { background: var(--color-primary); }
-.color.primary-500 { background: var(--color-primary-500); }
-.color.white { background: var(--color-white); border: 1px solid var(--color-neutral); }
-
-/*
-  paging
-*/
-
-.paging.grid {
-  align-items: center;
-  display: grid;
-  gap: .75rem;
-  grid-auto-flow: column;
-}
-
-.paging span { margin: 0 .75rem; }
-
-/*
-  table
-*/
-
-table { border-collapse: collapse; width: 100%; }
-td, th {
-  border-bottom: 1px solid var(--color-primary-300);
-  font-size: 1rem;
-  text-align: left;
-  white-space: nowrap;
-}
-th { padding: 1.5rem 1rem; }
-td { padding: 1rem; }
-
-tbody tr { cursor: pointer; }
-tbody tr.selected td { background: var(--color-primary-200); }
-tbody tr:hover:not(.selected) td,
-tbody tr.hover:not(.selected) td {
-  background: var(--color-primary-100);
-}
-
-.table-footer, .table-header { font-size: .875rem; }
-.table-footer { margin: -1.5rem 0 0; }
-.table-header { margin: 0 0 1rem; }
-
-.table-footer.grid,
-.table-header.grid {
-  align-items: center;
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: space-between;
-}
 
 
 
@@ -291,17 +111,20 @@ tbody tr.hover:not(.selected) td {
     width: 100%;
     justify-content: space-evenly;
     background-color: currentColor;
+    
 }
 .activeDay{
-    font-size: 22px;
+    font-size: 18px;
     border: 2px solid var(--color-black);
     border-radius: .2em;
     background-color: aliceblue;
     color: var(--color-primary-500) !important;
+    display: flex;
+    width: 100%;
 }
 .changeSlots .weekDays>div {
     height: 50px;
-    width: 100px;
+    width: 15%;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
     display: flex;
     justify-content: center;
@@ -309,6 +132,13 @@ tbody tr.hover:not(.selected) td {
     cursor: pointer;
     color: var(--color-primary-300);
     
+  }
+  .changeSlots .weekDays>div>div{
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .changeSlots .weekDays>div:hover{
     transform: translateY(-5%);
@@ -327,11 +157,11 @@ tbody tr.hover:not(.selected) td {
 .timeSlotsBlock .timeSlots{
     display: flex;
     flex-wrap: wrap;
-    max-width: 700px;
+    max-width: 850px;
     justify-content: center;
 }
 .timeSlotsBlock .timeSlots div{
-    width: 100px;
+    width: 200px;
     height: auto;
     padding: 10px;
     border: 1px solid var(--color-primary-300);
