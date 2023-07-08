@@ -111,7 +111,7 @@ export class SignupComponent implements OnInit {
       let url = this.isDoctor
         ? AppConfig.SIGN_UP_API_DOCTOR
         : AppConfig.SIGN_UP_API_USER;
-      this.dataManager.APIGenericPostMethod(url, body).subscribe((data) => {
+      this.dataManager.authorization(url, body).subscribe((data) => {
         if (data.status) {
           this.toaster.showToastMessage(
             'Successfully signed up',

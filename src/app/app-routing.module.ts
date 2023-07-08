@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { SigninComponent } from './common/signin/signin.component';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { SignupComponent } from './common/signup/signup.component';
@@ -8,46 +8,56 @@ import { ProfileComponent } from './common/profile/profile.component';
 import { EditProfileComponent } from './common/profile/edit-profile/edit-profile.component';
 import { SlotChangeComponent } from './doctor/slot-change/slot-change.component';
 
+// Route guard
+import { AuthGuard } from './services/route.guard';
+import { LocalStorageService } from './services/localStorage.service';
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'sign-in',
     component: SigninComponent,
     pathMatch: 'full',
+    canActivate: [AuthGuard],
   },
   {
     path: 'sign-up',
     component: SignupComponent,
     pathMatch: 'full',
+    canActivate: [AuthGuard],
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
     pathMatch: 'full',
+    canActivate: [AuthGuard],
   },
   {
     path: 'hospitals',
     component: HospitalListComponent,
     pathMatch: 'full',
+    canActivate: [AuthGuard],
   },
   {
     path: 'profile',
     component: ProfileComponent,
     pathMatch: 'full',
+    canActivate: [AuthGuard],
   },
   {
     path: 'edit-profile',
     component: EditProfileComponent,
     pathMatch: 'full',
+    canActivate: [AuthGuard],
   },
   {
     path: 'assign-slots',
     component: SlotChangeComponent,
     pathMatch: 'full',
+    canActivate: [AuthGuard],
   },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
@@ -56,4 +66,14 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+  constructor(
+    private localStorage: LocalStorageService,
+    private router: Router
+  ) {
+    if (this.localStorage.getItem('isLoggedIn') == 'true') {
+    } else {
+      this.router.navigate(['sign-in']);
+    }
+  }
+}

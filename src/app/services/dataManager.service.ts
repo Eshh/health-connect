@@ -18,7 +18,7 @@ export class DataManager {
 
   getHeaders(flag: string = '') {
     let headers: any = {};
-    if (flag == 'signin' || flag == 'signup') {
+    if (flag == 'sign') {
       headers = new HttpHeaders({
         'Content-Type': 'application/json',
       });
@@ -39,7 +39,6 @@ export class DataManager {
   }
 
   APIGenericGetMethod(url: string) {
-    console.log(this.getOptions(), this.token);
     return this.httpClient.get(url, this.getOptions()).pipe(
       map((response: any) => {
         console.log(response);
@@ -55,9 +54,9 @@ export class DataManager {
       })
     );
   }
-  signin(url: string, entityObject: {}) {
+  authorization(url: string, entityObject: {}) {
     return this.httpClient
-      .post(url, entityObject, this.getOptions('signin'))
+      .post(url, entityObject, this.getOptions('sign'))
       .pipe(
         map((response: any) => {
           return response;
