@@ -29,8 +29,13 @@ export class SigninComponent implements OnInit {
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private toaster: Toaster,
-    private router: Router
-  ) {}
+    private router: Router,
+    private localStorage: LocalStorageService
+  ) {
+    if (this.localStorage.getItem('isLoggedIn') == 'true') {
+      this.router.navigate(['dashboard']);
+    }
+  }
 
   ngOnInit(): void {
     this.signInForm = this.formBuilder.group({

@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { AppConfig } from 'src/app/app-config';
 import { DataManager } from 'src/app/services/dataManager.service';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { Toaster } from 'src/app/utils/toast-util';
 
 @Component({
@@ -38,8 +39,13 @@ export class SignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toaster: Toaster,
     private dataManager: DataManager,
-    private router: Router
-  ) {}
+    private router: Router,
+    private localStorage: LocalStorageService
+  ) {
+    if (this.localStorage.getItem('isLoggedIn') == 'true') {
+      this.router.navigate(['dashboard']);
+    }
+  }
 
   ngOnInit(): void {
     this.initaiteForms('basic');

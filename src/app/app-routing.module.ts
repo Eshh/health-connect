@@ -22,13 +22,11 @@ const routes: Routes = [
     path: 'sign-in',
     component: SigninComponent,
     pathMatch: 'full',
-    canActivate: [AuthGuard],
   },
   {
     path: 'sign-up',
     component: SignupComponent,
     pathMatch: 'full',
-    canActivate: [AuthGuard],
   },
   {
     path: 'dashboard',
@@ -64,6 +62,7 @@ const routes: Routes = [
     path: 'consultations',
     component: ConsultationsComponent,
     pathMatch: 'full',
+    canActivate: [AuthGuard],
   },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
