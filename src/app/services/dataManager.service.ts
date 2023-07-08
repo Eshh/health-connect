@@ -16,17 +16,24 @@ export class DataManager {
     this.token = this.locaStorage.getItem('token');
   }
 
-  getHeaders() {
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'x-access-token': this.token,
-    });
+  getHeaders(flag: string = '') {
+    let headers: any = {};
+    if (flag == 'signin' || flag == 'signup') {
+      headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+    } else {
+      headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'x-access-token': this.token,
+      });
+    }
     return headers;
   }
 
-  getOptions() {
+  getOptions(flag: string = '') {
     let options = {
-      headers: this.getHeaders(),
+      headers: this.getHeaders(flag),
     };
     return options;
   }
@@ -47,5 +54,14 @@ export class DataManager {
         return response;
       })
     );
+  }
+  signin(url: string, entityObject: {}) {
+    return this.httpClient
+      .post(url, entityObject, this.getOptions('signin'))
+      .pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
   }
 }

@@ -17,18 +17,16 @@ export class AuthService {
   ) {}
 
   signIn(body: any) {
-    this.dataManager
-      .APIGenericPostMethod(AppConfig.SIGN_IN_API, body)
-      .subscribe((data) => {
-        if (data.status) {
-          this.localStorage.setData('user-data', data.response);
-          this.localStorage.setItem('isLoggedIn', true);
-          this.localStorage.setItem('token', data.token);
-          this.router.navigate(['/dashboard']);
-        } else {
-          this.toaster.showToastMessage(data.errorMessage, '', 'error');
-        }
-      });
+    this.dataManager.signin(AppConfig.SIGN_IN_API, body).subscribe((data) => {
+      if (data.status) {
+        this.localStorage.setData('user-data', data.response);
+        this.localStorage.setItem('isLoggedIn', true);
+        this.localStorage.setItem('token', data.token);
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.toaster.showToastMessage(data.errorMessage, '', 'error');
+      }
+    });
   }
 
   signOut() {
