@@ -275,3 +275,62 @@ tbody tr.hover:not(.selected) td {
   grid-auto-flow: column;
   justify-content: space-between;
 }
+
+
+
+/* change slots */
+.changeSlots{
+    width: 100%;
+    display: flex;
+    background-color: var(--color-primary-200);
+    border-radius: 0.3em 0.3em 0 0;
+}
+.changeSlots .weekDays{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.activeDay{
+    font-size: 24px;
+    border: 2px solid var(--color-primary-500);
+    border-radius: .4em;
+    background-color: aliceblue;
+}
+.changeSlots .weekDays div {
+    height: 70px;
+    width: 100px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-primary-500);
+}
+.changeSlots .weekDays div:hover{
+    transform: translateY(-5px);
+    transition:.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+}
+.timeSlotsBlock{
+    border: 1px solid var(--color-primary-200);
+    padding: 30px;
+}
+.timeSlotsBlock .timeSlots{
+    display: flex;
+    flex-wrap: wrap;
+}
+.timeSlotsBlock .timeSlots div{
+    width: 100px;
+    height: auto;
+    padding: 10px;
+    border: 1px solid var(--color-primary-300);
+    margin-right: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.timeSlotsBlock .timeSlots .activeSlot{
+    background-color: var(--color-primary-500);
+    color: #fff;
+}
