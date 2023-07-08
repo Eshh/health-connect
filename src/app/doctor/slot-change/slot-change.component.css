@@ -290,12 +290,14 @@ tbody tr.hover:not(.selected) td {
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-evenly;
+    background-color: currentColor;
 }
 .activeDay{
     font-size: 24px;
-    border: 2px solid var(--color-primary-500);
+    border: 2px solid var(--color-black);
     border-radius: .4em;
     background-color: aliceblue;
+    color: var(--color-primary-500) !important;
 }
 .changeSlots .weekDays div {
     height: 70px;
@@ -305,28 +307,36 @@ tbody tr.hover:not(.selected) td {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    color: var(--color-primary-500);
+    color: var(--color-primary-300);
+    
 }
 .changeSlots .weekDays div:hover{
-    transform: translateY(-5px);
+    transform: translateY(-5%);
     transition:.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-500);
 
 }
 .timeSlotsBlock{
-    border: 1px solid var(--color-primary-200);
+    border: 1px solid var(--color-neutral);
     padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
 }
 .timeSlotsBlock .timeSlots{
     display: flex;
     flex-wrap: wrap;
+    max-width: 700px;
+    justify-content: center;
 }
 .timeSlotsBlock .timeSlots div{
     width: 100px;
     height: auto;
     padding: 10px;
     border: 1px solid var(--color-primary-300);
-    margin-right: 5px;
-    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
     cursor: pointer;
     text-align: center;
 }
