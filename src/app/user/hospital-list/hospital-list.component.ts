@@ -10,11 +10,14 @@ import { Toaster } from 'src/app/utils/toast-util';
 })
 export class HospitalListComponent implements OnInit {
   hospitals: any = [];
+  searchHospitalsList: any = [];
+  hospitalSearch: string = '';
 
   // pagination
   page: any = 0;
   pageSize: any = 10;
   tableSizes: any = [10, 20, 50, 100];
+  totalCount: number = 0;
 
   constructor(private dataManager: DataManager, private toaster: Toaster) {}
 
@@ -23,16 +26,22 @@ export class HospitalListComponent implements OnInit {
   }
 
   getHospitals() {
-    this.dataManager.APIGenericGetMethod(AppConfig.HOSPITAL_LIST).subscribe(
-      (data) => {
-        if (data.status) {
-          this.hospitals = data.response[0].hospitals;
-        } else {
-          this.toaster.showToastMessage(data.errorMessage, '', 'error');
-        }
-      },
-      (error) => {}
-    );
+    this.dataManager
+      .APIGenericGetMethod(
+        AppConfig.HOSPITAL_LIST + `?page=${this.page}&pageSize=${this.pageSize}`
+      )
+      .subscribe(
+        (data) => {
+          if (data.status) {
+            this.hospitals = data.response[0].hospitals;
+            this.searchHospitalsList = data.response[0].hospitals;
+            this.totalCount = data.response[0].total;
+          } else {
+            this.toaster.showToastMessage(data.errorMessage, '', 'error');
+          }
+        },
+        (error) => {}
+      );
   }
 
   // pagination related block, this goes to updated pagination component
@@ -41,4 +50,16 @@ export class HospitalListComponent implements OnInit {
     this.pageSize = data.pageSize;
     this.getHospitals();
   } // ends of function
+
+  searchHospitals() {
+    if (this.hospitalSearch == '') {
+      this.getHospitals();
+    } else {
+      this.searchHospitalsList = this.hospitals.filter((each: any) => {
+        return each.HospitalName.toLowerCase().includes(
+          this.hospitalSearch.toLowerCase()
+        );
+      });
+    }
+  }
 }

@@ -1,93 +1,39 @@
 <main>
-    <div class="content">
-        <div class="mb-3">
-            <h2>Available Slots:</h2>
-        </div>
-        <div class="changeSlots">
-            <div class="weekDays">
-                <div>Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div class="activeDay">Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
-            </div>
-        </div>
-        <div class="timeSlotsBlock">
-            <div class="timeSlots">
-                <div>1:00-2:00</div>
-                <div class="activeSlot">1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-                <div>1:00-2:00</div>
-            </div>
-        </div>
-        <section class="main-header grid">
-            <h2>Hospitals List</h2>
-        </section>
-        <section class="table-header grid">
-            <div>
-                <div class="select"><select>
-                        <option>Choose action</option>
-                        <option>&lt;5km</option>
-                        <option>&lt;10km</option>
-                        <option>&lt;15km</option>
-                        <option>&lt;20km</option>
-                        <option>&gt;20km</option>
-                    </select></div>
-            </div>
-            <div class="w-100"><input type="text" placeholder="Search by Name"><i aria-hidden="true"
-                    class="fa fa-search"></i></div>
-        </section>
-        <div class="card">
-            <table>
-                <thead>
-                    <tr>
-                        <th>S.NO</th>
-                        <th>Hospital Name</th>
-                        <th>Location</th>
-                        <th>Site</th>
-                        <th>Phone</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!--bindings={
-    "ng-reflect-ng-for-of": ""
-  }-->
-                </tbody>
-            </table>
-        </div>
-        <div class="colors">
-            <div class="color primary-100"></div>
-            <div class="color primary-200"></div>
-            <div class="color primary-300"></div>
-            <div class="color primary"></div>
-            <div class="color primary-500"></div>
-            <div class="color white"></div>
-            <div class="color neutral-100"></div>
-            <div class="color neutral"></div>
-            <div class="color black"></div>
-        </div>
+  <div class="content">
+    <div class="mb-3">
+      <h2>Available Slots:</h2>
     </div>
+    <div class="changeSlots">
+      <div class="weekDays">
+        <!-- Dynamic Days -->
+        <div *ngFor="let day of daysArray; let i = index">
+          <div (click)="toggleDaySelection(day, i)" [ngClass]="{'activeDay': selectedDay == i}">
+            <div *ngIf="i==0; else elseiftemp">
+              <div> Today </div>
+            </div>
+            <ng-template #elseiftemp>
+              <div *ngIf="i==1; else elseiftemp2">
+                <div> Tomorrow </div>
+              </div>
+              <ng-template #elseiftemp2>
+                <div>{{ day | date :'EEE'}}</div>
+              </ng-template>
+            </ng-template>
+            <div>{{ day | date :'dd'}}</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="timeSlotsBlock">
+      <div class="timeSlots">
+        <div [ngClass]="[slot?.isSelected  ? 'activeSlot':'']" (click)="toggleSlotSelection(slot)"
+          *ngFor="let slot of slotsArray">
+          {{slot.startKey}}-{{slot.endKey}}</div>
+
+      </div>
+    </div>
+    <button (click)="slotsPostApi()">Mark available slots</button>
+
+  </div>
 </main>
