@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { AppConfig } from 'src/app/app-config';
 import { DataManager } from 'src/app/services/dataManager.service';
@@ -23,14 +24,20 @@ export class HospitalListComponent implements OnInit {
   totalCount: number = 0;
 
   showSpinner: boolean = false;
-  constructor(private dataManager: DataManager, private toaster: Toaster) {}
+  constructor(
+    private dataManager: DataManager,
+    private toaster: Toaster,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.showSpinner = true;
     this.getHospitals();
   }
-  triggerSubmit() {
-    this.confirmationPopup.show();
+  triggerSubmit(hospital: any) {
+    console.log(hospital);
+    // this.confirmationPopup.show();
+    this.router.navigate([`hospital/${hospital.HospitalId}/book-consultation`]);
   }
   getHospitals() {
     this.dataManager

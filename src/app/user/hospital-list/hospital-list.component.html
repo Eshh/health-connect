@@ -48,7 +48,7 @@
             <td>{{hospital.Address}}</td>
             <td>{{hospital.Website || 'No site info available'}}</td>
             <td>{{hospital.Mobile}}</td>
-            <td><button (click)="triggerSubmit()">View</button></td>
+            <td><button (click)="triggerSubmit(hospital)">Book consultation</button></td>
 
           </tr>
         </tbody>

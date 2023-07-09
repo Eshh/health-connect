@@ -66,7 +66,6 @@ export class DataManager {
   getHospitals(url: any) {
     return this.httpClient.get(url, this.getOptions('sign')).pipe(
       map((response: any) => {
-        console.log(response);
         return response;
       })
     );

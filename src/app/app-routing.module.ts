@@ -12,6 +12,7 @@ import { ConsultationsComponent } from './common/consultations/consultations.com
 // Route guard
 import { AuthGuard } from './services/route.guard';
 import { LocalStorageService } from './services/localStorage.service';
+import { BookConsultationComponent } from './user/book-consultation/book-consultation.component';
 const routes: Routes = [
   {
     path: 'dashboard',
@@ -61,6 +62,12 @@ const routes: Routes = [
   {
     path: 'consultations',
     component: ConsultationsComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'hospital/:hospitalId/book-consultation',
+    component: BookConsultationComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
   },
