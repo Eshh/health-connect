@@ -58,13 +58,15 @@ export class SlotChangeComponent implements OnInit {
   }
 
   markSlots() {
-    this.slotsArray.forEach((each: any) => {
-      this.currentDoctor[0].Slots.forEach((eachInner: any) => {
-        if (eachInner.StartTime == each.startValue) {
-          each.isSelected = !each.isSelected;
-        }
+    if (!!this.currentDoctor[0]?.Slots) {
+      this.slotsArray.forEach((each: any) => {
+        this.currentDoctor[0].Slots.forEach((eachInner: any) => {
+          if (eachInner.StartTime == each.startValue) {
+            each.isSelected = !each.isSelected;
+          }
+        });
       });
-    });
+    }
   }
   getDoctorSlots() {
     this.dataManager

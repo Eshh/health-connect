@@ -8,7 +8,7 @@
   <div class="forms">
     <div class="form-content">
       <div class="login-form">
-        Login to
+        <!-- Login to -->
         <div class="title d-flex align-items-center">
           <span>
             <svg viewBox="257.083 171.1335 64.3191 64.2328" width="84.11285822819495" height="84"
@@ -36,7 +36,7 @@
               </g>
             </svg>
           </span>
-          <span>HelathConnect</span>
+          <span>HealthConnect</span>
         </div>
         <form [formGroup]="signInForm" (ngSubmit)="signIn()">
           <div class="input-boxes">
@@ -66,11 +66,11 @@
             </div>
             <!-- <div class="text"><a href="#">Forgot password?</a></div> -->
             <div class="button input-box submitBtn d-flex justify-content-center">
-              <input [ngClass]="[signInForm.invalid?'disable-button':'' ]" type="submit" value="Sumbit" />
+              <input [ngClass]="[signInForm.invalid?'disable-button':'' ]" type="submit" value="Sign in" />
             </div>
             <div class="text sign-up-text">
               Don't have an account?
-              <label for="flip"><a routerLink="/sign-up">Sigup now</a></label>
+              <label for="flip"><a routerLink="/sign-up">Signup now</a></label>
             </div>
           </div>
         </form>

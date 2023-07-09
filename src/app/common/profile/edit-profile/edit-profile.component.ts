@@ -134,7 +134,7 @@ export class EditProfileComponent implements OnInit {
       this.dataManager.authorization(url, body).subscribe((data) => {
         if (data.status) {
           this.toaster.showToastMessage(
-            'Successfully signed up',
+            'Profile updated successfully',
             '',
             'success'
           );

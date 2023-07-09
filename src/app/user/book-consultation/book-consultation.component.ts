@@ -18,6 +18,7 @@ export class BookConsultationComponent implements OnInit {
   hospitalId: number = -1;
   hospital: any = {};
   selectedSlot: any = {};
+  userData: any = {};
 
   showSpinner: boolean = false;
   constructor(
@@ -26,6 +27,7 @@ export class BookConsultationComponent implements OnInit {
     private acticatedRoute: ActivatedRoute,
     private toaster: Toaster
   ) {
+    this.userData = this.localStorage.getData('user-data')[0];
     this.showSpinner = true;
     this.acticatedRoute.params.subscribe((params) => {
       this.hospitalId = +params.hospitalId;
@@ -80,8 +82,54 @@ export class BookConsultationComponent implements OnInit {
       hospital: this.hospital,
     };
     this.confirmationPopup.show();
-    console.log(this.selectedSlot);
   }
 
-  bookConsultation() {}
+  postBodyGenerator() {
+    console.log(this.selectedSlot, this.userData);
+    let body: any = {
+      User: {
+        _id: this.userData._id,
+        Email: this.userData.Email,
+      },
+      Doctor: {
+        _id: this.selectedSlot.doc._id,
+        Email: this.selectedSlot.doc.Email,
+      },
+      Hospital: {
+        HospitalId: this.selectedSlot.hospital.HospitalId,
+      },
+      Slot: {
+        StartTime: this.selectedSlot.slot.StartTime,
+        EndTime: this.selectedSlot.slot.EndTime,
+      },
+    };
+    console.log(body);
+    return body;
+  }
+  bookConsultation() {
+    this.showSpinner = true;
+    let body = this.postBodyGenerator();
+    // return;
+    this.dataManager
+      .APIGenericPostMethod(AppConfig.BOOK_CONSULTATION, body)
+      .subscribe(
+        (data) => {
+          if (data['status']) {
+            this.toaster.showToastMessage(
+              'consultation booked successfully',
+              '',
+              'success'
+            );
+            this.confirmationPopup.hide();
+            // this.router.navigate(['consultations'])
+          } else {
+            this.toaster.showToastMessage(data.errorMessage, '', 'errro');
+          }
+        },
+        (error) => {}
+      );
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 1500);
+  }
 }

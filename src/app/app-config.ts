@@ -18,6 +18,7 @@ export class AppConfig {
   public static UPDATE_PROFILE_USER = '';
   public static UPDATE_PROFILE_DOCTOR = '';
   public static GET_HOSPITAL_DOCTORS = '';
+  public static BOOK_CONSULTATION = '';
 
   constructor() {}
   public static setConfiguration() {
@@ -29,6 +30,7 @@ export class AppConfig {
     AppConfig.UPDATE_PROFILE_USER = AppConfig.BASE_API_URL + 'update/user';
     AppConfig.UPDATE_PROFILE_DOCTOR = AppConfig.BASE_API_URL + 'update/doctor';
     AppConfig.GET_HOSPITAL_DOCTORS = AppConfig.BASE_API_URL + 'get/doctors?';
+    AppConfig.BOOK_CONSULTATION = AppConfig.BASE_API_URL + 'book/consultation';
   }
 }
 AppConfig.setConfiguration();
