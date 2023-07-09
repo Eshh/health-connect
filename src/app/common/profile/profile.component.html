@@ -1,21 +1,21 @@
 <div class="container w-100">
   <div class="w-100">
-    <div class="d-flex align-items-center position-absolute">
-      <div class="profileBlockImage">
-        <img src="../../../assets/images/doctor.png" alt="" class="doctorImg">
-      </div>
-      <div class="d-flex flex-column">
-        <span>
-          <h3>{{userData.Name | titlecase}}</h3>
-        </span>
-        <span>{{userData.Specalization || 'User'}}</span>
-      </div>
-    </div>
+
     <button routerLink="/edit-profile" class="editBtn d-flex ml-auto">Edit<i class="far fa-edit"></i></button>
   </div>
   <div class="d-flex profileBlock flex-wrap pt-5">
     <div class="d-flex flex-column commonDetails mr-5">
-
+      <div class="d-flex align-items-center position-relative">
+        <div class="profileBlockImage">
+          <img src="../../../assets/images/doctor.png" alt="" class="doctorImg">
+        </div>
+        <div class="d-flex flex-column">
+          <span>
+            <h3>{{userData.Name | titlecase}}</h3>
+          </span>
+          <span>{{userData.Specalization || 'User'}}</span>
+        </div>
+      </div>
       <span> <span>
           Gender:
         </span>

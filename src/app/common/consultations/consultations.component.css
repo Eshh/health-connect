@@ -163,7 +163,7 @@ main .content {
   display: inline-block;
   font: inherit;
   height: 3rem;
-  margin: 0 1rem 0 0;
+  margin: 0 1rem 0 5px;
   padding: 0 1rem;
   position: relative;
   width: 12rem;
@@ -189,10 +189,12 @@ select {
   font: inherit;
   height: 3rem;
   margin: 0;
-  padding: 0 1rem 0 0;
+  padding: 0 1rem 0 5px;
   width: 100%;
 }
-
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
 input[type="number"],
 input[type="text"] {
   background: var(--color-white);

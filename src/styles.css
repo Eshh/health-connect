@@ -63,3 +63,7 @@ a {
   top: 50%;
   left: 50%;
 }
+.page-item.active .page-link{
+  background: var(--accent) !important;
+  border-color: var(--bs-dark) !important;
+}
