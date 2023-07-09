@@ -1,1 +1,45 @@
-<p>book-consultation works!</p>
+<div class="container">
+
+  <div class="hospital-info">
+    <h3>Hospital </h3>
+    <p>{{hospital.HospitalName}}</p>
+    <p>{{hospital.Address}}</p>
+    <p>{{hospital.Mobile}}</p>
+  </div>
+  <div class="doctors-info">
+    <h3>Available Doctors</h3>
+    <div *ngFor="let doctor of doctorList;let i =index">
+      <p>{{i+1}}.{{doctor.Name}}</p>
+      <p>{{doctor.Specalization}}</p>
+      <div class="doctor-slots">
+        <ng-container *ngFor="let slot of doctor.Slots">
+          <p (click)="triggerConsultation(doctor,slot)">{{slot.StartTime | date:'medium'}} - {{slot.EndTime
+            |date:'medium'}}</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showSpinner">
+  <app-spinner></app-spinner>
+</div>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" [config]="{backdrop: 'static', keyboard: false}" role="dialog"
+  aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal" bsModal #confirmationPopup="bs-modal">
+  <div class="mx-auto" style="margin-top: 10%;">
+    <div class="modal-body text-center">
+      <div class="detailed_viewPopup text-center mx-auto">
+        <h4>Please confirm your consultation details</h4>
+        <p>Doctor : {{selectedSlot.doc?.Name}}</p>
+        <p>Hospital: {{selectedSlot.hospital?.HospitalName}}</p>
+        <p>Date and Time: {{selectedSlot.slot?.StartTime | date:'medium'}}-{{selectedSlot.slot?.EndTime |
+          date:'shortTime'}}</p>
+        <div class="d-flex justify-content-end w-100 button_blck"><button (click)="confirmationPopup.hide()"
+            class="no_btn">Cancel</button>
+          <button class="yes_btn" (click)="bookConsultation()">Book slot</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

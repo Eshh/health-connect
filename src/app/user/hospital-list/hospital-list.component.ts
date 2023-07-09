@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { AppConfig } from 'src/app/app-config';
@@ -11,7 +11,6 @@ import { Toaster } from 'src/app/utils/toast-util';
   styleUrls: ['./hospital-list.component.css'],
 })
 export class HospitalListComponent implements OnInit {
-  @ViewChild('confirmationPopup', { static: true })
   confirmationPopup!: ModalDirective;
   hospitals: any = [];
   searchHospitalsList: any = [];
@@ -36,7 +35,6 @@ export class HospitalListComponent implements OnInit {
   }
   triggerSubmit(hospital: any) {
     console.log(hospital);
-    // this.confirmationPopup.show();
     this.router.navigate([`hospital/${hospital.HospitalId}/book-consultation`]);
   }
   getHospitals() {
