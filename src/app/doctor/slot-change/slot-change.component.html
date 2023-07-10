@@ -27,8 +27,9 @@
     </div>
     <div class="timeSlotsBlock">
       <div class="timeSlots">
-        <div [ngClass]="[slot?.isSelected  ? 'activeSlot':'']" (click)="toggleSlotSelection(slot)"
-          *ngFor="let slot of slotsArray">
+        <div [ngClass]="[slot?.isSelected  ? 'activeSlot':'']" [ngClass]="[slot?.isBooked  ? 'bookedSlot':'']"
+          (click)="toggleSlotSelection(slot)" *ngFor="let slot of slotsArray"
+          [title]="slot.isBooked ? 'Slot already booked for consultation':''">
           {{slot.startKey}}-{{slot.endKey}}</div>
 
       </div>

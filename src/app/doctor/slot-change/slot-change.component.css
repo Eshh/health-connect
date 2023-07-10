@@ -1,9 +1,15 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400..700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400..700&display=swap");
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { font: normal 16px/1.5 sans-serif; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font: normal 16px/1.5 sans-serif;
+}
 body {
   background: var(--color-neutral-100);
   color: var(--color-black);
@@ -18,11 +24,13 @@ h2 {
 }
 a {
   color: var(--color-primary);
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
 }
-a:hover { color: var(--color-primary-500); }
+a:hover {
+  color: var(--color-primary-500);
+}
 /*
   main
 */
@@ -41,7 +49,9 @@ main .content {
   width: 100%;
 }
 
-.main-header { margin: 0 0 2.5rem; }
+.main-header {
+  margin: 0 0 2.5rem;
+}
 .main-header.grid {
   align-items: center;
   display: grid;
@@ -56,7 +66,7 @@ main .content {
 .button {
   background: var(--color-primary);
   border: 0;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   color: var(--color-white);
   cursor: pointer;
   font: inherit;
@@ -68,11 +78,15 @@ main .content {
   /* grid */
   align-items: center;
   display: grid;
-  gap: .75rem;
+  gap: 0.75rem;
   grid-auto-flow: column;
 }
-.button:hover { background: var(--color-primary-500); }
-.button i { font-size: 1.25rem; }
+.button:hover {
+  background: var(--color-primary-500);
+}
+.button i {
+  font-size: 1.25rem;
+}
 
 .button.icon {
   border-radius: 50%;
@@ -88,89 +102,93 @@ main .content {
   justify-content: start;
   padding: 0;
 }
-.button.link:hover { color: var(--color-primary-500); }
-.button.link i { font-size: inherit; }
+.button.link:hover {
+  color: var(--color-primary-500);
+}
+.button.link i {
+  font-size: inherit;
+}
 
 /*
   cards
 */
 
-
-
-
 /* change slots */
-.changeSlots{
-    width: 100%;
-    display: flex;
-    background-color: var(--color-primary-200);
-    border-radius: 0.3em 0.3em 0 0;
+.changeSlots {
+  width: 100%;
+  display: flex;
+  background-color: var(--color-primary-200);
+  border-radius: 0.3em 0.3em 0 0;
 }
-.changeSlots .weekDays{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-evenly;
-    background-color: currentColor;
-    
+.changeSlots .weekDays {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  background-color: currentColor;
 }
-.activeDay{
-    font-size: 18px;
-    border: 2px solid var(--color-black);
-    border-radius: .2em;
-    background-color: aliceblue;
-    color: var(--color-primary-500) !important;
-    display: flex;
-    width: 100%;
+.activeDay {
+  font-size: 18px;
+  border: 2px solid var(--color-black);
+  border-radius: 0.2em;
+  background-color: aliceblue;
+  color: var(--color-primary-500) !important;
+  display: flex;
+  width: 100%;
 }
-.changeSlots .weekDays>div {
-    height: 50px;
-    width: 15%;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: var(--color-primary-300);
-    
-  }
-  .changeSlots .weekDays>div>div{
-    height: 100%;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.changeSlots .weekDays > div {
+  height: 50px;
+  width: 15%;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--color-primary-300);
 }
-.changeSlots .weekDays>div:hover{
-    transform: translateY(-5%);
-    transition:.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background-color: var(--color-primary-100);
-    color: var(--color-primary-500);
-
+.changeSlots .weekDays > div > div {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.timeSlotsBlock{
-    border: 1px solid var(--color-neutral);
-    padding: 30px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
+.changeSlots .weekDays > div:hover {
+  transform: translateY(-5%);
+  transition: 0.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-500);
 }
-.timeSlotsBlock .timeSlots{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 850px;
-    justify-content: center;
+.timeSlotsBlock {
+  border: 1px solid var(--color-neutral);
+  padding: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
 }
-.timeSlotsBlock .timeSlots div{
-    width: 200px;
-    height: auto;
-    padding: 10px;
-    border: 1px solid var(--color-primary-300);
-    margin-right: 10px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    text-align: center;
+.timeSlotsBlock .timeSlots {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 850px;
+  justify-content: center;
 }
-.timeSlotsBlock .timeSlots .activeSlot{
-    background-color: var(--color-primary-500);
-    color: #fff;
+.timeSlotsBlock .timeSlots div {
+  width: 200px;
+  height: auto;
+  padding: 10px;
+  border: 1px solid var(--color-primary-300);
+  margin-right: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+.timeSlotsBlock .timeSlots .activeSlot {
+  background-color: var(--color-primary-500);
+  color: #fff;
+}
+.timeSlotsBlock .timeSlots .bookedSlot {
+  /* background-color: red; */
+  opacity: 0.35;
+  cursor: not-allowed;
+  color: #000;
 }

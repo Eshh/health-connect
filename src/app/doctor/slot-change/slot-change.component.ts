@@ -18,16 +18,38 @@ export class SlotChangeComponent implements OnInit {
   selectedDay: any = 0;
   showSpinner: boolean = false;
 
+  consultations: any = [];
+  userData: any = {};
+  userType: string = '';
+
   constructor(
     private dateUtil: DateUtils,
     private localStorage: LocalStorageService,
     private toaster: Toaster,
     private dataManager: DataManager
-  ) {}
+  ) {
+    this.userData = this.localStorage.getData('user-data')[0];
+    this.userType = this.userData.Role;
+  }
 
   ngOnInit(): void {
     this.getUpcomingThreedays();
     this.getDoctorSlots();
+  }
+
+  getConsultations() {
+    let url =
+      this.userData.Role == 'doctor'
+        ? AppConfig.LIST_CONSULTATIONS_DOCTOR
+        : AppConfig.LIST_CONSULTATIONS_USER;
+    this.dataManager
+      .APIGenericGetMethod(url + `Email=${this.userData.Email}`)
+      .subscribe((data) => {
+        if (data['status']) {
+          this.consultations = data.response;
+          this.disableBookedSlots();
+        }
+      });
   }
 
   getSlots() {
@@ -67,6 +89,21 @@ export class SlotChangeComponent implements OnInit {
         });
       });
     }
+    this.getConsultations();
+  }
+  disableBookedSlots() {
+    let bookedSlots: any = [];
+    this.consultations.forEach((each: any) => {
+      bookedSlots.push(each.BookedSlot.StartTime);
+    });
+    this.slotsArray.forEach((each: any) => {
+      if (bookedSlots.includes(each.startValue)) {
+        each.isSelected = false;
+        each['isBooked'] = true;
+      } else {
+        each['isBooked'] = false;
+      }
+    });
   }
   getDoctorSlots() {
     this.dataManager
@@ -102,11 +139,13 @@ export class SlotChangeComponent implements OnInit {
   } // end of  getUpcomingThreedays function
 
   toggleSlotSelection(slot: any) {
-    this.slotsArray.forEach((each: any) => {
-      if (each.id == slot.id) {
-        each['isSelected'] = !each.isSelected;
-      }
-    });
+    if (!slot.isBooked) {
+      this.slotsArray.forEach((each: any) => {
+        if (each.id == slot.id) {
+          each['isSelected'] = !each.isSelected;
+        }
+      });
+    }
   }
 
   toggleDaySelection(day: any, i: number) {
