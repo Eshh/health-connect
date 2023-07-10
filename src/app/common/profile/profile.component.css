@@ -6,11 +6,16 @@
 .profileBlock div span{
     padding: 10px 0px;
 }
+.doctorCard{
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 0.3em;
+    background-color: aliceblue;
+}
 .profileBlock div span span{
     color: var(--color-primary);
 }
 .profileBlock > div{
-    max-width: 50%;
+    /* max-width: 50%; */
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -18,6 +23,7 @@
     background-color: var(--color-primary-300);
     box-shadow: 0px 3px 10px rgba(0,0,0,0.4);
     border-radius: 0.3em;
+    width: 800px;
 }
 .editBtn{
     background: var(--color-primary);
