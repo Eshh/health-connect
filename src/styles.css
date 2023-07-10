@@ -67,3 +67,8 @@ a {
   background: var(--accent) !important;
   border-color: var(--bs-dark) !important;
 }
+h3 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin: 0;
+}

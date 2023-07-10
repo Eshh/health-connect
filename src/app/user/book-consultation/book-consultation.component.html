@@ -1,14 +1,13 @@
-<div class="container">
-
+<div class="container hospitalBlock">
   <div class="hospital-info">
-    <h3>Hospital </h3>
+    <h3>Hospital:</h3>
     <p>{{hospital.HospitalName}}</p>
-    <p>{{hospital.Address}}</p>
-    <p>{{hospital.Mobile}}</p>
+    <p>{{hospital.Address}} | {{hospital.Mobile}}</p>
+    <!-- <p></p> -->
   </div>
   <div class="doctors-info">
-    <h3>Available Doctors</h3>
-    <div *ngFor="let doctor of doctorList;let i =index">
+    <h3>Available Doctors:</h3>
+    <div *ngFor="let doctor of doctorList;let i =index" class="availableDocInfo">
       <ng-container *ngIf="!!doctor.Slots && doctor.Slots.length > 0">
         <p>{{i+1}}.{{doctor.Name}}</p>
         <p>Qualification: {{doctor.Qualification}}</p>
@@ -16,8 +15,11 @@
         <p>Experience: {{doctor.Experience}} years</p>
         <div class="doctor-slots">
           <ng-container *ngFor="let slot of doctor.Slots">
-            <p (click)="triggerConsultation(doctor,slot)">{{slot.StartTime | date:'MMM d, y, h:mm a'}} - {{slot.EndTime
-              |date:'shortTime'}}</p>
+            <div class="timeSlots">
+              <button (click)="triggerConsultation(doctor,slot)">{{slot.StartTime | date:'MMM d, y, h:mm a'}} -
+                {{slot.EndTime
+                |date:'shortTime'}}</button>
+            </div>
           </ng-container>
         </div>
       </ng-container>
@@ -32,7 +34,7 @@
 <div class="modal fade bd-example-modal-sm" tabindex="-1" [config]="{backdrop: 'static', keyboard: false}" role="dialog"
   aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal" bsModal #confirmationPopup="bs-modal">
   <div class="mx-auto" style="margin-top: 10%;">
-    <div class="modal-body text-center">
+    <div class="modal-body text-center bg-white">
       <div class="detailed_viewPopup text-center mx-auto">
         <h4>Please confirm your consultation details</h4>
         <p>Doctor : {{selectedSlot.doc?.Name}}</p>

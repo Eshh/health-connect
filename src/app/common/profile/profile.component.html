@@ -1,11 +1,12 @@
 <div class="container w-100">
   <div class="w-100">
 
-    <button routerLink="/edit-profile" class="editBtn d-flex ml-auto">Edit<i class="far fa-edit"></i></button>
+
   </div>
   <div class="d-flex profileBlock flex-wrap pt-5 justify-content-center">
     <div class="d-flex flex-column commonDetails">
-      <div class="d-flex align-items-center position-relative mx-auto flex-column">
+      <button routerLink="/edit-profile" class="editBtn d-flex ml-auto">Edit<i class="far fa-edit"></i></button>
+      <div class="d-flex align-items-center position-relative mx-auto flex-column profBlock">
         <div class="profileBlockImage">
           <img src="../../../assets/images/doctor.png" alt="" class="doctorImg">
         </div>
@@ -13,29 +14,29 @@
           <span>
             <h3>{{userData.Name | titlecase}}</h3>
           </span>
-          <span>{{userData.Specalization || 'User'}}</span>
+          <span class="pt-0">{{userData.Specalization || 'User'}}</span>
         </div>
       </div>
-      <div *ngIf="userData.Role == 'doctor'" class="d-flex flex-column doctorDetails w-100 p-3 doctorCard">
+      <div *ngIf="userData.Role == 'user'" class="d-flex flex-column doctorDetails w-100 p-3 doctorCard mb-3">
         <div class="d-flex">
-          <span class="col-6"> <span>Qualification</span>
+          <span class="col-4"> <span>Qualification</span>
             {{userData.Qualification}}
           </span>
-          <span> <span>Hospital Name:</span>
+          <span class="col-4"> <span>Hospital Name:</span>
             {{hospital[0]?.HospitalName}}
           </span>
         </div>
         <div class="d-flex">
-          <span class="col-6"> <span>Exp:</span>
+          <span class="col-4"> <span>Exp:</span>
             {{userData.Experience + ' years'}}
           </span>
-          <span>
+          <span class="col-4">
             <span>Specialization:</span>
             {{userData.Specalization}}
           </span>
         </div>
       </div>
-      <div class="mb-4 d-flex w-100">
+      <div class="mb-4 d-flex w-100 justify-content-center">
         <div class="d-flex flex-column col-6 pl-0">
           <span class="text-secondary">Gender:</span>
           <span class="d-flex align-items-center">
@@ -43,7 +44,7 @@
             {{userData.Gender}}
           </span>
         </div>
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column col-3 pl-0">
           <span class="text-secondary">DOB:</span>
           <span class="d-flex align-items-center">
             <i class="fas fa-birthday-cake fa-2x mr-1"></i>
@@ -52,7 +53,7 @@
         </div>
       </div>
 
-      <div class="mb-4 d-flex w-100">
+      <div class="mb-4 d-flex w-100 justify-content-center">
         <div class="d-flex flex-column col-6 pl-0">
           <span class="text-secondary">Mail:</span>
           <span class="d-flex align-items-center">
@@ -60,7 +61,7 @@
             {{userData.Email}}
           </span>
         </div>
-        <div class="d-flex flex-column col-6 pl-0">
+        <div class="d-flex flex-column col-3 pl-0">
           <span class="text-secondary">Ph No:</span>
           <span class="d-flex align-items-center">
             <i class="fas fa-phone fa-2x mr-1"></i>
@@ -68,7 +69,9 @@
           </span>
         </div>
       </div>
-      <div class="mb-4 d-flex w-100">
+      <div class="mb-4 d-flex w-100 justify-content-center">
+
+
         <div class="d-flex flex-column col-6 pl-0">
           <span class="text-secondary">Address:</span>
           <span class="d-flex align-items-center">
@@ -76,13 +79,15 @@
             {{userData.Address}}
           </span>
         </div>
-        <div class="d-flex flex-column col-6 pl-0">
+        <div class="d-flex flex-column col-3 pl-0">
           <span class="text-secondary">Postcode:</span>
           <span class="d-flex align-items-center">
             <i class="fas fa-truck fa-2x mr-1"></i>
             {{userData.Postcode}}
           </span>
         </div>
+
+
       </div>
 
       <span>

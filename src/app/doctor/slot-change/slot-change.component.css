@@ -17,9 +17,9 @@ body {
 }
 h2 {
   color: var(--color-primary);
-  font-family: var(--title-font-family);
+  /* font-family: var(--title-font-family); */
   font-size: 2rem;
-  font-weight: var(--title-font-weight);
+  /* font-weight: var(--title-font-weight); */
   margin: 0;
 }
 a {

@@ -1,0 +1,39 @@
+.hospitalBlock{
+    background-image: url(../../../assets/images/HospBg.jpg);
+    background-repeat: no-repeat;
+    /* background-clip: content-box; */
+    background-size: 50%;
+    background-position: top right;
+    background-color: darkslategrey;
+    padding: 20px;
+}
+.availableDocInfo{
+    background-color: var(--color-primary-100);
+    padding: 20px;
+    border-radius: 1em;
+    margin-bottom: 20px;
+}
+.doctor-slots{
+    display: flex;
+    flex-wrap: wrap;
+}
+.hospital-info p{
+    color: chartreuse;
+    text-transform:uppercase;
+    font-weight: 500;
+}
+.timeSlots button{
+    background-color: var(--color-primary);
+    color: white;
+    border: 1px solid var(--color-primary-300);
+    margin: 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    min-width: 235px;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+h3{
+    color: var(--color-primary-300);
+}
