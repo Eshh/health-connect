@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { AppConfig } from 'src/app/app-config';
 import { DataManager } from 'src/app/services/dataManager.service';
@@ -25,7 +25,8 @@ export class BookConsultationComponent implements OnInit {
     private dataManager: DataManager,
     private localStorage: LocalStorageService,
     private acticatedRoute: ActivatedRoute,
-    private toaster: Toaster
+    private toaster: Toaster,
+    private router: Router
   ) {
     this.userData = this.localStorage.getData('user-data')[0];
     this.showSpinner = true;
@@ -85,7 +86,6 @@ export class BookConsultationComponent implements OnInit {
   }
 
   postBodyGenerator() {
-    console.log(this.selectedSlot, this.userData);
     let body: any = {
       User: {
         _id: this.userData._id,
@@ -121,7 +121,7 @@ export class BookConsultationComponent implements OnInit {
               'success'
             );
             this.confirmationPopup.hide();
-            // this.router.navigate(['consultations'])
+            this.router.navigate(['consultations']);
           } else {
             this.toaster.showToastMessage(data.errorMessage, '', 'errro');
           }

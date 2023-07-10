@@ -16,8 +16,8 @@
         <p>Experience: {{doctor.Experience}} years</p>
         <div class="doctor-slots">
           <ng-container *ngFor="let slot of doctor.Slots">
-            <p (click)="triggerConsultation(doctor,slot)">{{slot.StartTime | date:'medium'}} - {{slot.EndTime
-              |date:'medium'}}</p>
+            <p (click)="triggerConsultation(doctor,slot)">{{slot.StartTime | date:'MMM d, y, h:mm a'}} - {{slot.EndTime
+              |date:'shortTime'}}</p>
           </ng-container>
         </div>
       </ng-container>

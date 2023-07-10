@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppConfig } from 'src/app/app-config';
 import { DataManager } from 'src/app/services/dataManager.service';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { Toaster } from 'src/app/utils/toast-util';
 
 @Component({
@@ -9,9 +10,9 @@ import { Toaster } from 'src/app/utils/toast-util';
   styleUrls: ['./consultations.component.css'],
 })
 export class ConsultationsComponent implements OnInit {
-  hospitals: any = [];
-  searchHospitalsList: any = [];
-  hospitalSearch: string = '';
+  consultations: any = [];
+  userData: any = {};
+  userType: string = '';
 
   // pagination
   page: any = 0;
@@ -19,47 +20,37 @@ export class ConsultationsComponent implements OnInit {
   tableSizes: any = [10, 20, 50, 100];
   totalCount: number = 0;
 
-  constructor(private dataManager: DataManager, private toaster: Toaster) {}
-
-  ngOnInit(): void {
-    this.getHospitals();
+  constructor(
+    private dataManager: DataManager,
+    private toaster: Toaster,
+    private localStorage: LocalStorageService
+  ) {
+    this.userData = this.localStorage.getData('user-data')[0];
+    this.userType = this.userData.Role;
   }
 
-  getHospitals() {
+  ngOnInit(): void {
+    this.getConsultations();
+  }
+
+  getConsultations() {
+    let url =
+      this.userData.Role == 'doctor'
+        ? AppConfig.LIST_CONSULTATIONS_DOCTOR
+        : AppConfig.LIST_CONSULTATIONS_USER;
     this.dataManager
-      .getHospitals(
-        AppConfig.HOSPITAL_LIST + `?page=${this.page}&pageSize=${this.pageSize}`
-      )
-      .subscribe(
-        (data) => {
-          if (data.status) {
-            this.hospitals = data.response[0].hospitals;
-            this.searchHospitalsList = data.response[0].hospitals;
-            this.totalCount = data.response[0].total;
-          } else {
-            this.toaster.showToastMessage(data.errorMessage, '', 'error');
-          }
-        },
-        (error) => {}
-      );
+      .APIGenericGetMethod(url + `Email=${this.userData.Email}`)
+      .subscribe((data) => {
+        if (data['status']) {
+          this.consultations = data.response;
+        }
+      });
   }
 
   // pagination related block, this goes to updated pagination component
   getPaginationData(data: any) {
     this.page = data.page;
     this.pageSize = data.pageSize;
-    this.getHospitals();
+    this.getConsultations();
   } // ends of function
-
-  searchHospitals() {
-    if (this.hospitalSearch == '') {
-      this.getHospitals();
-    } else {
-      this.searchHospitalsList = this.hospitals.filter((each: any) => {
-        return each.HospitalName.toLowerCase().includes(
-          this.hospitalSearch.toLowerCase()
-        );
-      });
-    }
-  }
 }
