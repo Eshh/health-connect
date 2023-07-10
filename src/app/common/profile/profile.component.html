@@ -3,42 +3,66 @@
 
     <button routerLink="/edit-profile" class="editBtn d-flex ml-auto">Edit<i class="far fa-edit"></i></button>
   </div>
-  <div class="d-flex profileBlock flex-wrap pt-5">
-    <div class="d-flex flex-column commonDetails mr-5">
-      <div class="d-flex align-items-center position-relative">
+  <div class="d-flex profileBlock flex-wrap pt-5 justify-content-center">
+    <div class="d-flex flex-column commonDetails">
+      <div class="d-flex align-items-center position-relative mx-auto flex-column">
         <div class="profileBlockImage">
           <img src="../../../assets/images/doctor.png" alt="" class="doctorImg">
         </div>
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column align-items-center">
           <span>
             <h3>{{userData.Name | titlecase}}</h3>
           </span>
           <span>{{userData.Specalization || 'User'}}</span>
         </div>
       </div>
-      <span> <span>
+      <!-- <span>
+        <span>
           Gender:
         </span>
         {{userData.Gender}}
-      </span>
-      <span>
+      </span> -->
+
+      <div class="d-flex flex-column">
         <span>DOB:</span>
-        {{userData.DOB | date}}
-      </span>
-      <span>
+        <span class="d-flex align-items-center">
+          <i class="fas fa-birthday-cake fa-2x mr-1"></i>
+          {{userData.DOB | date}}
+        </span>
+      </div>
+      <div class="mb-4"></div>
+      <div class="d-flex flex-column">
         <span>Mail:</span>
-        {{userData.Email}}
-      </span>
-      <span><span>Ph No:</span>
-        {{userData.Mobile}}
+        <span class="d-flex align-items-center">
+          <i class="fas fa-envelope fa-2x mr-1"></i>
+          {{userData.Email}}
+        </span>
+      </div>
+      <div class="d-flex flex-column">
+        <span>Ph No:</span>
+        <span class="d-flex align-items-center">
+          <i class="fas fa-phone fa-2x mr-1"></i>
+          {{userData.Mobile}}
+        </span>
+      </div>
+      <div class="mb-4"></div>
 
-      </span>
-      <span><span>Address:</span>
-        {{userData.Address}}
+      <div class="d-flex flex-column">
+        <span>Address:</span>
+        <span class="d-flex align-items-center">
+          <i class="fas fa-address-card fa-2x mr-1"></i>
+          {{userData.Address}}
+        </span>
+      </div>
+      <div class="d-flex flex-column">
+        <span>Postcode:</span>
+        <span class="d-flex align-items-center">
+          <i class="fas fa-truck fa-2x mr-1"></i>
+          {{userData.Postcode}}
+        </span>
+      </div>
+      <span>
 
-      </span>
-      <span><span>Postcode:</span>
-        {{userData.Postcode}}
 
       </span>
       <!-- <span><span>password:</span>
