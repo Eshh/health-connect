@@ -354,6 +354,18 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover { opacity:0.15
   border: 2px solid var(--accent);
   margin: 25px 0;
 }
+.cancelBtn{
+  background-color: #000;
+  width: fit-content;
+  color: var(--color-primary-100);
+  padding: 5px 10px;
+  border-radius: .2em;
+  cursor: pointer;
+}
+.cancelBtn i{
+  margin-right: 5px;
+  font-size: 16px;
+}
 @media (max-width: 730px) {
   .container .cover {
     display: none;

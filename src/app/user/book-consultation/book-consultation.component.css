@@ -37,3 +37,62 @@
 h3{
     color: var(--color-primary-300);
 }
+.detailed_viewPopup{
+    max-width: 60%;
+    background-color: var(--color-primary-100);
+    border-radius: 16px;
+    padding: 25px;
+}
+.detailed_viewPopup button{
+    padding:5px 20px;
+    margin-left: 15px;
+    background-color: var(--color-primary-500);
+    color: white;
+    /* color: var(--color-black); */
+    border: none;
+    outline: transparent;
+}
+.detailed_viewPopup button.cancel{
+    /* background-color: var(--color-primary-100); */
+    background-color: white;
+    border: 1px solid var(--color-primary-500);
+    color: var(--accent);
+}
+.detailed_viewPopup h4{
+    color: var(--color-primary-500);
+    
+}
+.detailedDetails{
+    background-color:dimgray;
+    color: white;
+    margin: 20px auto 30px;
+    border-radius: 0.3em;
+    padding: 15px;
+    max-width: 80%;
+    text-align: left;
+    
+}
+.detailedDetails div{
+    margin-bottom: 10px;
+}
+.detailedDetails div span:nth-child(1){
+    color: var(--color-primary-300);
+    margin-right: 10px;
+    font-weight: 300;
+}
+.detailedDetails div span:nth-child(2){
+    color: cyan;
+    font-weight: 500;
+}
+.docDetails div span:nth-child(1){
+    color: gray;
+    margin-right: 5px;
+}
+.docDetails div span:nth-child(2){
+    color: peru;
+}
+
+.availableDocInfo h4{
+    font-weight: 600;
+    color: teal;
+}

@@ -58,6 +58,7 @@
     object-fit: cover;
     border-radius: 50%;
     background-color: azure;
+    position: relative;
 }
 .profileBlockImage img{
     width: inherit;
@@ -75,6 +76,19 @@ h3 {
   }
 .fas{
     color: var(--color-primary);
+}
+.profileBlockImage .fa-user{
+    font-size: 62px;
+    color: darkseagreen;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
+    border: 6px solid white;
+    border-radius: 50%;
+    filter: drop-shadow(2px 4px 6px black);
 }
 .commonDetails>div{
     background-color: aliceblue;
