@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
     email: new FormControl(),
     phone: new FormControl(),
     address: new FormControl(),
-    postcode: new FormControl(),
+    // postcode: new FormControl(),
     password: new FormControl(),
     confirmPassword: new FormControl(),
   });
@@ -63,7 +63,7 @@ export class SignupComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         phone: ['', [Validators.required, Validators.minLength(3)]],
         address: ['', [Validators.required]],
-        postcode: ['', [Validators.required]],
+        // postcode: ['', [Validators.required]],
         password: ['', [Validators.required]],
         confirmPassword: ['', [Validators.required]],
       });
@@ -106,7 +106,7 @@ export class SignupComponent implements OnInit {
         Email: fB.email.value,
         Mobile: fB.phone.value,
         Address: fB.address.value,
-        Postcode: fB.postcode.value,
+        Postcode: '',
         Password: fB.password.value,
         Role: 'user',
       };

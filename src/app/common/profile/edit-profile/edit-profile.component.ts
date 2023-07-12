@@ -29,7 +29,7 @@ export class EditProfileComponent implements OnInit {
     email: new FormControl(),
     phone: new FormControl(),
     address: new FormControl(),
-    postcode: new FormControl(),
+    // postcode: new FormControl(),
     password: new FormControl(),
     confirmPassword: new FormControl(),
   });
@@ -73,7 +73,7 @@ export class EditProfileComponent implements OnInit {
         email: [d.Email, [Validators.required, Validators.email]],
         phone: [d.Mobile, [Validators.required, Validators.minLength(3)]],
         address: [d.Address, [Validators.required]],
-        postcode: [d.Postcode, [Validators.required]],
+        // postcode: [d.Postcode, [Validators.required]],
         password: ['', []],
         confirmPassword: ['', []],
       });
@@ -115,7 +115,7 @@ export class EditProfileComponent implements OnInit {
         Email: fB.email.value,
         Mobile: fB.phone.value,
         Address: fB.address.value,
-        Postcode: fB.postcode.value,
+        Postcode: '',
         Role: 'user',
       };
       if (fB.password.value != '') {
