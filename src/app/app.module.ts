@@ -15,7 +15,7 @@ import { HospitalListComponent } from './user/hospital-list/hospital-list.compon
 import { BookConsultationComponent } from './user/book-consultation/book-consultation.component';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { SlotChangeComponent } from './doctor/slot-change/slot-change.component';
-import { PrescriptionsComponent } from './doctor/prescriptions/prescriptions.component';
+import { PrescriptionsComponent } from './common/prescriptions/prescriptions.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { TopbarComponent } from './common/topbar/topbar.component';
 import { WindowRef } from './services/window.service';

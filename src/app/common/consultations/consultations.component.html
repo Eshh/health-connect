@@ -51,12 +51,14 @@
               |date:'shortTime'}}</td>
             <td>
               <div class="d-flex">
-                <button class="button border-0 mr-1"><i class="fa fa-eye" aria-hidden="true"></i> View</button>
-                <!-- <button class="bg-transparent border-0"><i class="fa fa-download" aria-hidden="true"></i></button> -->
+                <button (click)="goToPrescriptions('view')" class="button border-0 mr-1"><i class="fa fa-eye"
+                    aria-hidden="true"></i> View</button>
               </div>
               <div>
-                <!-- <button class="button"><i class="fa fa-plus" aria-hidden="true"></i> Add</button> -->
-                <span class="text-danger">NA</span>
+                <button *ngIf="userType == 'doctor'" (click)="goToPrescriptions('add')" class="button"><i
+                    class="fa fa-plus" aria-hidden="true"></i>
+                  Add</button>
+                <span *ngIf="userType == 'user'" class="text-danger">NA</span>
               </div>
 
             </td>

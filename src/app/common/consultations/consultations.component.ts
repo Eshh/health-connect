@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppConfig } from 'src/app/app-config';
 import { DataManager } from 'src/app/services/dataManager.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
@@ -23,7 +24,8 @@ export class ConsultationsComponent implements OnInit {
   constructor(
     private dataManager: DataManager,
     private toaster: Toaster,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private router: Router
   ) {
     this.userData = this.localStorage.getData('user-data')[0];
     this.userType = this.userData.Role;
@@ -39,10 +41,14 @@ export class ConsultationsComponent implements OnInit {
         ? AppConfig.LIST_CONSULTATIONS_DOCTOR
         : AppConfig.LIST_CONSULTATIONS_USER;
     this.dataManager
-      .APIGenericGetMethod(url + `Email=${this.userData.Email}`)
+      .APIGenericGetMethod(
+        url +
+          `Email=${this.userData.Email}&page=${this.page}&pageSize=${this.pageSize}`
+      )
       .subscribe((data) => {
         if (data['status']) {
           this.consultations = data.response;
+          this.totalCount = data.total;
         }
       });
   }
@@ -53,4 +59,8 @@ export class ConsultationsComponent implements OnInit {
     this.pageSize = data.pageSize;
     this.getConsultations();
   } // ends of function
+
+  goToPrescriptions(type: string) {
+    this.router.navigate([`${type}/prescription`]);
+  }
 }

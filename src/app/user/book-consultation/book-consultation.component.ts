@@ -102,6 +102,7 @@ export class BookConsultationComponent implements OnInit {
         StartTime: this.selectedSlot.slot.StartTime,
         EndTime: this.selectedSlot.slot.EndTime,
       },
+      Prescription: '-1',
     };
     console.log(body);
     return body;
