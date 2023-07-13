@@ -21,9 +21,8 @@ export class AuthService {
   ) {}
 
   signIn(body: any) {
-    this.dataManager
-      .authorization(AppConfig.SIGN_IN_API, body)
-      .subscribe((data) => {
+    this.dataManager.authorization(AppConfig.SIGN_IN_API, body).subscribe(
+      (data) => {
         if (data.status) {
           this.localStorage.setData('user-data', data.response);
           this.localStorage.setItem('isLoggedIn', true);
@@ -32,7 +31,15 @@ export class AuthService {
         } else {
           this.toaster.showToastMessage(data.errorMessage, '', 'error');
         }
-      });
+      },
+      (error) => {
+        this.toaster.showToastMessage(
+          'Please check the details provided',
+          '',
+          'error'
+        );
+      }
+    );
   }
 
   signOut() {

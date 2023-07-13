@@ -109,6 +109,7 @@ export class SignupComponent implements OnInit {
         Postcode: '',
         Password: fB.password.value,
         Role: 'user',
+        Location: [],
       };
       if (this.isDoctor) {
         body['Qualification'] = fD.qualification.value;

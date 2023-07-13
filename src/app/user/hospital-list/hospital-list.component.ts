@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { AppConfig } from 'src/app/app-config';
 import { DataManager } from 'src/app/services/dataManager.service';
+import { GeoLocationService } from 'src/app/services/geo-location.service';
 import { Toaster } from 'src/app/utils/toast-util';
 
 @Component({
@@ -26,12 +27,14 @@ export class HospitalListComponent implements OnInit {
   constructor(
     private dataManager: DataManager,
     private toaster: Toaster,
-    private router: Router
+    private router: Router,
+    private geoLocation: GeoLocationService
   ) {}
 
   ngOnInit(): void {
     this.showSpinner = true;
     this.getHospitals();
+    this.test();
   }
   triggerSubmit(hospital: any) {
     console.log(hospital);
@@ -76,5 +79,16 @@ export class HospitalListComponent implements OnInit {
         );
       });
     }
+  }
+
+  test() {
+    // 51.53278270120654, 0.0526492961947593
+    // 51.53292 , 0.05802;
+    this.geoLocation.calculateDistanceBetweenCoordinates(
+      51.53278270120654,
+      0.0526492961947593,
+      51.53292,
+      0.05802
+    );
   }
 }

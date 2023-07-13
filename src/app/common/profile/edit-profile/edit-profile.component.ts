@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppConfig } from 'src/app/app-config';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataManager } from 'src/app/services/dataManager.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { Toaster } from 'src/app/utils/toast-util';
@@ -46,12 +47,18 @@ export class EditProfileComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dataManager: DataManager,
     private toaster: Toaster,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.userData = this.localStorage.getData('user-data')[0];
   }
 
   ngOnInit(): void {
+    this.toaster.showToastMessage(
+      'You will have to signin again If profile is updated',
+      '',
+      'eeee'
+    );
     this.showSpinner = true;
     setTimeout(() => {
       this.showSpinner = false;
@@ -115,6 +122,7 @@ export class EditProfileComponent implements OnInit {
         Email: fB.email.value,
         Mobile: fB.phone.value,
         Address: fB.address.value,
+        Location: this.localStorage.getItem('user-data')[0].Location,
         Postcode: '',
         Role: 'user',
       };
@@ -134,14 +142,13 @@ export class EditProfileComponent implements OnInit {
       this.dataManager.authorization(url, body).subscribe((data) => {
         if (data.status) {
           this.toaster.showToastMessage(
-            'Profile updated successfully',
+            'Profile updated successfully,Redirecting to Sign-in page',
             '',
             'success'
           );
-          this.localStorage.setData('user-data', [body]);
           setTimeout(() => {
             this.showSpinner = false;
-            this.router.navigate(['profile']);
+            this.authService.signOut();
           }, 2000);
         } else {
           this.showSpinner = false;
