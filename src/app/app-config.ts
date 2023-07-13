@@ -21,6 +21,8 @@ export class AppConfig {
   public static BOOK_CONSULTATION = '';
   public static LIST_CONSULTATIONS_USER = '';
   public static LIST_CONSULTATIONS_DOCTOR = '';
+  public static ADD_PRESCRIPTION = '';
+  public static GET_PRESCRIPTIONS = '';
 
   constructor() {}
   public static setConfiguration() {
@@ -37,6 +39,8 @@ export class AppConfig {
       AppConfig.BASE_API_URL + 'get/consultations/user?';
     AppConfig.LIST_CONSULTATIONS_DOCTOR =
       AppConfig.BASE_API_URL + 'get/consultations/doctor?';
+    AppConfig.ADD_PRESCRIPTION = AppConfig.BASE_API_URL + 'add/prescription';
+    AppConfig.GET_PRESCRIPTIONS = AppConfig.BASE_API_URL + 'get/prescriptions/';
   }
 }
 AppConfig.setConfiguration();

@@ -60,7 +60,7 @@ export class ConsultationsComponent implements OnInit {
     this.getConsultations();
   } // ends of function
 
-  goToPrescriptions(type: string) {
-    this.router.navigate([`${type}/prescription`]);
+  goToPrescriptions(type: string, consultation: any) {
+    this.router.navigate([`${consultation._id}/prescription`]);
   }
 }

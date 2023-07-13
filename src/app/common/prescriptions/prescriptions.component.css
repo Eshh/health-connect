@@ -1,9 +1,15 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400..700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400..700&display=swap");
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { font: normal 16px/1.5 sans-serif; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font: normal 16px/1.5 sans-serif;
+}
 body {
   background: var(--color-neutral-100);
   color: var(--color-black);
@@ -18,11 +24,13 @@ h2 {
 }
 a {
   color: var(--color-primary);
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
 }
-a:hover { color: var(--color-primary-500); }
+a:hover {
+  color: var(--color-primary-500);
+}
 /*
   main
 */
@@ -41,7 +49,9 @@ main .content {
   width: 100%;
 }
 
-.main-header { margin: 0 0 2.5rem; }
+.main-header {
+  margin: 0 0 2.5rem;
+}
 .main-header.grid {
   align-items: center;
   display: grid;
@@ -56,7 +66,7 @@ main .content {
 .button {
   background: var(--color-primary);
   border: 0;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   color: var(--color-white);
   cursor: pointer;
   font: inherit;
@@ -68,11 +78,15 @@ main .content {
   /* grid */
   align-items: center;
   display: grid;
-  gap: .75rem;
+  gap: 0.75rem;
   grid-auto-flow: column;
 }
-.button:hover { background: var(--color-primary-500); }
-.button i { font-size: 1.25rem; }
+.button:hover {
+  background: var(--color-primary-500);
+}
+.button i {
+  font-size: 1.25rem;
+}
 
 .button.icon {
   border-radius: 50%;
@@ -93,7 +107,7 @@ table .button {
   line-height: 2rem;
   padding: 0 1.2em;
 }
-table .button i{
+table .button i {
   font-size: 14px;
 }
 .button.link {
@@ -102,8 +116,12 @@ table .button i{
   justify-content: start;
   padding: 0;
 }
-.button.link:hover { color: var(--color-primary-500); }
-.button.link i { font-size: inherit; }
+.button.link:hover {
+  color: var(--color-primary-500);
+}
+.button.link i {
+  font-size: inherit;
+}
 
 /*
   cards
@@ -111,7 +129,7 @@ table .button i{
 
 .card {
   border: 1px solid var(--color-neutral);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   background: var(--color-white);
   margin: 0 0 2.5rem;
   overflow: auto;
@@ -127,7 +145,7 @@ table .button i{
 .checkbox {
   background: var(--color-white);
   border: 1px solid var(--color-neutral);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   cursor: pointer;
   height: 1.5rem;
   position: relative;
@@ -145,12 +163,12 @@ table .button i{
 .checkbox .checkmark::after {
   background: var(--color-primary);
   border: 0;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   color: var(--color-white);
   content: "\f00c";
   display: block;
   font-family: "Font Awesome 6 Free";
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: 900;
   height: 1.5rem;
   width: 1.5rem;
@@ -165,14 +183,20 @@ table .button i{
   left: -1px;
   top: -1px;
 }
-.checkbox .checkmark.minus::after { content: "\f068"; }
-.checkbox .checkmark { display: none; }
-.checkbox input[type="checkbox"]:checked ~ .checkmark { display: block; }
+.checkbox .checkmark.minus::after {
+  content: "\f068";
+}
+.checkbox .checkmark {
+  display: none;
+}
+.checkbox input[type="checkbox"]:checked ~ .checkmark {
+  display: block;
+}
 
 .select {
   background: var(--color-white);
   border: 1px solid var(--color-neutral);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   color: var(--color-black);
   display: inline-block;
   font: inherit;
@@ -213,7 +237,7 @@ input[type="number"],
 input[type="text"] {
   background: var(--color-white);
   border: 1px solid var(--color-neutral);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   color: var(--color-black);
   display: inline-block;
   font: inherit;
@@ -235,16 +259,42 @@ input[type="text"] {
   margin: 2.5rem 0;
 }
 
-.color { border-radius: 50%; height: 4rem; width: 4rem; }
-.color.black { background: var(--color-black); }
-.color.neutral-100 { background: var(--color-neutral-100); border: 1px solid var(--color-neutral); }
-.color.neutral { background: var(--color-neutral); }
-.color.primary-100 { background: var(--color-primary-100); border: 1px solid var(--color-primary-300); }
-.color.primary-200 { background: var(--color-primary-200); border: 1px solid var(--color-primary-300); }
-.color.primary-300 { background: var(--color-primary-300); }
-.color.primary { background: var(--color-primary); }
-.color.primary-500 { background: var(--color-primary-500); }
-.color.white { background: var(--color-white); border: 1px solid var(--color-neutral); }
+.color {
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+}
+.color.black {
+  background: var(--color-black);
+}
+.color.neutral-100 {
+  background: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral);
+}
+.color.neutral {
+  background: var(--color-neutral);
+}
+.color.primary-100 {
+  background: var(--color-primary-100);
+  border: 1px solid var(--color-primary-300);
+}
+.color.primary-200 {
+  background: var(--color-primary-200);
+  border: 1px solid var(--color-primary-300);
+}
+.color.primary-300 {
+  background: var(--color-primary-300);
+}
+.color.primary {
+  background: var(--color-primary);
+}
+.color.primary-500 {
+  background: var(--color-primary-500);
+}
+.color.white {
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral);
+}
 
 /*
   paging
@@ -253,36 +303,57 @@ input[type="text"] {
 .paging.grid {
   align-items: center;
   display: grid;
-  gap: .75rem;
+  gap: 0.75rem;
   grid-auto-flow: column;
 }
 
-.paging span { margin: 0 .75rem; }
+.paging span {
+  margin: 0 0.75rem;
+}
 
 /*
   table
 */
 
-table { border-collapse: collapse; width: 100%; }
-td, th {
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td,
+th {
   border-bottom: 1px solid var(--color-primary-300);
   font-size: 1rem;
   text-align: left;
   white-space: nowrap;
 }
-th { padding: 1.5rem 1rem; }
-td { padding: 1rem; }
+th {
+  padding: 1.5rem 1rem;
+}
+td {
+  padding: 1rem;
+}
 
-tbody tr { cursor: pointer; }
-tbody tr.selected td { background: var(--color-primary-200); }
+tbody tr {
+  cursor: pointer;
+}
+tbody tr.selected td {
+  background: var(--color-primary-200);
+}
 tbody tr:hover:not(.selected) td,
 tbody tr.hover:not(.selected) td {
   background: var(--color-primary-100);
 }
 
-.table-footer, .table-header { font-size: .875rem; }
-.table-footer { margin: -1.5rem 0 0; }
-.table-header { margin: 0 0 1rem; }
+.table-footer,
+.table-header {
+  font-size: 0.875rem;
+}
+.table-footer {
+  margin: -1.5rem 0 0;
+}
+.table-header {
+  margin: 0 0 1rem;
+}
 
 .table-footer.grid,
 .table-header.grid {
@@ -292,87 +363,89 @@ tbody tr.hover:not(.selected) td {
   justify-content: space-between;
 }
 
-
-
 /* change slots */
-.changeSlots{
-    width: 100%;
-    display: flex;
-    background-color: var(--color-primary-200);
-    border-radius: 0.3em 0.3em 0 0;
+.changeSlots {
+  width: 100%;
+  display: flex;
+  background-color: var(--color-primary-200);
+  border-radius: 0.3em 0.3em 0 0;
 }
-.changeSlots .weekDays{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-evenly;
-    background-color: currentColor;
+.changeSlots .weekDays {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  background-color: currentColor;
 }
-.activeDay{
-    font-size: 22px;
-    border: 2px solid var(--color-black);
-    border-radius: .2em;
-    background-color: aliceblue;
-    color: var(--color-primary-500) !important;
+.activeDay {
+  font-size: 22px;
+  border: 2px solid var(--color-black);
+  border-radius: 0.2em;
+  background-color: aliceblue;
+  color: var(--color-primary-500) !important;
 }
-.changeSlots .weekDays>div {
-    height: 50px;
-    width: 100px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: var(--color-primary-300);
-    
+.changeSlots .weekDays > div {
+  height: 50px;
+  width: 100px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--color-primary-300);
 }
-.changeSlots .weekDays>div:hover{
-    transform: translateY(-5%);
-    transition:.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background-color: var(--color-primary-100);
-    color: var(--color-primary-500);
-
+.changeSlots .weekDays > div:hover {
+  transform: translateY(-5%);
+  transition: 0.5s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-500);
 }
-.timeSlotsBlock{
-    border: 1px solid var(--color-neutral);
-    padding: 30px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
+.timeSlotsBlock {
+  border: 1px solid var(--color-neutral);
+  padding: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
 }
-.timeSlotsBlock .timeSlots{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 700px;
-    justify-content: center;
+.timeSlotsBlock .timeSlots {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 700px;
+  justify-content: center;
 }
-.timeSlotsBlock .timeSlots div{
-    width: 100px;
-    height: auto;
-    padding: 10px;
-    border: 1px solid var(--color-primary-300);
-    margin-right: 10px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    text-align: center;
+.timeSlotsBlock .timeSlots div {
+  width: 100px;
+  height: auto;
+  padding: 10px;
+  border: 1px solid var(--color-primary-300);
+  margin-right: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-align: center;
 }
-.timeSlotsBlock .timeSlots .activeSlot{
-    background-color: var(--color-primary-500);
-    color: #fff;
+.timeSlotsBlock .timeSlots .activeSlot {
+  background-color: var(--color-primary-500);
+  color: #fff;
 }
-.snoinput{
-    max-width: 100px;
+.snoinput {
+  max-width: 100px;
 }
 .prxHeader > div {
-    width:100%;
-    margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 20px;
 }
-@media(max-width:1440px){
-    input[type="number"], input[type="text"]{
-        max-height: 2.5rem;
-    }
-    .button{
-        height: 2.5rem;
+@media (max-width: 1440px) {
+  input[type="number"],
+  input[type="text"] {
+    max-height: 2.5rem;
+  }
+  .button {
+    height: 2.5rem;
     line-height: 2.5rem;
-    }
+  }
+}
+
+.disabled_button {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

@@ -50,16 +50,16 @@
             <td>{{each.BookedSlot.StartTime | date:'MMM d, y, h:mm a'}} - {{each.BookedSlot.EndTime
               |date:'shortTime'}}</td>
             <td>
-              <div class="d-flex">
-                <button (click)="goToPrescriptions('view')" class="button border-0 mr-1"><i class="fa fa-eye"
-                    aria-hidden="true"></i> View</button>
+              <div *ngIf="true" class="d-flex">
+                <button (click)="goToPrescriptions('view',each)" class="button border-0 mr-1"><i
+                    class="fa fa-arrow-right" aria-hidden="true"></i> View</button>
               </div>
-              <div>
-                <button *ngIf="userType == 'doctor'" (click)="goToPrescriptions('add')" class="button"><i
+              <!-- <div *ngIf="each.Prescription == '-1'">
+                <button *ngIf="userType == 'doctor'" (click)="goToPrescriptions('add',each)" class="button"><i
                     class="fa fa-plus" aria-hidden="true"></i>
                   Add</button>
                 <span *ngIf="userType == 'user'" class="text-danger">NA</span>
-              </div>
+              </div> -->
 
             </td>
 

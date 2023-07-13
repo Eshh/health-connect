@@ -67,7 +67,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: ':type/prescription',
+    path: ':consultationId/prescription',
     component: PrescriptionsComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],

@@ -1,109 +1,131 @@
 <main>
-    <div class="content">
-        <section class="main-header grid">
-            <h2>Add Prescription</h2>
-        </section>
+  <div class="content">
+    <section *ngIf="mode == 'add' && userType == 'doctor'" class="main-header grid">
+      <h2>Add Prescription</h2>
+    </section>
+    <form [formGroup]="pxFormGroup">
+      <div class="card" *ngIf="mode == 'add' && userType == 'doctor'">
+        <table>
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Medicine</th>
+              <th>Dosage</th>
+              <th>Duration</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container [formArrayName]="'pxFormArray'">
+              <ng-container *ngFor="
+                                        let each of pxFormGroup.get('pxFormArray')
+                                          .controls;
+                                        let i = index
+                                      ">
+                <tr [formGroupName]="i">
+                  <td>{{i+1}}</td>
+                  <td><input formControlName="medicine" type="text" name="" id="" placeholder=""></td>
+                  <td>
+                    <div class="">
+                      <input formControlName="dosageMorning" type="checkbox" id="morning" name="dosageMorning"
+                        value="morning">
+                      <label class="ml-1 mr-2"> Morning</label><br />
+                      <input formControlName="dosageNoon" type="checkbox" id="afternoon" name="dosageNoon"
+                        value="afternoon">
+                      <label class="ml-1 mr-2"> Afternoon</label><br />
+                      <input formControlName="dosageNight" type="checkbox" id="night" name="dosageNight" value="night">
+                      <label class="ml-1 mr-2"> Night</label><br />
+                    </div>
+                  </td>
+                  <td><input formControlName="duration" type="text" name="" id="" placeholder=""></td>
+                  <td><textarea formControlName="remarks" name="" id="" cols="10" rows="2"></textarea></td>
 
-        <div class="card">
-            <table>
-                <thead>
-                    <tr>
-                        <th>S.No</th>
-                        <th>Medicine Name</th>
-                        <th>Dosage</th>
-                        <th>Duration</th>
-                        <th>Remarks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="number" placeholder="S.No" class="snoinput" /></td>
-                        <td><input type="text" name="" id="" placeholder="Enter Medicine"></td>
-                        <td>
-                            <div class="">
-                                <input type="checkbox" id="morning" name="morning" value="Bike">
-                                <label for="morning" class="ml-1 mr-2"> Morning</label><br />
-                                <input type="checkbox" id="afternoon" name="afternoon" value="Car">
-                                <label for="afternoon" class="ml-1 mr-2"> Afternoon</label><br />
-                                <input type="checkbox" id="night" name="night" value="Boat">
-                                <label for="night" class="ml-1 mr-2"> Night</label><br />
-                            </div>
-                        </td>
-                        <td><input type="text" name="" id="" placeholder="Enter Duration"></td>
-                        <td><textarea name="" id="" cols="10" rows="2"></textarea></td>
+                </tr>
+              </ng-container>
+            </ng-container>
+          </tbody>
+        </table>
+        <hr>
+        <div class="d-flex w-100 justify-content-end mt-3">
 
-                    </tr>
-                </tbody>
-            </table>
-            <hr>
-            <div class="d-flex w-100 justify-content-end mt-3">
-
-                <button class="button"><i class="fa-solid fa-plus"></i>Add</button>
-                <button class="button ml-1">Save</button>
-            </div>
+          <button (click)="addPrescription()" class="button"><i class="fa-solid fa-plus"></i>Add</button>
+          <button (click)="postApi()" *ngIf="!addPxMode" class="button ml-1">Save</button>
+          <button (click)="savePrescription(prescriptions.length - 1)" *ngIf="addPxMode" class="button ml-1"
+            [ngClass]="[!pxFormGroup.get('pxFormArray').controls[pxFormGroup.get('pxFormArray').controls.length-1].valid ? 'disabled_button':'']">Confirm</button>
         </div>
-        <section class="main-header grid">
-            <h2>Prescription</h2>
-        </section>
-        <div class="card">
-            <div class="d-flex prxHeader">
-                <div class="d-flex flex-column">
-                    <span>Dr. DurgaRamesh</span>
-                    <span>M.B.B.S</span>
-                    <span>Mob. No.9573591229</span>
-                </div>
-                <div class="d-flex flex-column align-items-center justify-content-center">
-                    <span>
-                        <img src="assets/images/healthConnect.png" alt="">
-                    </span>
-                    <span>health Connect</span>
-                </div>
-                <div class="d-flex flex-column">
-                    <span>Near --</span>
-                    <span>mail:</span>
-                    <span>Timings: 9 AM - 5 PM</span>
-                </div>
-            </div>
-            <hr>
-            <div class="my-3 d-flex justify-content-between">
-                <div class="d-flex flex-column">
-                    <span>Patient ID: 111 | Name: xyz| Gender: M /30 Yrs</span>
-                    <span>Temp:55 | BP: 44</span>
-                    <span></span>
-                    <span>Adddress:</span>
-                </div>
-                <div> Date: 14th July 2023</div>
-            </div>
-            ℞
-            <hr>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Medicine Name</th>
-                        <th>Dosage</th>
-                        <th>Duration</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1) Azithromycine</td>
-                        <td>
-                            <div class="">Morning
-                            </div>
-                        </td>
-                        <td>10 Days</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="mt-1">Remarks: Consume it Day by Day and Avoid spicy and oily food.</div>
-            <div class="mt-5">
-                <div class="d-flex align-items-end flex-column">
-                    <span>Dr. Durgaramesh</span>
-                    <span>M.B.B.S</span>
-                </div>
-            </div>
-
+      </div>
+    </form>
+    <section *ngIf="mode == 'view'" class="main-header grid">
+      <h2>Prescription</h2>
+    </section>
+    <div *ngIf="mode == 'view'" class="card">
+      <div class="d-flex prxHeader">
+        <div class="d-flex flex-column">
+          <span>{{viewPrescriptionData}}</span>
+          <span>M.B.B.S</span>
+          <span>Mob. No.9573591229</span>
         </div>
+        <div class="d-flex flex-column align-items-center justify-content-center">
+          <span>
+            <img src="assets/images/healthConnect.png" alt="">
+          </span>
+          <span>health Connect</span>
+        </div>
+        <div class="d-flex flex-column">
+          <span>Near --</span>
+          <span>mail:</span>
+          <span>Timings: 9 AM - 5 PM</span>
+        </div>
+      </div>
+      <hr>
+      <div class="my-3 d-flex justify-content-between">
+        <div class="d-flex flex-column">
+          <span>Patient ID: 111 | Name: xyz| Gender: M /30 Yrs</span>
+          <span>Temp:55 | BP: 44</span>
+          <span></span>
+          <span>Adddress:</span>
+        </div>
+        <div> Date: 14th July 2023</div>
+      </div>
+      ℞
+      <hr>
+      <table>
+        <thead>
+          <tr>
+            <th>Medicine Name</th>
+            <th>Dosage</th>
+            <th>Duration</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let drug of viewPrescriptionData.Drugs;let i =index">
+            <td>{{i+1}}. {{drug.DrugName}}</td>
+            <td>
+              <div *ngIf="drug.Dosage.Morning" class="">Morning
+              </div>
+              <div *ngIf="drug.Dosage.Afternoon" class="">Afternoon
+              </div>
+              <div *ngIf="drug.Dosage.Night" class="">Night
+              </div>
+            </td>
+            <td>{{drug.Days}}</td>
+            <td class="mt-1">Remarks: {{drug.Comments}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="mt-5">
+        <div class="d-flex align-items-end flex-column">
+          <span>Dr. Durgaramesh</span>
+          <span>M.B.B.S</span>
+        </div>
+      </div>
+
     </div>
+  </div>
 </main>
+
+<div *ngIf="mode == 'add' && userType == 'user'">
+  NA
+</div>
