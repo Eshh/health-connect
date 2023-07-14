@@ -1,4 +1,9 @@
 <main>
+  <div *ngIf="showRadar" id="radar">
+    <video [loop]="true" [muted]="true" [autoplay]="true" class="video-background">
+      <source src="../../../assets/videos/radar-1.mp4">
+    </video>
+  </div>
   <div class="content">
     <section class="main-header grid">
       <h2>Hospitals List</h2>
@@ -11,17 +16,14 @@
     <section class="table-header grid">
       <div>
         <div class="select">
-          <select>
-            <option>Choose action</option>
-            <option>&lt;5km</option>
-            <option>&lt;10km</option>
-            <option>&lt;15km</option>
-            <option>&lt;20km</option>
-            <option>&gt;20km</option>
+          <select (change)="filterChange()" [(ngModel)]="distanceFilter">
+            <!-- <option>Choose action</option> -->
+            <option *ngFor="let each of distanceFilterOptions" [value]="each.value">{{each.name}}</option>
+
           </select>
         </div>
       </div>
-
+      <h5 *ngIf="distanceFilter != 'all'">Showing Hospitals within {{distanceFilter}} miles</h5>
       <div class="w-100">
         <input type="text" (keyup)="searchHospitals()" [(ngModel)]="hospitalSearch" placeholder="Search by Name">
         <i class="fa fa-search" aria-hidden="true"></i>
@@ -35,6 +37,7 @@
             <th>S.NO</th>
             <th>Hospital Name</th>
             <th>Location</th>
+            <th>Distance from your place</th>
             <th>Site</th>
             <th>Phone</th>
             <th>Action</th>
@@ -46,6 +49,8 @@
             <td>{{i+1}}</td>
             <td>{{hospital.HospitalName}}</td>
             <td>{{hospital.Address}}</td>
+            <td [title]="hospital.distanceFromUser+' miles'">{{getRoundedDistance(hospital.distanceFromUser)}} miles
+            </td>
             <td>{{hospital.Website || 'No site info available'}}</td>
             <td>{{hospital.Mobile}}</td>
             <td><button (click)="triggerSubmit(hospital)" class="button bookCbtn">Book consultation</button></td>

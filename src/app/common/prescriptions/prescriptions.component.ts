@@ -55,7 +55,7 @@ export class PrescriptionsComponent implements OnInit {
     this.dataManager
       .APIGenericGetMethod(AppConfig.GET_PRESCRIPTIONS + this.consultationI)
       .subscribe((data) => {
-        if (data.response[0]) {
+        if (Object.keys(data.response.prescriptions).length > 0) {
           this.mode = 'view';
           this.viewPrescriptionData = data.response[0];
           console.log(data);

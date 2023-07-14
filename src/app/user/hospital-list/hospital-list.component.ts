@@ -17,6 +17,16 @@ export class HospitalListComponent implements OnInit {
   hospitals: any = [];
   searchHospitalsList: any = [];
   hospitalSearch: string = '';
+  showRadar: boolean = true;
+  distanceFilter: any = 5;
+
+  distanceFilterOptions: any = [
+    { name: 'All', value: 'all' },
+    { name: '< 5miles', value: 5 },
+    { name: '< 10miles', value: 10 },
+    { name: '< 15miles', value: 15 },
+    { name: '< 20miles', value: 20 },
+  ];
 
   // pagination
   page: any = 0;
@@ -36,7 +46,15 @@ export class HospitalListComponent implements OnInit {
   ngOnInit(): void {
     this.showSpinner = true;
     this.getHospitals();
+    this.radar();
     // this.test();
+  }
+
+  radar() {
+    this.showRadar = true;
+    setTimeout(() => {
+      this.showRadar = false;
+    }, 2000);
   }
   triggerSubmit(hospital: any) {
     console.log(hospital);
@@ -61,9 +79,22 @@ export class HospitalListComponent implements OnInit {
                   l.longitude
                 );
             });
-            console.log(this.hospitals);
-            this.searchHospitalsList = data.response[0].hospitals;
-            this.totalCount = data.response[0].total;
+            if (this.distanceFilter != 'all') {
+              this.searchHospitalsList = data.response[0].hospitals.filter(
+                (each: any) => {
+                  return +each.distanceFromUser <= this.distanceFilter;
+                }
+              );
+            } else {
+              this.searchHospitalsList = this.hospitals;
+            }
+            this.totalCount = this.searchHospitalsList.length;
+
+            this.searchHospitalsList = this.searchHospitalsList.sort(
+              (a: any, b: any) => a.distanceFromUser - b.distanceFromUser
+            ); // b - a for reverse sort
+            console.log(this.searchHospitalsList, this.hospitals);
+            // this.totalCount = data.response[0].total;
             setTimeout(() => {
               this.showSpinner = false;
             }, 1000);
@@ -73,6 +104,15 @@ export class HospitalListComponent implements OnInit {
         },
         (error) => {}
       );
+  }
+
+  filterChange() {
+    this.radar();
+    this.getHospitals();
+  }
+
+  getRoundedDistance(d: any) {
+    return Math.round((d + Number.EPSILON) * 100) / 100;
   }
 
   // pagination related block, this goes to updated pagination component
