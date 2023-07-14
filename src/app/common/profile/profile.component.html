@@ -19,7 +19,7 @@
           <span class="pt-0">{{userData.Specalization || 'User'}}</span>
         </div>
       </div>
-      <div *ngIf="userData.Role == 'user'" class="d-flex flex-column doctorDetails w-100 p-3 doctorCard mb-3">
+      <div *ngIf="userData.Role == 'doctor'" class="d-flex flex-column doctorDetails w-100 p-3 doctorCard mb-3">
         <div class="d-flex">
           <span class="col-4"> <span>Qualification</span>
             {{userData.Qualification}}
