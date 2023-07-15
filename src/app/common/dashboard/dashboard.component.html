@@ -45,7 +45,7 @@
             </div> -->
       <div class="appointmentBlock">
         <div class="bookAppointmentBtn">
-          <button>☏Book appointment</button>
+          <button *ngIf="userData.Role=='user'" [routerLink]="'/hospitals'">☏Book appointment</button>
         </div>
         <div class="card-body px-0">
           <h5 class="card-title">Contact Details</h5>

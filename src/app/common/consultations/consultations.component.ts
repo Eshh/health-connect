@@ -12,8 +12,16 @@ import { Toaster } from 'src/app/utils/toast-util';
 })
 export class ConsultationsComponent implements OnInit {
   consultations: any = [];
+  filteredConsultations: any = [];
   userData: any = {};
   userType: string = '';
+  statusFilter: any = 'all';
+  statusOptions: any = [
+    { name: 'All', key: 'all' },
+    { name: 'Active', key: 'active' },
+    { name: 'Upcoming', key: 'upcoming' },
+    { name: 'Completed', key: 'completed' },
+  ];
 
   // pagination
   page: any = 0;
@@ -48,9 +56,40 @@ export class ConsultationsComponent implements OnInit {
       .subscribe((data) => {
         if (data['status']) {
           this.consultations = data.response;
+          this.consultations.forEach((each: any) => {
+            each['status'] = this.resolveStatus(each.BookedSlot);
+          });
+          this.filteredConsultations = this.consultations;
           this.totalCount = data.total;
         }
       });
+  }
+
+  filterData() {
+    this.filteredConsultations = this.consultations;
+    this.filteredConsultations = this.filteredConsultations.filter(
+      (each: any) => {
+        if (this.statusFilter != 'all') {
+          return each.status == this.statusFilter;
+        } else {
+          return true;
+        }
+      }
+    );
+  }
+
+  resolveStatus(date: any) {
+    let status = 'upcoming';
+    let { EndTime, StartTime } = date;
+    let now = new Date().getTime();
+    console.log(date);
+    if (EndTime < now) {
+      status = 'completed';
+    } else if (EndTime < now && StartTime > now) {
+      status = 'active';
+    }
+
+    return status;
   }
 
   // pagination related block, this goes to updated pagination component

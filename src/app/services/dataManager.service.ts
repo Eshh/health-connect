@@ -8,7 +8,7 @@ import { LocalStorageService } from './localStorage.service';
   providedIn: 'root',
 })
 export class DataManager {
-  token: any = null;
+  token: any = -1;
   constructor(
     private httpClient: HttpClient,
     private locaStorage: LocalStorageService

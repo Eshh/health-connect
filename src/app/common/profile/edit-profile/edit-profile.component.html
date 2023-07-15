@@ -99,7 +99,7 @@
               </div>
               <div class="input-box">
                 <i class="fas fa-address-card" aria-hidden="true"></i>
-                <input formControlName="address" type="text" placeholder="Enter your Address">
+                <input formControlName="address" type="text" placeholder="Enter your Postcode">
               </div>
               <!-- <div class="input-box">
                 <i class="fas fa-truck" aria-hidden="true"></i>
@@ -111,7 +111,7 @@
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input formControlName="confirmPassword" type="text" placeholder="Confirm password">
+                <input formControlName="confirmPassword" type="password" placeholder="Confirm password">
               </div>
             </div>
 
@@ -157,7 +157,7 @@
     <div class="d-flex flex-column align-items-center">
       <div class="button input-box submitBtn d-flex justify-content-center">
         <button [ngClass]="resolveDisability()?'':'disable-button'" [disabled]="!resolveDisability()" type="submit"
-          (click)="signUp()">Uppdate Profile details</button>
+          (click)="signUp()">Update Profile details</button>
       </div>
       <div class="text sign-up-text">Already have an account? <label for="flip"><a routerLink="/sign-in">Login
             now</a></label>

@@ -9,18 +9,13 @@
     </section>
 
     <section class="table-header grid">
-      <!-- <div>
+      <div>
         <div class="select">
-          <select>
-            <option>Choose action</option>
-            <option>&lt;5km</option>
-            <option>&lt;10km</option>
-            <option>&lt;15km</option>
-            <option>&lt;20km</option>
-            <option>&gt;20km</option>
+          <select (change)="filterData()" [(ngModel)]="statusFilter">
+            <option *ngFor="let option of statusOptions" [value]="option.key">{{option.name}}</option>
           </select>
         </div>
-      </div> -->
+      </div>
 
       <!-- <div class="w-100">
                 <input type="text" (keyup)="searchHospitals()" [(ngModel)]="hospitalSearch"
@@ -38,17 +33,19 @@
             <th>Hospital</th>
             <th>Date and time</th>
             <!-- <th>Phone</th> -->
+            <th>Status</th>
             <th>Prescription</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr *ngFor="let each of consultations;let i = index">
+          <tr *ngFor="let each of filteredConsultations;let i = index">
             <td>{{i+1}}</td>
             <td>{{userType == 'doctor'? each.User.Name : each.Doctor.Name}}</td>
             <td>{{each.Hospital.HospitalName}}</td>
             <td>{{each.BookedSlot.StartTime | date:'MMM d, y, h:mm a'}} - {{each.BookedSlot.EndTime
               |date:'shortTime'}}</td>
+            <td [class]="each.status" style="font-weight: 600;">{{each.status | titlecase}}</td>
             <td>
               <div *ngIf="true" class="d-flex">
                 <button (click)="goToPrescriptions('view',each)" class="button border-0 mr-1"><i
