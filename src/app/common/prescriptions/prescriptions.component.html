@@ -57,8 +57,9 @@
     </form>
     <section *ngIf="mode == 'view'" class="main-header grid">
       <h2>Prescription</h2>
-      <button class='print-button' printSectionId="print-section" ngxPrint [useExistingCss]="true"
-        printTitle="Health-Connect pX">Print <i class="fas fa-print"></i></button>
+      <!-- <button class='print-button' printSectionId="print-section" ngxPrint [useExistingCss]="true"
+        printTitle="Health-Connect pX">Print <i class="fas fa-print"></i></button> -->
+      <button class='print-button button'>Print <i class="fas fa-print"></i></button>
     </section>
     <div *ngIf="mode == 'view'" class="card" id="print-section">
       <div class="d-flex prxHeader">
@@ -129,8 +130,9 @@
 
     </div>
   </div>
+  <div *ngIf="mode == 'add' && userType == 'user'">
+    <div class="alert alert-danger mt-5" role="alert">
+      Prescription yet to be given!
+    </div>
+  </div>
 </main>
-
-<div *ngIf="mode == 'add' && userType == 'user'">
-  NA
-</div>

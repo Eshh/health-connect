@@ -45,7 +45,11 @@
             <td>{{each.Hospital.HospitalName}}</td>
             <td>{{each.BookedSlot.StartTime | date:'MMM d, y, h:mm a'}} - {{each.BookedSlot.EndTime
               |date:'shortTime'}}</td>
-            <td [class]="each.status" style="font-weight: 600;">{{each.status | titlecase}}</td>
+            <td [class]="each.status">
+              <div class="d-flex flex-column text-center">
+                <span>{{each.status | titlecase}}</span><span class="text-success">Join</span>
+              </div>
+            </td>
             <td>
               <div *ngIf="true" class="d-flex">
                 <button (click)="goToPrescriptions('view',each)" class="button border-0 mr-1"><i

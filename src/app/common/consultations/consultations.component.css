@@ -429,11 +429,12 @@ tbody tr.hover:not(.selected) td {
 }
 
 .upcoming {
-  color: #c2bd1f;
+  /* color: #c2bd1f; */
+  color: #ffc107;
 }
 .completed {
   color: rgb(175, 11, 11);
 }
 .active {
-  color: rgb(10, 108, 10);
+  color: var(--accent);
 }
