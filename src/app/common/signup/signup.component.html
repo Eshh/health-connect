@@ -1,9 +1,9 @@
 <div class="container">
   <div class="forms">
-    <div class="areuDoctor">
+    <div data-aos="fade-down" data-aos-duration="2000" *ngIf="confirmationBlock" class="areuDoctor">
       <h3>Are you a Doctor?</h3>
-      <button>Yes</button>
-      <button>NO</button>
+      <button (click)="isDoctor=true;buildDoctorForm()">Yes</button>
+      <button (click)="isDoctor=false;buildDoctorForm()">No</button>
     </div>
     <div class="form-content">
       <!-- <div class="login-form">
@@ -59,7 +59,9 @@
             </div>
           </form>
         </div> -->
-      <div class="signup-form">
+      <div *ngIf="!confirmationBlock" class="signup-form">
+        <div (click)="confirmationBlock = true;isDoctor = false"><i class="fas fa-arrow-left"></i>Back</div>
+
         <div class="title">Signup</div>
         <form [formGroup]="signupFormBasic">
           <div class="input-boxes signUpCols">
@@ -119,9 +121,9 @@
       <!-- Doctor form -->
       <div class="back">
         <!-- <img class="backImg" src="../../../assets/images/signup.png" alt=""> -->
-        <div class="text">
+        <!-- <div class="text">
           <h4 class="text-1 clickable" (click)="buildDoctorForm()">Are you a Doctor?</h4>
-        </div>
+        </div> -->
         <form *ngIf="isDoctor" [formGroup]=" signupFormDoctor">
           <div class="input-box">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
@@ -148,7 +150,7 @@
       </div>
     </div>
     <!-- Buttons -->
-    <div class="d-flex flex-column align-items-center form-content">
+    <div *ngIf="!confirmationBlock" class="d-flex flex-column align-items-center form-content">
       <div class="input-box d-flex justify-content-center">
         <button [ngClass]="resolveDisability()?'':'disable-button'" [disabled]="!resolveDisability()" type="submit"
           (click)="signUp()" class="button submitBtn">Submit</button>

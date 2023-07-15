@@ -38,6 +38,7 @@ export class SignupComponent implements OnInit {
 
   hospitals: any = [];
   showSpinner: boolean = false;
+  confirmationBlock: boolean = true;
   constructor(
     private formBuilder: FormBuilder,
     private toaster: Toaster,
@@ -79,7 +80,7 @@ export class SignupComponent implements OnInit {
   }
 
   buildDoctorForm() {
-    this.isDoctor = !this.isDoctor;
+    this.confirmationBlock = false;
     if (this.isDoctor) {
       this.initaiteForms('doctor');
     }
