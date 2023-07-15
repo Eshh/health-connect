@@ -23,6 +23,7 @@ export class PrescriptionsComponent implements OnInit {
   addPxMode: boolean = false;
   consultationI: any = -1;
   userType: string = '';
+  today: any = new Date();
 
   // view mode
   viewPrescriptionData: any = [];
@@ -57,8 +58,8 @@ export class PrescriptionsComponent implements OnInit {
       .subscribe((data) => {
         if (Object.keys(data.response.prescriptions).length > 0) {
           this.mode = 'view';
-          this.viewPrescriptionData = data.response[0];
-          console.log(data);
+          this.viewPrescriptionData = data.response;
+          console.log(this.viewPrescriptionData);
         } else {
           this.mode = 'add';
         }
@@ -138,11 +139,9 @@ export class PrescriptionsComponent implements OnInit {
         Comments: each.controls['remarks'].value,
       });
     });
-    console.log(body);
     return body;
   }
   getDosage(pX: any) {
-    console.log(pX);
     return {
       Morning: pX.controls.dosageMorning.value,
       Night: pX.controls.dosageNight.value,

@@ -61,31 +61,34 @@
     <div *ngIf="mode == 'view'" class="card">
       <div class="d-flex prxHeader">
         <div class="d-flex flex-column">
-          <span>{{viewPrescriptionData}}</span>
-          <span>M.B.B.S</span>
-          <span>Mob. No.9573591229</span>
+          <span>{{viewPrescriptionData.consultations[0].Doctor.Name}}</span>
+          <span>{{viewPrescriptionData.consultations[0].Doctor.Qualification}}</span>
+          <span>Phone-{{viewPrescriptionData.consultations[0].Doctor.Mobile}}</span>
         </div>
         <div class="d-flex flex-column align-items-center justify-content-center">
           <span>
             <img src="assets/images/healthConnect.png" alt="">
           </span>
-          <span>health Connect</span>
+          <span>Health Connect</span>
         </div>
         <div class="d-flex flex-column">
-          <span>Near --</span>
-          <span>mail:</span>
-          <span>Timings: 9 AM - 5 PM</span>
+          <span>{{viewPrescriptionData.consultations[0].Hospital.HospitalName}}</span>
+          <span>Phone-{{viewPrescriptionData.consultations[0].Hospital.Mobile}}</span>
+          <span>{{viewPrescriptionData.consultations[0].Hospital.Address}}</span>
+          <span>{{viewPrescriptionData.consultations[0].Hospital.Website}}</span>
         </div>
       </div>
       <hr>
       <div class="my-3 d-flex justify-content-between">
         <div class="d-flex flex-column">
-          <span>Patient ID: 111 | Name: xyz| Gender: M /30 Yrs</span>
-          <span>Temp:55 | BP: 44</span>
+          <span>Patient ID: {{viewPrescriptionData.consultations[0].User._id}} | Name:
+            {{viewPrescriptionData.consultations[0].User.Name}} | Gender:
+            {{viewPrescriptionData.consultations[0].User.Gender}}</span>
+          <span>Date of Birth:{{viewPrescriptionData.consultations[0].User.DOB | date:'longDate'}}</span>
           <span></span>
-          <span>Adddress:</span>
+          <span>Address: {{viewPrescriptionData.consultations[0].User.Address}}</span>
         </div>
-        <div> Date: 14th July 2023</div>
+        <div>Printed Date: {{today | date:'longDate'}}</div>
       </div>
       ℞
       <hr>
@@ -99,7 +102,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let drug of viewPrescriptionData.Drugs;let i =index">
+          <tr *ngFor="let drug of viewPrescriptionData.prescriptions[0].Drugs;let i =index">
             <td>{{i+1}}. {{drug.DrugName}}</td>
             <td>
               <div *ngIf="drug.Dosage.Morning" class="">Morning
@@ -117,8 +120,8 @@
 
       <div class="mt-5">
         <div class="d-flex align-items-end flex-column">
-          <span>Dr. Durgaramesh</span>
-          <span>M.B.B.S</span>
+          <span>Consultation ID:{{viewPrescriptionData.prescriptions[0].ConsultationId}}</span>
+          <span>&copy;&nbsp;Health Connect</span>
         </div>
       </div>
 
