@@ -25,6 +25,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { UpdatedPaginationComponent } from './utils/updated-pagination/updated-pagination.component';
 import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
 import { SpinnerComponent } from './utils/spinner/spinner.component';
+import { ClockComponent } from './common/digitalclock/clock.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SpinnerComponent } from './utils/spinner/spinner.component';
     TopbarComponent,
     UpdatedPaginationComponent,
     SpinnerComponent,
+    ClockComponent,
   ],
   imports: [
     BrowserModule,

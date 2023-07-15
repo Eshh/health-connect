@@ -59,7 +59,6 @@ export class PrescriptionsComponent implements OnInit {
         if (Object.keys(data.response.prescriptions).length > 0) {
           this.mode = 'view';
           this.viewPrescriptionData = data.response;
-          console.log(this.viewPrescriptionData);
         } else {
           this.mode = 'add';
         }
