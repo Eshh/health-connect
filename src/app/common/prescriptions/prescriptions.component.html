@@ -57,8 +57,9 @@
     </form>
     <section *ngIf="mode == 'view'" class="main-header grid">
       <h2>Prescription</h2>
-      <button class='print-button button' styleSheetFile="../../assets/print.css" printSectionId="print-section"
-        ngxPrint [useExistingCss]="true" printTitle="Health-Connect pX">Print <i class="fas fa-print"></i></button>
+      <button class='print-button button' previewOnly="false" [printStyle]="{}" styleSheetFile="../../assets/print.css"
+        printSectionId="print-section" ngxPrint [useExistingCss]="true" printTitle="Health-Connect pX">Print <i
+          class="fas fa-print"></i></button>
       <!-- <button class='print-button button'>Print <i class="fas fa-print"></i></button> -->
     </section>
     <div *ngIf="mode == 'view'" class="card" id="print-section">
