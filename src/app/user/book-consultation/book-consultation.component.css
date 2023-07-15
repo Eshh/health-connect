@@ -34,6 +34,10 @@
     cursor: pointer;
     font-weight: 500;
 }
+
+.timeSlots button:hover{
+    background-color: var(--accent);
+}
 h3{
     color: var(--color-primary-300);
 }
@@ -51,6 +55,9 @@ h3{
     /* color: var(--color-black); */
     border: none;
     outline: transparent;
+}
+.detailed_viewPopup button:hover.yes_btn{
+    opacity: 0.8;
 }
 .detailed_viewPopup button.cancel{
     /* background-color: var(--color-primary-100); */
