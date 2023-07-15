@@ -122,6 +122,16 @@ h3 {
 :focus-visible {
   outline: -webkit-focus-ring-color auto 0px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 @media(max-width:1440px){
   table .button{
     height: 2.5rem;

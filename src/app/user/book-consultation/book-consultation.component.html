@@ -7,6 +7,7 @@
   </div>
   <div class="doctors-info">
     <h3>Available Doctors:</h3>
+
     <div *ngFor="let doctor of doctorList;let i =index" class="availableDocInfo">
       <ng-container *ngIf="!!doctor.Slots && doctor.Slots.length > 0">
         <h4 class="mb-3">{{i+1}}.{{doctor.Name}}</h4>
@@ -31,12 +32,16 @@
                 |date:'shortTime'}}</button>
             </div>
           </ng-container>
+
+
         </div>
       </ng-container>
     </div>
   </div>
 </div>
-
+<div class="alert alert-danger mt-5 w-75 mx-auto" role="alert" *ngIf="doctorList.length <=0;">
+  No Doctor is Available!
+</div>
 <div *ngIf="showSpinner">
   <app-spinner></app-spinner>
 </div>

@@ -359,6 +359,22 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover { opacity:0.15
   border: 2px solid var(--accent);
   margin: 25px 0; */
 }
+.areuDoctor {
+  text-align: center;
+}
+.areuDoctor button{
+  background-color: var(--accent);
+  color: white;
+  padding: 0.3em 3em;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  margin: 20px;
+  border: none;
+}
+.areuDoctor button:hover{
+  background-color: var(--color-primary);
+  color: white;
+}
 @media (max-width: 730px) {
   .container .cover{
     display: none;
