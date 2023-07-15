@@ -171,14 +171,14 @@ body {
 .forms .form-content .text a {
   text-decoration: none;
 }
-.forms .form-content .text a:hover {
+/* /* .forms .form-content .text a:hover {
   text-decoration: underline;
-}
-.forms .form-content .button {
+} */
+/* .forms .form-content .button {
   color: #fff;
   margin-top: 40px;
-}
-.forms .form-content .button input {
+} */ 
+/* .forms .form-content .button input {
   color: #fff;
   background: var(--accent);
   border-radius: 6px;
@@ -188,7 +188,7 @@ body {
 }
 .forms .form-content .button input:hover {
   background: var(--accent);
-}
+} */
 .forms .form-content label {
   color: var(--accent);
   cursor: pointer;

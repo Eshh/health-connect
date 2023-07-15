@@ -48,7 +48,7 @@ a {
   border-top: 0px solid rgba(0, 0, 0, 0.125);
 }
 .pagination-dropdown {
-  max-width: 100px;
+  max-width: 80px;
   padding-inline: 10px;
   transition: all 0.3s ease;
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="17.362" height="9.85" viewBox="0 0 17.362 9.85"><path data-name="Form 1" d="m1585.593 93.838 6.564-6.517a1.247 1.247 0 0 1 1.754 0 1.225 1.225 0 0 1 0 1.741l-7.441 7.388a1.247 1.247 0 0 1-1.754 0l-7.441-7.388a1.225 1.225 0 0 1 0-1.741 1.247 1.247 0 0 1 1.754 0z" transform="translate(-1576.911 -86.961)" style="fill:%239DC08B"/></svg>');
@@ -74,3 +74,68 @@ h3 {
 }
 
 
+.button {
+  background: var(--color-primary);
+  border: 0;
+  border-radius: 0.25rem;
+  color: var(--color-white);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 500;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 2rem !important;
+
+  /* grid */
+  align-items: center;
+  display: grid;
+  gap: 0.75rem;
+  grid-auto-flow: column;
+}
+.button:hover {
+  background: var(--color-primary-500);
+}
+.button i {
+  font-size: 1.25rem;
+}
+
+.button.icon {
+  border-radius: 50%;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  width: 3rem;
+}
+
+.button.link {
+  background: none;
+  color: var(--color-primary);
+  justify-content: start;
+  padding: 0;
+}
+.button.link:hover {
+  color: var(--color-primary-500);
+}
+.button.link i {
+  font-size: inherit;
+}
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+@media(max-width:1440px){
+  table .button{
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0 1rem !important;
+  }
+}

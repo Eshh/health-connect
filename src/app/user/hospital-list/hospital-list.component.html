@@ -26,7 +26,7 @@
       <h5 *ngIf="distanceFilter != 'all'">Showing Hospitals within {{distanceFilter}} miles</h5>
       <div class="w-100">
         <input type="text" (keyup)="searchHospitals()" [(ngModel)]="hospitalSearch" placeholder="Search by Name">
-        <i class="fa fa-search" aria-hidden="true"></i>
+        <i class="fa fa-search clickable" aria-hidden="true"></i>
       </div>
     </section>
 
@@ -56,8 +56,12 @@
             <td><button (click)="triggerSubmit(hospital)" class="button bookCbtn">Book consultation</button></td>
 
           </tr>
+
         </tbody>
       </table>
+      <div class="alert alert-danger mt-5" role="alert" *ngIf="searchHospitalsList.length ==0">
+        No Hospital Name Found!
+      </div>
     </div>
 
     <!-- <section class="table-footer grid">
@@ -80,18 +84,6 @@
     <app-updated-pagination [showBoundaryLinks]="true" [showDirectionLinks]="true" [totalItems]="totalCount"
       [page]="page" [pageSize]="pageSize" [tableSizes]="tableSizes" [maxSize]="5" [rotate]="true"
       (sendDatatoParent)="getPaginationData($event)"></app-updated-pagination>
-
-    <div class="colors">
-      <div class="color primary-100"></div>
-      <div class="color primary-200"></div>
-      <div class="color primary-300"></div>
-      <div class="color primary"></div>
-      <div class="color primary-500"></div>
-      <div class="color white"></div>
-      <div class="color neutral-100"></div>
-      <div class="color neutral"></div>
-      <div class="color black"></div>
-    </div>
   </div>
 </main>
 

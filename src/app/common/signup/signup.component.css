@@ -110,6 +110,9 @@ select{
   text-align: center;
   
 }
+.back{
+  width: calc(100% / 2 - 25px);
+}
 .back .text-1{
   margin-bottom: 37px;
   margin-top: 3px;
@@ -203,7 +206,7 @@ select{
 .forms .form-content .text a:hover{
   text-decoration: underline;
 }
-.forms .form-content .button{
+/* .forms .form-content .button{
   color: #fff;
   margin-top: 40px;
 }
@@ -217,7 +220,7 @@ select{
 }
 .forms .form-content .button input:hover{
   background: var(--accent);
-}
+} */
 .forms .form-content label{
   color: var(--accent);
   cursor: pointer;
@@ -349,13 +352,28 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover { opacity:0.15
   flex: 1;
   margin: 0 2px;
 }
-.submitBtn button{
-  width: fit-content;
-  padding: 12px 120px !important;
-  background: var(--accent);
+.button.submitBtn{
+  padding-inline: 120px !important;
+  /* background: var(--accent);
   color: white;
   border: 2px solid var(--accent);
-  margin: 25px 0;
+  margin: 25px 0; */
+}
+.areuDoctor {
+  text-align: center;
+}
+.areuDoctor button{
+  background-color: var(--accent);
+  color: white;
+  padding: 0.3em 3em;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  margin: 20px;
+  border: none;
+}
+.areuDoctor button:hover{
+  background-color: var(--color-primary);
+  color: white;
 }
 @media (max-width: 730px) {
   .container .cover{

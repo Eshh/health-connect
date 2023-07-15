@@ -21,22 +21,24 @@
       </div>
       <div *ngIf="userData.Role == 'doctor'" class="d-flex flex-column doctorDetails w-100 p-3 doctorCard mb-3">
         <div class="d-flex">
-          <span class="col-4"> <span>Qualification</span>
-            {{userData.Qualification}}
-          </span>
-          <span class="col-4"> <span>Hospital Name:</span>
-            {{hospital[0]?.HospitalName}}
+          <span class="col-6">
+            <div class="d-flex flex-wrap align-items-center">
+              <span>Qualification:</span>
+              {{userData.Qualification}}
+            </div>
+            <div class="d-flex flex-wrap align-items-center">
+              <span>Hospital Name:</span>
+              {{hospital[0]?.HospitalName}}
+            </div>
+            <div class="d-flex flex-wrap align-items-center">
+              <span>Exp:</span>
+              {{userData.Experience + ' years'}}
+              <span class="ml-3">Specialization:</span>
+              {{userData.Specalization}}
+            </div>
           </span>
         </div>
-        <div class="d-flex">
-          <span class="col-4"> <span>Exp:</span>
-            {{userData.Experience + ' years'}}
-          </span>
-          <span class="col-4">
-            <span>Specialization:</span>
-            {{userData.Specalization}}
-          </span>
-        </div>
+
       </div>
       <div class="mb-4 d-flex w-100 justify-content-center">
         <div class="d-flex flex-column col-6 pl-0">
@@ -81,6 +83,14 @@
             {{userData.Address}}
           </span>
         </div>
+        <div class="d-flex flex-column col-3 pl-0">
+          <!-- <span class="text-secondary">Address:</span> -->
+          <span class="d-flex align-items-center">
+            <!-- <i class="fas fa-address-card fa-1 x mr-1"></i> -->
+            <!-- {{userData.Address}} -->
+          </span>
+        </div>
+
         <!-- <div class="d-flex flex-column col-3 pl-0">
           <span class="text-secondary">Postcode:</span>
           <span class="d-flex align-items-center">
