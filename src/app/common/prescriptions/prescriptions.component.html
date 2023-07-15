@@ -57,10 +57,10 @@
     </form>
     <section *ngIf="mode == 'view'" class="main-header grid">
       <h2>Prescription</h2>
-      <button class='print-button button' previewOnly="false" [printStyle]="{}" styleSheetFile="../../assets/print.css"
+      <!-- <button class='print-button button' previewOnly="false" [printStyle]="{}" styleSheetFile="../../assets/print.css"
         printSectionId="print-section" ngxPrint [useExistingCss]="true" printTitle="Health-Connect pX">Print <i
-          class="fas fa-print"></i></button>
-      <!-- <button class='print-button button'>Print <i class="fas fa-print"></i></button> -->
+          class="fas fa-print"></i></button> -->
+      <button class='print-button button' (click)="printPage()">Print <i class="fas fa-print"></i></button>
     </section>
     <div *ngIf="mode == 'view'" class="card" id="print-section">
       <div class="d-flex prxHeader">
@@ -71,7 +71,7 @@
         </div>
         <div class="d-flex flex-column align-items-center justify-content-center">
           <span>
-            <img src="assets/images/healthConnect.png" alt="">
+            <img src="../../../assets/images/healthConnect.png" alt="">
           </span>
           <span>Health Connect</span>
         </div>

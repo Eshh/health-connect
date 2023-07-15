@@ -1,7 +1,9 @@
-.prxHeader {
-  /* border: 2px solid red; */
+* {
+  /* color: red !important; */
 }
 
-span {
-  /* color: red !important; */
+.prxHeader {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid red;
 }
