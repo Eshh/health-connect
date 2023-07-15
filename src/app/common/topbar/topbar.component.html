@@ -7,7 +7,9 @@
     </div>
     <div class="d-flex align-items-center">
       <div class="profileIcon">
-        <img src="../../../assets/images/doctor.png" alt="" class="doctorImg">
+        <img *ngIf="userData.Role=='doctor'" src="../../../assets/images/doctor.png" alt="" class="doctorImg">
+        <i *ngIf="userData.Role=='user'" class="fa fa-user" aria-hidden="true"></i>
+
       </div>
       <div>
         <div class="d-flex flex-column">
