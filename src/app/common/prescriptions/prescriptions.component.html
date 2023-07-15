@@ -57,8 +57,10 @@
     </form>
     <section *ngIf="mode == 'view'" class="main-header grid">
       <h2>Prescription</h2>
+      <button class='print-button' printSectionId="print-section" ngxPrint [useExistingCss]="true"
+        printTitle="Health-Connect pX">Print <i class="fas fa-print"></i></button>
     </section>
-    <div *ngIf="mode == 'view'" class="card">
+    <div *ngIf="mode == 'view'" class="card" id="print-section">
       <div class="d-flex prxHeader">
         <div class="d-flex flex-column">
           <span>{{viewPrescriptionData.consultations[0].Doctor.Name}}</span>
@@ -88,7 +90,7 @@
           <span></span>
           <span>Address: {{viewPrescriptionData.consultations[0].User.Address}}</span>
         </div>
-        <div>Printed Date: {{today | date:'longDate'}}</div>
+        <!-- <div>Printed Date: {{today | date:'longDate'}}</div> -->
       </div>
       ℞
       <hr>

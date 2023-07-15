@@ -26,6 +26,7 @@ import { UpdatedPaginationComponent } from './utils/updated-pagination/updated-p
 import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
 import { SpinnerComponent } from './utils/spinner/spinner.component';
 import { ClockComponent } from './common/digitalclock/clock.component';
+import { NgxPrintModule } from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ClockComponent } from './common/digitalclock/clock.component';
     }),
     ModalModule.forRoot(),
     PaginationModule,
+    NgxPrintModule,
   ],
   providers: [WindowRef],
   bootstrap: [AppComponent],

@@ -449,3 +449,8 @@ tbody tr.hover:not(.selected) td {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.print-button {
+  padding: 3px 10px;
+  border-radius: 5px;
+}
