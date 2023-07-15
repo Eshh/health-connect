@@ -1,6 +1,6 @@
-<div data-aos="zoom-out" data-aos-duration="1500" class="container">
+<div class="container">
   <input type="checkbox" id="flip" />
-  <div class="cover">
+  <div data-aos="fade-left" data-aos-duration="2500" class="cover">
     <div class="front">
       <img src="../../../assets/images/signup.png" alt="" />
     </div>
@@ -9,7 +9,7 @@
     <div class="form-content">
       <div class="login-form">
         <!-- Login to -->
-        <div class="title d-flex align-items-center">
+        <div data-aos="flip-up" data-aos-duration="3500" class="title d-flex align-items-center">
           <span>
             <svg viewBox="257.083 171.1335 64.3191 64.2328" width="84.11285822819495" height="84"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
@@ -38,7 +38,7 @@
           </span>
           <span>HealthConnect</span>
         </div>
-        <form [formGroup]="signInForm" (ngSubmit)="signIn()">
+        <form data-aos="fade-right" data-aos-duration="2500" [formGroup]="signInForm" (ngSubmit)="signIn()">
           <div class="input-boxes">
             <div class="input-box">
               <i class="fas fa-envelope"></i>
