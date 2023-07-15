@@ -36,6 +36,10 @@ export class BookConsultationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 1500);
     this.getDoctorSlots();
     this.getHospitals();
   }

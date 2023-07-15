@@ -22,6 +22,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 1500);
     this.getHospitals();
   }
 

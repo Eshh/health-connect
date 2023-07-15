@@ -5,14 +5,9 @@ import { DateRoutingModule } from './clock-routing.module';
 import { ClockComponent } from './clock.component';
 
 @NgModule({
-  declarations: [
-    ClockComponent
-  ],
-  imports: [
-    BrowserModule,
-    DateRoutingModule
-  ],
+  declarations: [],
+  imports: [BrowserModule, DateRoutingModule],
   providers: [],
-  bootstrap: [ClockComponent]
+  bootstrap: [ClockComponent],
 })
-export class AppModule { }
+export class AppModule {}

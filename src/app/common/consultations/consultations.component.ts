@@ -28,6 +28,7 @@ export class ConsultationsComponent implements OnInit {
   pageSize: any = 10;
   tableSizes: any = [10, 20, 50, 100];
   totalCount: number = 0;
+  showSpinner: boolean = false;
 
   constructor(
     private dataManager: DataManager,
@@ -44,6 +45,7 @@ export class ConsultationsComponent implements OnInit {
   }
 
   getConsultations() {
+    this.showSpinner = true;
     let url =
       this.userData.Role == 'doctor'
         ? AppConfig.LIST_CONSULTATIONS_DOCTOR
@@ -63,6 +65,9 @@ export class ConsultationsComponent implements OnInit {
           this.totalCount = data.total;
         }
       });
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 1500);
   }
 
   filterData() {

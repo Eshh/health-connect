@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -76,7 +77,10 @@ export class EditProfileComponent implements OnInit {
       this.signupFormBasic = this.formBuilder.group({
         name: [d.Name, [Validators.required]],
         gender: [d.Gender, [Validators.required, Validators.minLength(3)]],
-        dob: [new Date(d.DOB), [Validators.required]],
+        dob: [
+          formatDate(new Date(d.DOB), 'yyyy-MM-dd', 'en'),
+          [Validators.required],
+        ],
         email: [d.Email, [Validators.required, Validators.email]],
         phone: [d.Mobile, [Validators.required, Validators.minLength(3)]],
         address: [d.Address, [Validators.required]],

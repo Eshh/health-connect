@@ -151,6 +151,10 @@ export class SlotChangeComponent implements OnInit {
   }
 
   toggleDaySelection(day: any, i: number) {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 1000);
     this.selectedDay = i;
     this.getSlots();
   }
