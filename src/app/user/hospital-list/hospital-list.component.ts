@@ -57,7 +57,6 @@ export class HospitalListComponent implements OnInit {
     }, 2000);
   }
   triggerSubmit(hospital: any) {
-    console.log(hospital);
     this.router.navigate([`hospital/${hospital.HospitalId}/book-consultation`]);
   }
   getHospitals() {
@@ -93,7 +92,6 @@ export class HospitalListComponent implements OnInit {
             this.searchHospitalsList = this.searchHospitalsList.sort(
               (a: any, b: any) => a.distanceFromUser - b.distanceFromUser
             ); // b - a for reverse sort
-            console.log(this.searchHospitalsList, this.hospitals);
             // this.totalCount = data.response[0].total;
             setTimeout(() => {
               this.showSpinner = false;

@@ -87,10 +87,9 @@ export class ConsultationsComponent implements OnInit {
     let status = 'upcoming';
     let { EndTime, StartTime } = date;
     let now = new Date().getTime();
-    console.log(date);
-    if (EndTime < now) {
+    if (now > EndTime) {
       status = 'completed';
-    } else if (EndTime < now && StartTime > now) {
+    } else if (EndTime > now && now > StartTime) {
       status = 'active';
     }
 

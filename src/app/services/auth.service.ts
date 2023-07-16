@@ -50,7 +50,6 @@ export class AuthService {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-    console.log('CanActivate called');
     let isLoggedIn = false;
     if (isLoggedIn) {
       return true;

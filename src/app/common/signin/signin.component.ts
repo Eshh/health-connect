@@ -25,7 +25,7 @@ export class SigninComponent implements OnInit {
   });
 
   showSpinner: boolean = false;
-  passwordType: string = 'text';
+  passwordType: string = 'password';
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,

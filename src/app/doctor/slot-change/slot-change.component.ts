@@ -85,7 +85,6 @@ export class SlotChangeComponent implements OnInit {
         this.currentDoctor[0].Slots.forEach((eachInner: any) => {
           if (eachInner.StartTime == each.startValue) {
             each.isSelected = true;
-            console.log(each);
           }
         });
       });
@@ -104,7 +103,6 @@ export class SlotChangeComponent implements OnInit {
       } else {
         each['isBooked'] = false;
       }
-      console.log(each);
     });
   }
   getDoctorSlots() {

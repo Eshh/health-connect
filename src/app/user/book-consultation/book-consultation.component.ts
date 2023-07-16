@@ -108,7 +108,6 @@ export class BookConsultationComponent implements OnInit {
       },
       Prescription: '-1',
     };
-    console.log(body);
     return body;
   }
   bookConsultation() {

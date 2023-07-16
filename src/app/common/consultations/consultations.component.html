@@ -47,7 +47,8 @@
               |date:'shortTime'}}</td>
             <td [class]="each.status">
               <div class="d-flex flex-column text-center">
-                <span>{{each.status | titlecase}}</span><span class="text-success">Join</span>
+                <span>{{each.status | titlecase}}</span>
+                <span *ngIf="each.status == 'active'" class="text-success">Join</span>
               </div>
             </td>
             <td>
