@@ -170,7 +170,6 @@ export class EditProfileComponent implements OnInit {
           let hospital = this.hospitals.filter((each: any) => {
             return each.HospitalId == this.userData.HospitalId;
           });
-          console.log(hospital);
           this.signupFormDoctor.controls.hospital.setValue(
             hospital[0].HospitalId
           );
