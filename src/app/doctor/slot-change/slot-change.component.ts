@@ -211,10 +211,6 @@ export class SlotChangeComponent implements OnInit {
                 '',
                 'success'
               );
-              setTimeout(() => {
-                this.getDoctorSlots();
-                this.showSpinner = false;
-              }, 1500);
             } else {
               this.toaster.showToastMessage(data.errorMessage, '', 'success');
             }
@@ -222,5 +218,9 @@ export class SlotChangeComponent implements OnInit {
           (error) => {}
         );
     }
+    setTimeout(() => {
+      this.getDoctorSlots();
+      this.showSpinner = false;
+    }, 1500);
   }
 }

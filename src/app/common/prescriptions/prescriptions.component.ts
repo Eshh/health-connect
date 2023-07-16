@@ -178,6 +178,7 @@ export class PrescriptionsComponent implements OnInit {
     WinPrint.document.write(
       '<link rel="stylesheet" type="text/css" href="../../../assets/print.css">'
     );
+    WinPrint.document.title = `pX-user(${this.viewPrescriptionData.consultations[0].User.Name})-doctor(${this.viewPrescriptionData.consultations[0].Doctor.Name})`;
 
     WinPrint.document.write(prtContent.innerHTML);
     WinPrint.document.close();
