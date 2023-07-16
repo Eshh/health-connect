@@ -133,6 +133,10 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+table th{
+  color: darkcyan;
+  font-weight: 600;
+}
 @media(max-width:1440px){
   table .button{
     height: 2.5rem;

@@ -65,9 +65,9 @@
     <div *ngIf="mode == 'view'" class="card" id="print-section">
       <div class="d-flex prxHeader">
         <div class="d-flex flex-column">
-          <span>{{viewPrescriptionData.consultations[0].Doctor.Name}}</span>
-          <span>{{viewPrescriptionData.consultations[0].Doctor.Qualification}}</span>
-          <span>Phone-{{viewPrescriptionData.consultations[0].Doctor.Mobile}}</span>
+          <span class="name">{{viewPrescriptionData.consultations[0].Doctor.Name}}</span>
+          <span class="qualification">{{viewPrescriptionData.consultations[0].Doctor.Qualification}}</span>
+          <span class="mobile">Phone-{{viewPrescriptionData.consultations[0].Doctor.Mobile}}</span>
         </div>
         <div class="d-flex flex-column align-items-center justify-content-center">
           <span>
@@ -75,7 +75,7 @@
           </span>
           <span>Health Connect</span>
         </div>
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column justify-content-between align-items-end">
           <span>{{viewPrescriptionData.consultations[0].Hospital.HospitalName}}</span>
           <span>Phone-{{viewPrescriptionData.consultations[0].Hospital.Mobile}}</span>
           <span>{{viewPrescriptionData.consultations[0].Hospital.Address}}</span>
@@ -84,13 +84,29 @@
       </div>
       <hr>
       <div class="my-3 d-flex justify-content-between">
-        <div class="d-flex flex-column">
-          <span>Patient ID: {{viewPrescriptionData.consultations[0].User._id}} | Name:
-            {{viewPrescriptionData.consultations[0].User.Name}} | Gender:
-            {{viewPrescriptionData.consultations[0].User.Gender}}</span>
-          <span>Date of Birth:{{viewPrescriptionData.consultations[0].User.DOB | date:'longDate'}}</span>
-          <span></span>
-          <span>Address: {{viewPrescriptionData.consultations[0].User.Address}}</span>
+        <div class="d-flex flex-column patient_Details">
+          <div class="d-flex">
+            <span>Patient ID: </span>
+            <span>{{viewPrescriptionData.consultations[0].User._id}}</span>
+          </div>
+          <div class="d-flex">
+            <div><span>Name:</span>
+              <span>
+                {{viewPrescriptionData.consultations[0].User.Name}}
+              </span>|
+            </div>
+            <div class="ml-1"><span>Gender:</span>
+              <span>{{viewPrescriptionData.consultations[0].User.Gender}}</span>
+            </div>
+          </div>
+          <div>
+            <span>Date of Birth:</span>
+            <span>{{viewPrescriptionData.consultations[0].User.DOB | date:'longDate'}}</span>
+          </div>
+          <div>
+            <span>Address: </span>
+            <span>{{viewPrescriptionData.consultations[0].User.Address}}</span>
+          </div>
         </div>
         <!-- <div>Printed Date: {{today | date:'longDate'}}</div> -->
       </div>
@@ -124,7 +140,8 @@
 
       <div class="mt-5">
         <div class="d-flex align-items-end flex-column">
-          <span>Consultation ID:{{viewPrescriptionData.prescriptions[0].ConsultationId}}</span>
+          <div class="d-flex"><span class="text-secondary">Consultation
+              ID:</span><span> {{viewPrescriptionData.prescriptions[0].ConsultationId}}</span></div>
           <span>&copy;&nbsp;Health Connect</span>
         </div>
       </div>

@@ -33,6 +33,23 @@ header h1{
     border-radius: 50%;
     background-color: var(--background);
     margin-right: 10px;
+    position: relative;
+}
+.profileIcon i{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 215%;
+    color: var(--accent);
+}
+.prxHeader .name{
+    font-size: larger;
+    font-family: 'Poppins';
+    font-style: normal;
+    color: var(--color-primary);
 }
 .doctorImg{
     height: 72px;
