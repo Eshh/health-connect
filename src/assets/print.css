@@ -2,8 +2,105 @@
   /* color: red !important; */
 }
 
-.prxHeader {
+.d-flex {
   display: flex;
+}
+.justify-content-end{
+  justify-content: flex-end;
+}
+.align-items-center{
+  align-items: center;
+}
+.justify-content-between{
   justify-content: space-between;
-  border: 2px solid red;
+}
+.align-items-end{
+  align-items: flex-end;
+}
+.flex-column{
+  flex-direction: column;
+}
+.flex-wrap{
+  flex-wrap: wrap;
+}
+.prxHeader > div {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.prxHeader .name{
+  font-size: larger;
+  font-family: 'Poppins';
+  font-style: normal;
+  color: #3f9783;
+}
+
+.prxHeader .qualification, .prxHeader .mobile{
+  color: dimgray;
+}
+td,th{
+  padding: 1rem;
+}
+.prxHeader img{
+  background: #3f9783;
+  border-radius: 50%;
+  padding: 5px;
+  width: 75px;
+  box-shadow: 0px 0px 4px 3px rgb(0 0 0 / 30%);
+
+}
+.patient_Details div span:nth-child(1){
+  color: dimgray;
+  margin-right: 5px;
+}
+.patient_Details div span:nth-child(2){
+  color: peru;
+}
+table th {
+  color: darkcyan;
+  font-weight: 600;
+}
+
+.prxHeader .name {
+  font-size: larger;
+  font-family: 'Poppins';
+  font-style: normal;
+  color:#3f9783;
+}
+.w-100{
+  width: 100%;
+}
+.mt-5, .my-5 {
+  margin-top: 3rem!important;
+}
+.mb-3, .my-3 {
+  margin-bottom: 1rem!important;
+}
+.mt-3, .my-3 {
+  margin-top: 1rem!important;
+}
+.ml-1{
+  margin-left: 0.25rem;
+}
+.card{
+  border: 1px solid #cfe5e0;
+  border-radius: 0.25rem;
+  background: white;;
+  margin: 0 0 2.5rem;
+  overflow: auto;
+  padding: 1.5rem 1.5rem 2.5rem;
+  width: 100%;
+  overflow-x: auto;
+}
+td, th {
+  border-bottom: 1px solid #cfe5e0;
+  font-size: 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.text-secondary {
+  color: #6c757d!important;
 }

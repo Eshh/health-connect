@@ -45,12 +45,7 @@ header h1{
     font-size: 215%;
     color: var(--accent);
 }
-.prxHeader .name{
-    font-size: larger;
-    font-family: 'Poppins';
-    font-style: normal;
-    color: var(--color-primary);
-}
+
 .doctorImg{
     height: 72px;
     width: 72px;
