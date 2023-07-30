@@ -106,4 +106,9 @@ export class ConsultationsComponent implements OnInit {
   goToPrescriptions(type: string, consultation: any) {
     this.router.navigate([`${consultation._id}/prescription`]);
   }
+
+  goToChat(consultation:any){
+    console.log(consultation)
+    this.router.navigate([`/chat-room/${consultation._id}`])
+  }
 }

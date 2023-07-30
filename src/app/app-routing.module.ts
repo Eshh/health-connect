@@ -14,6 +14,7 @@ import { AuthGuard } from './services/route.guard';
 import { LocalStorageService } from './services/localStorage.service';
 import { BookConsultationComponent } from './user/book-consultation/book-consultation.component';
 import { PrescriptionsComponent } from './common/prescriptions/prescriptions.component';
+import { ChatPageComponent } from './chat-video/chat-page/chat-page.component';
 const routes: Routes = [
   {
     path: 'dashboard',
@@ -76,6 +77,12 @@ const routes: Routes = [
   {
     path: 'hospital/:hospitalId/book-consultation',
     component: BookConsultationComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'chat-room/:consultationId',
+    component: ChatPageComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
   },

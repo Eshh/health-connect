@@ -26,6 +26,7 @@ import { UpdatedPaginationComponent } from './utils/updated-pagination/updated-p
 import { PaginationModule, PaginationConfig } from 'ngx-bootstrap/pagination';
 import { SpinnerComponent } from './utils/spinner/spinner.component';
 import { ClockComponent } from './common/digitalclock/clock.component';
+import { ChatPageComponent } from './chat-video/chat-page/chat-page.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ClockComponent } from './common/digitalclock/clock.component';
     UpdatedPaginationComponent,
     SpinnerComponent,
     ClockComponent,
+    ChatPageComponent,
   ],
   imports: [
     BrowserModule,
