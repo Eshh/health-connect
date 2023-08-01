@@ -1,6 +1,9 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { WebsocketService } from '../../services/websocket.service';
 import { Component, OnInit } from '@angular/core';
+import { DataManager } from 'src/app/services/dataManager.service';
+import { AppConfig } from 'src/app/app-config';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 
 @Component({
   selector: 'app-chatpage',
@@ -8,23 +11,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-page.component.css'],
 })
 export class ChatPageComponent implements OnInit {
-   username:any='';
-   email: any='';
-   chatroom:any='';
-   message: any='';
-  consultationId:string=''
-  messageArray: Array<{ user: String; message: String }> = [];
-   isTyping = false;
+  message: any = '';
+  consultationId: string = '';
+  messageArray: any = [];
+  isTyping = false;
+  userData: any = {};
+  consultationDetails: any = {};
 
   constructor(
-    private route: ActivatedRoute,
+    private localStorage: LocalStorageService,
     private webSocketService: WebsocketService,
     private router: Router,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private dataManager: DataManager
   ) {
-    this.activatedRoute.params.subscribe((params:any)=>this.consultationId = params['consultationId'])
-    this.webSocketService.newMessageReceived().subscribe((data) => {
+    this.activatedRoute.params.subscribe(
+      (params: any) => (this.consultationId = params['consultationId'])
+    );
+    this.userData = this.localStorage.getData('user-data')[0];
+
+    this.webSocketService.newMessageReceived().subscribe((data: any) => {
       this.messageArray.push(data);
+      this.formatMessages();
       this.isTyping = false;
     });
     this.webSocketService.receivedTyping().subscribe((bool) => {
@@ -33,29 +41,65 @@ export class ChatPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.chatroom = this.consultationId
+    this.getConsultations();
     this.webSocketService.joinRoom({
-      user: 'eshwar',
-      _id: this.chatroom,
+      _id: this.consultationId,
     });
-    // this.userService.getChatRoomsChat(this.chatroom).subscribe((messages:any) => {
-    //   this.messageArray = messages.json();
-    // });
+    this.getChatRoomsChat(this.consultationId);
+  }
+
+  getConsultations() {
+    let url =
+      this.userData.Role == 'doctor'
+        ? AppConfig.LIST_CONSULTATIONS_DOCTOR
+        : AppConfig.LIST_CONSULTATIONS_USER;
+    this.dataManager
+      .APIGenericGetMethod(url + `Email=${this.userData.Email}`)
+      .subscribe((data) => {
+        if (data['status']) {
+          this.consultationDetails = data.response.filter(
+            (each: any) => each._id == this.consultationId
+          )[0];
+        }
+      });
+  }
+
+  getChatRoomsChat(room: any) {
+    this.dataManager
+      .getHospitals(AppConfig.GET_CHAT_MESSAGES + room)
+      .subscribe((data) => {
+        this.messageArray = data.messages;
+        this.formatMessages();
+      });
+  }
+
+  formatMessages() {
+    this.messageArray.forEach((each: any) => {
+      each['type'] = 'received';
+      if (each.user == this.userData.Name) {
+        each['type'] = 'sent';
+      }
+    });
   }
 
   sendMessage() {
-    this.webSocketService.sendMessage({
-      _id: this.chatroom,
-      user: 'eshwar',
-      message: this.message,
-    });
-    // this.message = '';
+    if (this.message != '') {
+      this.webSocketService.sendMessage({
+        _id: this.consultationId,
+        info: { user: this.userData.Name, time: new Date().getTime() },
+        message: this.message,
+      });
+      this.message = '';
+    }
   }
 
-  typing() {
+  typing(e: any) {
+    if (e.key == 'Enter') {
+      this.sendMessage();
+      return;
+    }
     this.webSocketService.typing({
-      room: this.chatroom,
-      user: 'eshwar',
+      room: this.consultationId,
     });
   }
 }

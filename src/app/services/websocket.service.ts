@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {io} from 'socket.io-client';
+import { io } from 'socket.io-client';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class WebsocketService {
   }
 
   sendMessage(data: any) {
-    console.log(data)
+    console.log(data);
     this.socket.emit('message', data);
   }
 
@@ -23,7 +23,6 @@ export class WebsocketService {
       (observer) => {
         this.socket.on('new message', (data: any) => {
           observer.next(data);
-          console.log(data)
         });
         return () => {
           this.socket.disconnect();
@@ -40,6 +39,7 @@ export class WebsocketService {
   receivedTyping() {
     const observable = new Observable<{ isTyping: boolean }>((observer) => {
       this.socket.on('typing', (data: any) => {
+        console.log('came');
         observer.next(data);
       });
       return () => {
