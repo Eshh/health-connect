@@ -438,3 +438,6 @@ tbody tr.hover:not(.selected) td {
 .active {
   color: var(--accent);
 }
+.doctor-user-chat{
+  width: 50px;
+}

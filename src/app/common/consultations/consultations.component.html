@@ -48,7 +48,8 @@
             <td [class]="each.status">
               <div class="d-flex flex-column text-center">
                 <span>{{each.status | titlecase}}</span>
-                <span (click)="goToChat(each)" class="text-success">Join chat</span>
+                <span (click)="goToChat(each)" class="text-success"><img
+                    src="../../../assets/images/doctor-user-chat.svg" class="doctor-user-chat">Join chat</span>
               </div>
             </td>
             <td>

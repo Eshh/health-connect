@@ -149,6 +149,7 @@ hr {
   gap: 0.25em;
   padding: 1em;
   overflow: auto;
+  max-height: 65vh;
 }
 .chat .conversation .messages .time {
   width: fit-content;
@@ -409,7 +410,54 @@ hr {
   color: #000;
   text-decoration: none;
 }
+.profileIcon{
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  background-color: var(--background);
+  margin-right: 10px;
+  position: relative;
+}
+.profileIcon i, .profileIcon svg{
+  position: absolute;
+  height: auto;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+  color: var(--accent);
+  fill: var(--accent);
+  margin: 0 auto;
+  display: grid;
+  align-content: center;
+  transform: translate(10px, 3px);
+}
 
+.doctorImg{
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+}
+.userType{
+  font-weight: 300;
+  color: var(--gray);
+}
+@media(max-width:1440px){
+  .doctorImg{
+      height: 54px;
+      width: 54px;
+      border-radius: 50%;
+  }
+  .profileIcon {
+      height:54px;
+      width:54px;
+      border-radius: 50%;
+      background-color: var(--background);
+      margin-right: 10px;
+  }
+
+}
 @media screen and (max-width: 768px) {
   .chat .conversation,
   .chat .options {
@@ -429,8 +477,10 @@ hr {
 
 .desc-text {
   font-style: italic;
-  color: gray;
-  margin-right: 10px;
+    color: lightslategrey;
+    margin-right: 10px;
+    font-weight: 400;
+    font-size: smaller;
 }
 .desc-text::after {
   content: " |";
