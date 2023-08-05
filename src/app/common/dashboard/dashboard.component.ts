@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
     setTimeout(() => {
       this.showSpinner = false;
     }, 1500);
+    this.setGreetingMessage();
   }
   setGreetingMessage() {
     let myDate = new Date();
