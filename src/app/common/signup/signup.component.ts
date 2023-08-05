@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -60,9 +61,20 @@ export class SignupComponent implements OnInit {
       this.signupFormBasic = this.formBuilder.group({
         name: ['', [Validators.required]],
         gender: ['', [Validators.required, Validators.minLength(3)]],
-        dob: [new Date(), [Validators.required]],
+        dob: [
+          formatDate(new Date('01-01-2000'), 'yyyy-MM-dd', 'en'),
+          [Validators.required],
+        ],
         email: ['', [Validators.required, Validators.email]],
-        phone: ['', [Validators.required, Validators.minLength(3)]],
+        phone: [
+          '',
+          [
+            Validators.required,
+            this.validateInput(),
+            // Validators.minLength(3),
+            // Validators.maxLength(15),
+          ],
+        ],
         address: ['', [Validators.required]],
         // postcode: ['', [Validators.required]],
         password: ['', [Validators.required]],
@@ -153,5 +165,16 @@ export class SignupComponent implements OnInit {
       },
       (error) => {}
     );
+  }
+
+  validateInput() {
+    return (control: any) => {
+      console.log(control.value);
+      let v = String(control.value);
+      if (v.length < 8 || v.length > 14) {
+        return { lenthError: true };
+      }
+      return null;
+    };
   }
 }

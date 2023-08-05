@@ -76,6 +76,9 @@ export class SlotChangeComponent implements OnInit {
       each.startValue = new Date(s).getTime();
       each.endValue = new Date(e).getTime();
     });
+    this.slotsArray = this.slotsArray.filter(
+      (each: any) => each.startValue > new Date().getTime()
+    );
     this.markSlots();
   }
 

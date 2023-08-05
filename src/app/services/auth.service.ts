@@ -27,6 +27,7 @@ export class AuthService {
           this.localStorage.setData('user-data', data.response);
           this.localStorage.setItem('isLoggedIn', true);
           this.localStorage.setItem('token', data.token);
+          window.location.reload();
           this.router.navigate(['/dashboard']);
         } else {
           this.toaster.showToastMessage(data.errorMessage, '', 'error');

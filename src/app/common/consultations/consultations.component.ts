@@ -57,11 +57,15 @@ export class ConsultationsComponent implements OnInit {
       )
       .subscribe((data) => {
         if (data['status']) {
+          this.statusFilter = 'all';
           this.consultations = data.response;
           this.consultations.forEach((each: any) => {
             each['status'] = this.resolveStatus(each.BookedSlot);
           });
           this.filteredConsultations = this.consultations;
+          this.filteredConsultations = this.filteredConsultations.sort(
+            (a: any, b: any) => b.BookedSlot.StartTime - a.BookedSlot.StartTime
+          );
           this.totalCount = data.total;
         }
       });
@@ -107,8 +111,8 @@ export class ConsultationsComponent implements OnInit {
     this.router.navigate([`${consultation._id}/prescription`]);
   }
 
-  goToChat(consultation:any){
-    console.log(consultation)
-    this.router.navigate([`/chat-room/${consultation._id}`])
+  goToChat(consultation: any) {
+    console.log(consultation);
+    this.router.navigate([`/chat-room/${consultation._id}`]);
   }
 }

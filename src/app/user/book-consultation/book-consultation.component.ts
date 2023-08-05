@@ -70,6 +70,15 @@ export class BookConsultationComponent implements OnInit {
         (data) => {
           if (data['status']) {
             this.doctorList = data.response[0].Doctors;
+            this.doctorList.forEach((each: any) => {
+              console.log(each);
+              each.Slots = each.Slots.filter(
+                (eachSlot: any) => eachSlot.StartTime > new Date().getTime()
+              );
+            });
+            this.doctorList = this.doctorList.filter(
+              (each: any) => each.Slots.length > 0
+            );
             setTimeout(() => {
               this.showSpinner = false;
             }, 1000);
