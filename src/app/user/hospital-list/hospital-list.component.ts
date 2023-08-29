@@ -87,7 +87,7 @@ export class HospitalListComponent implements OnInit {
             } else {
               this.searchHospitalsList = this.hospitals;
             }
-            this.totalCount = this.searchHospitalsList.length;
+            this.totalCount = data.response[0].total;
 
             this.searchHospitalsList = this.searchHospitalsList.sort(
               (a: any, b: any) => a.distanceFromUser - b.distanceFromUser
