@@ -52,7 +52,7 @@
             <td [title]="hospital.distanceFromUser+' miles'">{{getRoundedDistance(hospital.distanceFromUser)}} miles
             </td>
             <td>{{hospital.Website || 'No site info available'}}</td>
-            <td>020&nbsp;{{hospital.Mobile}}</td>
+            <td>0{{(hospital.Mobile.toString().replace('20','20 '))}}</td>
             <td><button (click)="triggerSubmit(hospital)" class="button bookCbtn">Book consultation</button></td>
 
           </tr>
