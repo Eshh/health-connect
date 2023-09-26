@@ -30,7 +30,7 @@ export class HospitalListComponent implements OnInit {
 
   // pagination
   page: any = 0;
-  pageSize: any = 10;
+  pageSize: any = 10000;
   tableSizes: any = [10, 20, 50, 100];
   totalCount: number = 0;
 
@@ -70,6 +70,7 @@ export class HospitalListComponent implements OnInit {
             this.hospitals = data.response[0].hospitals;
             let l = this.localStorage.getData('user-data')[0].Location[0];
             this.hospitals.forEach((each: any) => {
+              each.Mobile = each.Mobile == -1 ? false : "0"+each.Mobile.toString().replace('20','20 ')
               each['distanceFromUser'] =
                 this.geoLocation.calculateDistanceBetweenCoordinates(
                   each.Location.latitude,

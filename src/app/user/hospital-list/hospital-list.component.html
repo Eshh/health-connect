@@ -52,7 +52,7 @@
             <td [title]="hospital.distanceFromUser+' miles'">{{getRoundedDistance(hospital.distanceFromUser)}} miles
             </td>
             <td>{{hospital.Website || 'No site info available'}}</td>
-            <td>0{{(hospital.Mobile.toString().replace('20','20 '))}}</td>
+            <td>{{hospital.Mobile || "NA"}}</td>
             <td><button (click)="triggerSubmit(hospital)" class="button bookCbtn">Book consultation</button></td>
 
           </tr>
@@ -81,9 +81,9 @@
       </div>
     </section> -->
     <!-- Pagination -->
-    <app-updated-pagination [showBoundaryLinks]="true" [showDirectionLinks]="true" [totalItems]="totalCount"
+    <!-- //<app-updated-pagination [showBoundaryLinks]="true" [showDirectionLinks]="true" [totalItems]="totalCount"
       [page]="page" [pageSize]="pageSize" [tableSizes]="tableSizes" [maxSize]="5" [rotate]="true"
-      (sendDatatoParent)="getPaginationData($event)"></app-updated-pagination>
+      (sendDatatoParent)="getPaginationData($event)"></app-updated-pagination>// -->
   </div>
 </main>
 
