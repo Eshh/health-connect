@@ -1,70 +1,90 @@
 <div class="container hospitalBlock">
   <div class="hospital-info">
     <h3>Hospital:</h3>
-    <p>{{hospital.HospitalName}}</p>
-    <p>{{hospital.Address}} | 0{{(hospital.Mobile.toString().replace('20','20 '))}}</p>
+    <p>{{ hospital.HospitalName }}</p>
+    <p>
+      {{ hospital.Address }} | 0{{
+      hospital.Mobile.toString().replace("20", "20 ")
+      }}
+    </p>
     <!-- <p></p> -->
   </div>
   <div class="doctors-info">
     <h3>Available Doctors:</h3>
-
-    <div *ngFor="let doctor of doctorList;let i =index" class="availableDocInfo">
-      <ng-container *ngIf="!!doctor.Slots && doctor.Slots.length > 0">
-        <h4 class="mb-3">{{i+1}}.{{doctor.Name}}</h4>
+    <ng-container *ngFor="let doctor of doctorList; let i = index">
+      <div *ngIf="!!doctor.Slots && doctor.Slots.length > 0" class="availableDocInfo">
+        <h4 class="mb-3">{{ i + 1 }}.{{ doctor.Name }}</h4>
         <ul class="docDetails">
           <li>
-            <div><span>Qualification:</span> <span>{{doctor.Qualification}}</span></div>
+            <div>
+              <span>Qualification:</span>
+              <span>{{ doctor.Qualification }}</span>
+            </div>
           </li>
           <li>
-            <div><span>Specialization:</span> <span>{{doctor.Specalization}}</span></div>
-
+            <div>
+              <span>Specialization:</span>
+              <span>{{ doctor.Specalization }}</span>
+            </div>
           </li>
           <li>
-
-            <div><span>Experience:</span> <span>{{doctor.Experience}} years</span> </div>
+            <div>
+              <span>Experience:</span>
+              <span>{{ doctor.Experience }} years</span>
+            </div>
           </li>
         </ul>
         <div class="doctor-slots">
           <ng-container *ngFor="let slot of doctor.Slots">
             <div class="timeSlots">
-              <button (click)="triggerConsultation(doctor,slot)">{{slot.StartTime | date:'MMM d, y, h:mm a'}} -
-                {{slot.EndTime
-                |date:'shortTime'}}</button>
+              <button (click)="triggerConsultation(doctor, slot)">
+                {{ slot.StartTime | date : "MMM d, y, h:mm a" }} -
+                {{ slot.EndTime | date : "shortTime" }}
+              </button>
             </div>
           </ng-container>
-
-
         </div>
-      </ng-container>
-    </div>
+      </div>
+    </ng-container>
   </div>
 </div>
-<div class="alert alert-danger mt-5 w-75 mx-auto" role="alert" *ngIf="doctorList.length <=0;">
+<div class="alert alert-danger mt-5 w-75 mx-auto" role="alert" *ngIf="doctorList.length <= 0">
   No Doctor is Available!
 </div>
 <div *ngIf="showSpinner">
   <app-spinner></app-spinner>
 </div>
 
-<div class="modal fade bd-example-modal-sm" tabindex="-1" [config]="{backdrop: 'static', keyboard: false}" role="dialog"
-  aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal" bsModal #confirmationPopup="bs-modal">
-  <div class="mx-auto detailed_viewPopup " style="margin-top: 10%;">
+<div class="modal fade bd-example-modal-sm" tabindex="-1" [config]="{ backdrop: 'static', keyboard: false }"
+  role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal" bsModal
+  #confirmationPopup="bs-modal">
+  <div class="mx-auto detailed_viewPopup" style="margin-top: 10%">
     <div class="modal-body text-center">
       <div class="text-center mx-auto">
         <h4>Please confirm your consultation details</h4>
         <div class="detailedDetails">
-          <div><span>Doctor:</span>
-            <span>{{selectedSlot.doc?.Name}}</span><span
-              class="text-warning ml-1">({{selectedSlot.doc?.Qualification}})</span>
+          <div>
+            <span>Doctor:</span> <span>{{ selectedSlot.doc?.Name }}</span><span class="text-warning ml-1">({{
+              selectedSlot.doc?.Qualification }})</span>
           </div>
-          <div><span>Hospital:</span> <span>{{selectedSlot.hospital?.HospitalName}}</span></div>
-          <div><span>Date and Time:</span> <span>{{selectedSlot.slot?.StartTime |
-              date:'medium'}}-{{selectedSlot.slot?.EndTime |
-              date:'shortTime'}}</span></div>
+          <div>
+            <span>Hospital:</span>
+            <span>{{ selectedSlot.hospital?.HospitalName }}</span>
+          </div>
+          <div>
+            <span>Date and Time:</span>
+            <span>{{ selectedSlot.slot?.StartTime | date : "medium" }}-{{
+              selectedSlot.slot?.EndTime | date : "shortTime"
+              }}</span>
+          </div>
         </div>
-        <div class="d-flex justify-content-end w-100 button_blck"><button (click)="confirmationPopup.hide()"
-            class="cancel">Cancel</button>
-          <button class="yes_btn" (click)="bookConsultation()">Book slot</button>
+        <div class="d-flex justify-content-end w-100 button_blck">
+          <button (click)="confirmationPopup.hide()" class="cancel">
+            Cancel
+          </button>
+          <button class="yes_btn" (click)="bookConsultation()">
+            Book slot
+          </button>
         </div>
       </div>
     </div>
