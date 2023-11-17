@@ -53,7 +53,7 @@ export class SlotChangeComponent implements OnInit {
   }
 
   getSlots() {
-    this.slotsArray = this.dateUtil.get24HourTimeSlots(60, 24);
+    this.slotsArray = this.dateUtil.get24HourTimeSlots(60, 23);
     this.clearSlotSelection();
   }
   clearSlotSelection() {
