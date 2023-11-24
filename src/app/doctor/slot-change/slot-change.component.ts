@@ -53,7 +53,7 @@ export class SlotChangeComponent implements OnInit {
   }
 
   getSlots() {
-    this.slotsArray = this.dateUtil.get24HourTimeSlots(60, 24);
+    this.slotsArray = this.dateUtil.get24HourTimeSlots(60, 23);
     this.clearSlotSelection();
   }
   clearSlotSelection() {
@@ -113,6 +113,7 @@ export class SlotChangeComponent implements OnInit {
       .APIGenericGetMethod(
         AppConfig.GET_HOSPITAL_DOCTORS +
           `id=${this.localStorage.getData('user-data')[0].HospitalId}`
+          
       )
       .subscribe(
         (data) => {
