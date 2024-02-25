@@ -61,6 +61,8 @@ export class ConsultationsComponent implements OnInit {
           this.consultations = data.response;
           this.consultations.forEach((each: any) => {
             each['status'] = this.resolveStatus(each.BookedSlot);
+            console.log(each)
+
           });
           this.filteredConsultations = this.consultations;
           this.filteredConsultations = this.filteredConsultations.sort(
@@ -79,6 +81,7 @@ export class ConsultationsComponent implements OnInit {
     this.filteredConsultations = this.filteredConsultations.filter(
       (each: any) => {
         if (this.statusFilter != 'all') {
+          console.log(each)
           return each.status == this.statusFilter;
         } else {
           return true;
